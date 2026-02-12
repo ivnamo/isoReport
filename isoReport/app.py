@@ -1,8 +1,8 @@
 """
-App ISO Report — Solo PASO 1 (cabecera / datos generales).
+App ISO Report — Paso 1 (cabecera) + Paso 2.1 (ensayos/formulaciones).
 
 Entrada: listado jira iso + BBDD_Sesion-PT-INAVARRO.
-Salida: JSON con bloque paso_1.
+Salida: JSON con paso_1 y paso_2.ensayos.
 """
 
 from __future__ import annotations
@@ -13,6 +13,7 @@ import streamlit as st
 
 from iso_reports.data_loading import load_table
 from iso_reports.paso1 import Paso1Error, build_all_paso1
+from iso_reports.paso2 import Paso2Error, build_all_paso2_1
 
 
 def main() -> None:
@@ -20,11 +21,11 @@ def main() -> None:
         page_title="ISO Report · Paso 1",
         layout="wide",
     )
-    st.title("Paso 1 — Cabecera / Datos generales")
+    st.title("Paso 1 + Paso 2.1 — Cabecera y Ensayos")
 
     st.markdown(
-        "Sube los dos archivos para generar el bloque **Paso 1**. "
-        "No se procesan Paso 2, Paso 3 ni anexos; solo se devuelve el JSON de cabecera."
+        "Sube los dos archivos para generar **Paso 1** (cabecera) y **Paso 2.1** (ensayos/formulaciones por producto). "
+        "No se generan Excel ni documentos finales."
     )
 
     col1, col2 = st.columns(2)
@@ -55,10 +56,25 @@ def main() -> None:
         st.error(f"Error al cargar archivos: {exc}")
         return
 
-    if st.button("Generar Paso 1", type="primary"):
+    if st.button("Generar Paso 1 + Paso 2.1", type="primary"):
         try:
             resultado = build_all_paso1(df_jira, df_bbdd)
+            paso_1_lista = resultado["paso_1"]
+            paso2_lista = build_all_paso2_1(df_jira, paso_1_lista)
+            # paso_2 con referencias explícitas a la solicitud para unir sin depender del índice
+            resultado["paso_2"] = [
+                {
+                    "numero_solicitud": b["numero_solicitud"],
+                    "producto_base_linea": b["producto_base_linea"],
+                    "clave_incidencia_jira": b["clave_incidencia_jira"],
+                    "ensayos": b["ensayos"],
+                }
+                for b in paso2_lista
+            ]
         except Paso1Error as e:
+            st.error(str(e))
+            return
+        except Paso2Error as e:
             st.error(str(e))
             return
         except Exception as exc:
@@ -66,16 +82,23 @@ def main() -> None:
             return
 
         n = len(resultado["paso_1"])
-        st.success(f"Paso 1 generado correctamente: {n} solicitud(es).")
+        st.success(f"Generado correctamente: {n} solicitud(es) con Paso 1 y Paso 2.1.")
+        # Advertencias si alguna solicitud no tiene ensayos
+        for i, b in enumerate(paso2_lista):
+            if b.get("advertencia_sin_ensayos"):
+                p = paso_1_lista[i]
+                st.warning(
+                    f"No hay filas en 'listado jira iso' con ProyectoID igual al producto de la solicitud "
+                    f"nº {p.get('numero_solicitud', i+1)} (producto: «{p.get('producto_base_linea', '')}»)."
+                )
         st.subheader("Salida (JSON)")
         st.json(resultado)
 
-        # También como texto para copiar
         json_str = json.dumps(resultado, ensure_ascii=False, indent=2)
         st.download_button(
             "Descargar JSON",
             data=json_str,
-            file_name="paso_1.json",
+            file_name="paso_1_y_paso_2_1.json",
             mime="application/json",
         )
 
