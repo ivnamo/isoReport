@@ -1,0 +1,771 @@
+Tipo de Incidencia,Clave de incidencia,ID de la incidencia,Resumen,Campo personalizado (ProyectoID),Persona asignada,ID de la persona asignada,Estado,Creada,Fecha de vencimiento,Actualizada,Resuelta,Descripción,Comentarios,Comentarios,Comentarios,Prioridad,Etiquetas,Etiquetas
+Calidad,ID-80,22670,"CALIDAD - AMINO ACTIVE VB F4 - 2,5 % Mo",AMINO ACTIVE MATRISOJA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,CANCELADO,29/abr/25 2:01 PM,08/may/25 12:00 AM,22/oct/25 8:45 AM,05/may/25 8:40 AM,Se hace 1L para validar a largo plazo,,,,Media,,
+Calidad,ID-79,22669,"CALIDAD - AMINO ACTIVE MATRISOJA - VB - F4 1,2 % Mo",AMINO ACTIVE MATRISOJA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,CANCELADO,29/abr/25 2:01 PM,08/may/25 12:00 AM,22/oct/25 8:45 AM,05/may/25 8:40 AM,"Se hace 1L versión 1,2% molibdeno para ensayarla a largo plazo",,,,Media,,
+Calidad,ID-14,20817,CALIDAD - ID.2025.24 AMINO ACTIVE MATRISOJA VB- F4-REP-,AMINO ACTIVE MATRISOJA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,20/mar/25 10:37 AM,08/may/25 12:00 AM,10/feb/26 10:21 AM,10/feb/26 10:21 AM,"En el análisis de control de calidad sale un 2,5 % de Mo cuando según fórmula tenía que salir 1,2 %. Repetimos la fórmula para medir pH y densidad y la metemos a calidad por si acaso.",,,,Media,matrisoja,
+Calidad,ID-46,21672,CALIDAD - AMINO SUPER CoMo - Ni F5.2 Xant,AMINO SUPER COMO - NI,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,02/abr/25 3:57 PM,08/may/25 12:00 AM,15/oct/25 2:01 PM,15/may/25 1:37 PM,"* 0,55% prox am, 0,4% goma y 0% de PHL EU",,,,Media,matrisoja,
+Calidad,ID-45,21671,CALIDAD - AMINO SUPER CoMo - Ni F5.3 Xant,AMINO SUPER COMO - NI,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,02/abr/25 3:56 PM,08/may/25 12:00 AM,16/oct/25 10:33 AM,15/may/25 1:37 PM,"* 0,55% prox am, 0,4% goma y 1% de CSL-P",,,,Media,matrisoja,
+Calidad,ID-44,21670,CALIDAD - ID.2025.30 AMINO SUPER CoMo - Ni F5.1-XANT,AMINO SUPER COMO - NI,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,02/abr/25 3:55 PM,08/may/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"* 0,55% prox am, 0,1% goma y 1% de CSL-P",,,,Media,matrisoja,
+Calidad,ID-309,30365,CALIDAD - AMINO SUPER CoMo - Ni + SALICILICO F3,AMINO SUPER COMO - NI + SALICILICO,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,28/oct/25 7:45 PM,03/dic/25 12:00 AM,12/dic/25 9:47 AM,12/dic/25 9:47 AM,Empieza por F3. Mejora de producto con caracter inductor usando acido salicilico,"12/dic/25 9:47 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;CALIDAD: Producto sin grumos ni posos, es estable a las diferentes temperaturas excepto a altas T, donde cambia de color y se hacen dos fases. Haría prueba industrial de la fórmula que consideréis para seguir proceso de evaluación y habría que considerar si aprobamos las fórmulas con esta inconveniencia.
+
+ 
+
+Por otra parte, a este tipo de productos que son suspensiones y muy viscosos, no se si empezaría a darle una vida útil de dos años.
+
+ 
+
+[@IVAN NAVARRO|mailto:inavarro@atlanticaagricola.com] no se si esto tendríamos que verlo a nivel GT3 para ver si aceptamos fórmulas a pesar de los problemas, como se hizo en la formulación anterior.",,,Media,matrisoja,
+Calidad,ID-308,30364,CALIDAD - AMINO SUPER CoMo - Ni + SALICILICO F2,AMINO SUPER COMO - NI + SALICILICO,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,28/oct/25 7:45 PM,03/dic/25 12:00 AM,12/dic/25 9:47 AM,12/dic/25 9:47 AM,Empieza por F3. Mejora de producto con caracter inductor usando acido salicilico,"12/dic/25 9:47 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;CALIDAD: Producto sin grumos ni posos, es estable a las diferentes temperaturas excepto a altas T, donde cambia de color y se hacen dos fases. Haría prueba industrial de la fórmula que consideréis para seguir proceso de evaluación y habría que considerar si aprobamos las fórmulas con esta inconveniencia.
+
+ 
+
+Por otra parte, a este tipo de productos que son suspensiones y muy viscosos, no se si empezaría a darle una vida útil de dos años.
+
+ 
+
+[@IVAN NAVARRO|mailto:inavarro@atlanticaagricola.com] no se si esto tendríamos que verlo a nivel GT3 para ver si aceptamos fórmulas a pesar de los problemas, como se hizo en la formulación anterior.",,,Media,matrisoja,
+Calidad,ID-305,30361,CALIDAD - AMINO SUPER CoMo - Ni + SALICILICO F1,AMINO SUPER COMO - NI + SALICILICO,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,28/oct/25 7:43 PM,03/dic/25 12:00 AM,12/dic/25 9:48 AM,12/dic/25 9:48 AM,Empieza por F3. Mejora de producto con caracter inductor usando acido salicilico,"12/dic/25 9:48 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;CALIDAD: Producto sin grumos ni posos, es estable a las diferentes temperaturas excepto a altas T, donde cambia de color y se hacen dos fases. Haría prueba industrial de la fórmula que consideréis para seguir proceso de evaluación y habría que considerar si aprobamos las fórmulas con esta inconveniencia.
+
+ 
+
+Por otra parte, a este tipo de productos que son suspensiones y muy viscosos, no se si empezaría a darle una vida útil de dos años.
+
+ 
+
+[@IVAN NAVARRO|mailto:inavarro@atlanticaagricola.com] no se si esto tendríamos que verlo a nivel GT3 para ver si aceptamos fórmulas a pesar de los problemas, como se hizo en la formulación anterior.",,,Media,matrisoja,
+Calidad,ID-52,21836,CALIDAD - AMINOCAT - hidrolizados SICIT,AMINOCAT - HIDROLIZADOS SICIT,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,08/abr/25 12:39 PM,14/jun/25 12:00 AM,15/oct/25 2:01 PM,24/jun/25 3:50 PM,Probar MP de otro proveedor de hidrolizados a ver si es más compatible que Norlan 20/6,29/abr/25 1:21 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;MIX 8-20 hace polvillo,,,Media,,
+Calidad,ID-299,29956,CALIDAD - AMINOCAT MARRUECOS AJREG F4,AMINOCAT MARRUECOS,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,CANCELADO,23/oct/25 12:10 PM,,06/nov/25 3:28 PM,06/nov/25 3:28 PM,"#####################################
+
+Para la preparación de la solución, se toma una pequeña fracción del agua total de la fórmula, aproximadamente *100 g*. En esta porción de agua se procede a *incorporar la alantoína*, con el fin de facilitar su disolución.
+
+A continuación, se *añade hidróxido potásico de forma gradual*, controlando cuidadosamente el proceso y observando el momento en que la alantoína comienza a disolverse completamente. Este paso debe realizarse con agitación continua.
+
+Una vez alcanzada la disolución completa, se *registra la cantidad total de hidróxido potásico empleada*. Con este dato se calcula el porcentaje de hidróxido añadido respecto al total de la fórmula, y dicho volumen se *descuenta del agua restante*.
+
+Finalmente, la *solución de alantoína e hidróxido potásico se incorpora al resto del agua de la fórmula*, homogeneizando cuidadosamente la mezcla y verificando que la disolución sea completa y estable.
+
+----
+
+############################################
+
+
+
+Se ajustan los nitrogenos al maximo para el registro
+
+
+
+
+
+sustitucion de hidrolizado animal por vegetal/sintesis","28/oct/25 7:41 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;el primer intento no sale porque la alantoina solo es soluble en ph basico, añadimos potasa","06/nov/25 3:23 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;No sale, precipita algo. No sabemos si alantoina u otro compuesto que no es compatible en medio basico",,Media,,
+Calidad,ID-298,29955,CALIDAD - AMINOCAT MARRUECOS AJREG F3,AMINOCAT MARRUECOS,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,23/oct/25 12:10 PM,30/nov/25 12:00 AM,18/nov/25 5:40 PM,18/nov/25 5:40 PM,"Se ajustan los nitrogenos al maximo para el registro
+
+
+
+
+
+sustitucion de hidrolizado animal por vegetal/sintesis","28/oct/25 7:40 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;el primer intento no sale porque la alantoina solo es soluble en ph basico, añadimos potasa",18/nov/25 5:40 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;ha cristalizado,,Media,,
+Calidad,ID-271,29563,CALIDAD - AMINOCAT MARRUECOS AJREG F2,AMINOCAT MARRUECOS,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,13/oct/25 10:16 AM,14/nov/25 12:00 AM,18/nov/25 1:28 PM,18/nov/25 1:28 PM,"Se ajustan los nitrogenos al maximo para el registro
+
+
+
+
+
+sustitucion de hidrolizado animal por vegetal/sintesis",,,,Media,,
+Calidad,ID-240,28913,CALIDAD - AMINOCAT MARRUECOS F9-B,AMINOCAT MARRUECOS,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,17/sep/25 1:14 PM,18/oct/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"0,5 kg para analisis CALIDAD
+
+
+
+sustitucion de hidrolizado animal por vegetal/sintesis",,,,Media,Marruecos,
+Calidad,ID-180,26503,CALIDAD - ID.2025.89 ARCHER ECLIPSE ACTIRON AT4 -F2,ARCHER ECLIPSE ACTIRON,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,21/jul/25 11:20 AM,07/sep/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"Repetimos pero hacemos mas cantidad para verificar. La botella de medio litro llena del todo.
+
+
+
+se usa AT4 porque AT2 va a dejar de usarse. En esta F2 bajo el prox am de 1,2 a 1% porque en estufa ha cuajado",,,,Media,mejora,
+Calidad,ID-40,21614,CALIDAD - ARCHER ECLIPSE ACTIRON AT4,ARCHER ECLIPSE ACTIRON,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,31/mar/25 3:39 PM,08/may/25 12:00 AM,15/oct/25 1:58 PM,09/jun/25 1:52 PM,"|Archer Eclipse PRAM12| |
+|MATERIAS PRIMAS|%|
+|AGUA|29,269000|
+|OXIDO DE ZINC|1,900000|
+|KF78|0,200000|
+|PROTEFOAM|0,100000|
+|MONOPROPILENGLICOL|0,300000|
+|AIA|0,001000|
+|MASQUOL A150-40N|3,000000|
+|Extracto polvo de ESPINO NEGRO|0,100000|
+|Extracto polvo de CSLB-P|0,100000|
+|ACTIRON AT4|1,750000|
+|PARSOL MCX OCTINOXATO|0,800000|
+|CARBONATO CÁLCICO BRENNTAG MICRAJE FINO|59,100000|
+|CARBONATO DE MANGANESO|1,130000|
+|CERACOL 79|0,250000|
+|MONOPROPILENGLICOL|0,700000|
+|GOMA XANTANA|0,100000|
+|PROX AM 162S|1,200000|",09/jun/25 1:52 PM;712020:ee213c39-fa77-4db1-a980-c37a19aac53b;CUAJADO ,,,Media,,
+Calidad,ID-361,31523,CALIDAD - ARCHER ECLIPSE AÑ F1,ARCHER ECLIPSE AÑ ,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,LIBERADO,25/nov/25 10:03 AM,26/dic/25 12:00 AM,10/feb/26 10:58 AM,10/feb/26 10:58 AM,quitamos hormonas,"26/nov/25 1:03 PM;712020:581e00d3-e32a-4afd-bf82-137ff213c4af;Al final de la fabricación, se pasa Ultra Turrax, 10 min, 15000-20000 rpm (se sube primero a 20000 rpm y se va bajando progresivamente hasta 15000 rpm para evitar la acumulación de demasiadas burbujas)",,,Media,Antiñapas,
+Calidad,ID-179,26502,CALIDAD - ARCHER ECLIPSE METOLATS F5,ARCHER ECLIPSE METOLATS,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,21/jul/25 11:20 AM,07/sep/25 12:00 AM,15/oct/25 1:58 PM,08/sep/25 11:32 AM,"La F1 se cuaja en calor. Hacemos escala para ver la cantidad adecuada. Llenar la botella entera para validar correctamente.
+
+Se sustituye masquol y actiron por dos metolats de la empresa Munzing para tener otros proveedores",,,,Media,,
+Calidad,ID-360,31521,CALIDAD - ARCHER FORCE AÑ F1,ARCHER FORCE AÑ,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,NOK,25/nov/25 10:02 AM,26/dic/25 12:00 AM,20/ene/26 11:07 AM,19/ene/26 10:08 AM,"quitar smex, aumentar salicilico",26/nov/25 11:27 AM;712020:ee213c39-fa77-4db1-a980-c37a19aac53b;26/11/2025- Se cambia la urea 46% por la urea foliar.,19/ene/26 10:08 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;neblina,,Media,Antiñapas,
+Calidad,ID-399,32978,CALIDAD - ARCHER INET - F4.1,ARCHER INET,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,LIBERADO,12/dic/25 9:48 AM,16/ene/26 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,No poner selenito,,,,Media,,
+Calidad,ID-318,30812,CALIDAD - ARCHER INET - F4,ARCHER INET,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,NOK,06/nov/25 9:40 AM,07/dic/25 12:00 AM,01/dic/25 10:22 AM,01/dic/25 10:22 AM,"No poner selenito a ninguna
+
+No poner amoniaco a ninguna
+
+poner kf78 y protefoam al principio","01/dic/25 10:22 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;tiene un posillo, no es muy grave pero no me gusta",,,Media,,
+Calidad,ID-317,30794,CALIDAD - ARCHER INET - F8,ARCHER INET,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,LIBERADO,05/nov/25 4:02 PM,07/dic/25 12:00 AM,10/feb/26 10:58 AM,10/feb/26 10:58 AM,"No poner selenito a ninguna
+
+No poner amoniaco a ninguna
+
+poner kf78 y protefoam al principio",,,,Media,,
+Calidad,ID-362,31526,CALIDAD - ARCHER RUPTOR AÑ F1,ARCHER RUPTOR AÑ,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,NOK,25/nov/25 10:08 AM,26/dic/25 12:00 AM,19/ene/26 9:24 AM,14/ene/26 8:24 AM,eliminar hormonas,01/dic/25 10:23 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;se le ve alguna cosilla flotando que puede ser de los recubrimientos del nitrato de calcio o del antiespumante,,,Media,Antiñapas,
+Calidad,ID-274,29653,CALIDAD - BALSA F3.4,BALSA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,14/oct/25 1:39 PM,16/nov/25 12:00 AM,18/nov/25 4:14 PM,18/nov/25 4:14 PM,"hemos visto que es el que menos solidos deja en el fondo y tiene buena pinta. Hacer una prueba preliminar con turrax y filtrando para dejarlo mas limpio.
+
+
+
+
+
+Escala ajustando la balsa
+
+Proyecto reaprovechamiento del subproducto de húmicos balsa. Se hizo una prueba inicial con 0,5% de prox am pero al final precipita. Aumentar cantidad pero cuidado por si se hace demasiado viscoso y la lía en el agitador.","18/nov/25 4:14 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;en calor deja como 1 cm de poso, vamos a tratar de mejorarlo",,,Media,,
+Calidad,ID-150,25149,CALIDAD - BALSA F2,BALSA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,25/jun/25 4:08 PM,23/ago/25 12:00 AM,15/oct/25 1:47 PM,29/jul/25 11:29 AM,"Proyecto reaprovechamiento del subproducto de húmicos balsa. Se hizo una prueba inicial con 0,5% de prox am pero al final precipita. Aumentar cantidad pero cuidado por si se hace demasiado viscoso y la lía en el agitador.","29/jul/25 11:29 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;se queda muy viscosa tanto en calor como en frio, vamos a bajar el prox am",,,Media,,
+Calidad,ID-401,33109,CALIDAD - CANELYS AF F2.8.1, CANELYS AF,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,NOK,15/dic/25 1:04 PM,15/ene/26 12:00 AM,19/ene/26 10:09 AM,19/ene/26 10:09 AM,"{{2025-12-12}} 
+
+este si lleva caproico (si no tienes suficiente, añade lo que tienes y lo anotas) y salicilato
+
+
+
+
+
+----
+
+mejora añadiendo mas brenntsolv/monopropi a ver si mejor aspecto en frio.",,,,Media,matrisoja,
+Calidad,ID-395,32732,CALIDAD - CANELYS AF F2.8, CANELYS AF,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,NOK,10/dic/25 12:54 PM,12/ene/26 12:00 AM,14/ene/26 8:27 AM,14/ene/26 8:27 AM,"por error NO lleva salicilato ni caproico, hacemos la 2.8.1 que si lleva
+
+
+
+{{2025-12-12}} 
+
+este si lleva caproico (si no tienes suficiente, añade lo que tienes y lo anotas) y salicilato
+
+
+
+
+
+----
+
+mejora añadiendo mas brenntsolv/monopropi a ver si mejor aspecto en frio.",,,,Media,matrisoja,
+Calidad,ID-385,32636,CALIDAD - CANELYS AF F2.6, CANELYS AF,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,NOK,09/dic/25 7:50 AM,12/ene/26 12:00 AM,14/ene/26 8:26 AM,14/ene/26 8:26 AM,"NO le pongas el caproico
+
+
+
+mejora añadiendo mas brenntsolv a ver si mejor aspecto en frio.",,,,Media,matrisoja,
+Calidad,ID-354,31479,CALIDAD - CANELYS AF F2.3, CANELYS AF,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,LIBERADO,20/nov/25 11:00 AM,20/dic/25 12:00 AM,10/feb/26 10:58 AM,10/feb/26 10:58 AM,"CANELYS ACEITE FORTIFICADO F2.3 cambio el nombre para acortarlo.
+
+producto para verificar en calidad",,,,Media,matrisoja,
+Calidad,ID-375,32120,CALIDAD - CANELYS CEPBIO F1,CANELYS CEPBIO,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,LIBERADO,02/dic/25 3:21 PM,03/ene/26 12:00 AM,10/feb/26 10:58 AM,10/feb/26 10:58 AM,Canelys con la fórmula de CEPBIO + KF78 (en vez de propil galato),,,,Media,,
+Calidad,ID-311,30367,CALIDAD - CUPRIK MEJORADO MATRISOJA F3,CUPRIK MEJORADO MATRISOJA,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,NOK,28/oct/25 7:48 PM,03/dic/25 12:00 AM,01/dic/25 10:21 AM,01/dic/25 10:21 AM,,01/dic/25 10:21 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;en calor hace como un manchado rojo,,,Media,matrisoja,
+Calidad,ID-310,30366,CALIDAD - CUPRIK MEJORADO MATRISOJA F2,CUPRIK MEJORADO MATRISOJA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,28/oct/25 7:48 PM,30/nov/25 12:00 AM,01/dic/25 10:21 AM,01/dic/25 10:21 AM,,01/dic/25 10:21 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;en calor hace como un manchado rojo,,,Media,matrisoja,
+Calidad,ID-306,30362,CALIDAD - CUPRIK MEJORADO MATRISOJA F1,CUPRIK MEJORADO MATRISOJA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,28/oct/25 7:44 PM,30/nov/25 12:00 AM,01/dic/25 10:21 AM,01/dic/25 10:21 AM,,01/dic/25 10:21 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;en calor hace como un manchado rojo,,,Media,matrisoja,
+Calidad,ID-191,26656,CALIDAD - FITOMARE F1-19 - 2L XT95 - NORLAN FFV19,FITOMARE F1 - 19,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,25/jul/25 8:48 AM,25/ago/25 12:00 AM,15/oct/25 1:57 PM,16/sep/25 11:54 AM,"USAR KF78 en vez de nipasol, algas xt95 y norlan ffv19
+
+
+
+
+
+
+
+Fitomare que se hizo para proyecto Marruecos, es una repetición para validar materias primas.",,,,Media,Marruecos,
+Calidad,ID-171,26392,CALIDAD - ID.2025.71 FITOMARE F1-19 XT95,FITOMARE F1 - 19,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,16/jul/25 8:06 AM,16/ago/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,Fitomare F1-19 con aminoacidos AAV20 y algas XT95,,,,Media,Marruecos,
+Calidad,ID-170,26391,CALIDAD - ID.2025.70 FITOMARE F1-19 MI-100,FITOMARE F1 - 19,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,16/jul/25 8:05 AM,16/ago/25 12:00 AM,10/feb/26 10:51 AM,10/feb/26 10:51 AM,Fitomare F1-19 con aminoacidos AAV20 y algas bioatlantis MI-100,,,,Media,Marruecos,
+Calidad,ID-169,26195,CALIDAD - FITOMARE F1-19 - 2L - BIOATLANTIS -  NORLAN FFV19,FITOMARE F1 - 19,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,09/jul/25 10:15 AM,25/ago/25 12:00 AM,15/oct/25 1:57 PM,11/sep/25 8:28 AM,"USAR KF78 en vez de nipasol, algas bioatlantis MI100 y norlan ffv19
+
+
+
+Fitomare que se hizo para proyecto Marruecos, es una repetición para validar materias primas.",,,,Media,Marruecos,
+Calidad,ID-398,32738,CALIDAD - FLORONE MX F3,FLORONE ALGAS,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,NOK,10/dic/25 3:21 PM,15/ene/26 12:00 AM,18/dic/25 11:08 AM,18/dic/25 11:08 AM,"No usamos turrax pero:
+
+* mezcla todo
+* agita
+* deja 24h
+* vuelve a agitar
+
+No se puede usar ninguna citoquinina segun el comunicado de driscoll asi que usamos algas. Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!",18/dic/25 11:08 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;precipitado mucoso al fondo,,,Media,México,
+Calidad,ID-397,32737,CALIDAD - FLORONE MX F2,FLORONE ALGAS,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,NOK,10/dic/25 3:20 PM,12/ene/26 12:00 AM,18/dic/25 11:08 AM,18/dic/25 11:08 AM,"No usamos turrax pero:
+
+* mezcla todo
+* agita
+* deja 24h
+* vuelve a agitar
+
+No se puede usar ninguna citoquinina segun el comunicado de driscoll asi que usamos algas. Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!",18/dic/25 11:08 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;precipitado mucoso al fondo,,,Media,México,
+Calidad,ID-396,32735,CALIDAD - FLORONE MX F1,FLORONE ALGAS,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,NOK,10/dic/25 1:46 PM,12/ene/26 12:00 AM,18/dic/25 11:08 AM,18/dic/25 11:08 AM,"No usamos turrax pero:
+
+* mezcla todo
+* agita
+* deja 24h
+* vuelve a agitar
+
+No se puede usar ninguna citoquinina segun el comunicado de driscoll asi que usamos algas. Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!",18/dic/25 11:08 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;precipitado mucoso al fondo,,,Media,México,
+Calidad,ID-384,32405,CALIDAD - FLORONE ALGAS CONTROL SA-SG-SH,FLORONE ALGAS,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,CANCELADO,05/dic/25 10:01 AM,24/dic/25 12:00 AM,20/ene/26 10:55 AM,20/ene/26 10:55 AM,"No usamos turrax pero:
+
+* mezcla todo
+* agita
+* deja 24h
+* vuelve a agitar
+
+No se puede usar ninguna citoquinina segun el comunicado de driscoll asi que usamos algas. Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!",09/dic/25 8:33 AM;712020:581e00d3-e32a-4afd-bf82-137ff213c4af;09/12/2025 - 60°C: OK. 5°C: presenta algunos grumos en forma de puntos en la parte de la botella sin sumergir (¿posiblemente NORLAN 24/6 coagulado?),"09/dic/25 11:33 AM;712020:581e00d3-e32a-4afd-bf82-137ff213c4af;Pruebas complementarias de solubilidad del ANA:
+
+BRENNTSOLV: soluble en un ratio 1:3 (masa ANA/masa disolvente). A la mínima de añadir agua encima ya comienza a re-cristalizar.
+
+DMSO: soluble en un ratio 1:10 aprox. (he encontrado: Solubilidad = 537,03 mM en DMSO. Esto equivale a 1:10,31). Si sobre 1g ANA disuelto en 10g DMSO se añade aprox. 13g de agua, vuelve a cristalizar.",19/ene/26 12:02 PM;712020:581e00d3-e32a-4afd-bf82-137ff213c4af;19/01 - 60°C: OK. 5°C: precipitados blanquecinos en la superficie de la botella sin sumergir.,Media,México,
+Calidad,ID-381,32249,CALIDAD - FLORONE ALGAS CONTROL SA-SG,FLORONE ALGAS,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,CANCELADO,04/dic/25 8:51 AM,24/dic/25 12:00 AM,20/ene/26 10:55 AM,20/ene/26 10:55 AM,"No usamos turrax pero:
+
+* mezcla todo
+* agita
+* deja 24h
+* vuelve a agitar
+
+No se puede usar ninguna citoquinina segun el comunicado de driscoll asi que usamos algas. Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!","05/dic/25 10:59 AM;712020:581e00d3-e32a-4afd-bf82-137ff213c4af;Al cabo de aprox. 2 horas después de la adición del último ingrediente, se observan precipitados flotantes, en forma de bolas blanquecinas blandas. Probablemente sea ANA sin disolver.",09/dic/25 8:34 AM;712020:581e00d3-e32a-4afd-bf82-137ff213c4af;09/12/2025 - 60°C: OK. 5°C: presenta precipitados blanquecinos (ANA cristalizado probablemente).,19/ene/26 12:04 PM;712020:581e00d3-e32a-4afd-bf82-137ff213c4af;19/01 - 60°C: presencia de grumos en las paredes (NORLAN 24/6 coagulado?). 5°C: precipitados blanquecinos flotando en la superficie y adheridos en la parte superior de la botella (posiblemente fitohormona precipitada).,Media,México,
+Calidad,ID-377,32176,CALIDAD - FLORONE ALGAS CONTROL SA,FLORONE ALGAS,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,CANCELADO,03/dic/25 1:16 PM,24/dic/25 12:00 AM,20/ene/26 10:55 AM,20/ene/26 10:55 AM,"No usamos turrax pero:
+
+* mezcla todo
+* agita
+* deja 24h
+* vuelve a agitar
+
+No se puede usar ninguna citoquinina segun el comunicado de driscoll asi que usamos algas. Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!","05/dic/25 11:03 AM;712020:581e00d3-e32a-4afd-bf82-137ff213c4af;Agitación con varilla de tres válvulas durante toda la noche.
+
+Presenta algunos precipitados, pero mucho más finos y en menor proporción que el SA-SG.","09/dic/25 8:37 AM;712020:581e00d3-e32a-4afd-bf82-137ff213c4af;09/12/2025 - 60°C: presenta coágulos en la pared (¿goma y/o colágeno?), además de un poco (de sobrenadante en forma de coágulo blanco. 5°C: presenta precipitados blancos (ANA seguramente) y coágulo en la pared.",19/ene/26 12:06 PM;712020:581e00d3-e32a-4afd-bf82-137ff213c4af;19/01 - Presencia de mucho grumo/microgel (posiblemente grado de goma xantana + NORLAN 24/6 coagulados) tanto a 60°C como a 5°C. A 60°C también se observa mucho residuo blanquecino en la parte superior de la botella (¿ANA precipitado?).,Media,México,
+Calidad,ID-301,29988,CALIDAD - FLORONE ALGAS F2.1,FLORONE ALGAS,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,24/oct/25 8:44 AM,28/nov/25 12:00 AM,03/dic/25 1:17 PM,01/dic/25 10:19 AM,"Usar Turrax
+
+No se puede usar ninguna citoquinina segun el comunicado de driscoll asi que usamos algas. Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!","01/dic/25 10:19 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;en frio hace algunos puntitos, comentar en un GT para validar","03/dic/25 1:17 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;finalmente NOK, parece como muy viscoso y que vaya a cuajar",,Media,México,
+Calidad,ID-265,29445,CALIDAD - FLORONE ALGAS F2,FLORONE ALGAS,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,06/oct/25 4:03 PM,13/nov/25 12:00 AM,10/nov/25 4:19 PM,10/nov/25 4:19 PM,"No se puede usar ninguna citoquinina segun el comunicado de driscoll asi que usamos algas. Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!",24/oct/25 8:44 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;tiene un poso pegajoso abajo,,,Media,,
+Calidad,ID-264,29444,CALIDAD - FLORONE ALGAS F1,FLORONE ALGAS,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,06/oct/25 4:03 PM,13/nov/25 12:00 AM,10/nov/25 4:19 PM,10/nov/25 4:19 PM,"No se puede usar ninguna citoquinina segun el comunicado de driscoll asi que usamos algas. Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!",,,,Media,,
+Calidad,ID-208,28115,CALIDAD - FLORONE CONTROL,FLORONE KINETINA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,CANCELADO,25/ago/25 1:08 PM,01/oct/25 12:00 AM,22/oct/25 8:46 AM,22/sep/25 1:50 PM,"Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!",22/sep/25 1:51 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;lo cancelo por ser un control con la formula de produccion y asi que no sesgue la estadistica,,,Media,,
+Calidad,ID-207,28114,CALIDAD - FLORONE KINETINA F3.3,FLORONE KINETINA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,25/ago/25 1:08 PM,01/oct/25 12:00 AM,15/oct/25 1:54 PM,22/sep/25 1:50 PM,"Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!",,,,Media,,
+Calidad,ID-155,26069,CALIDAD - FLORONE KINETINA F3.3,	 FLORONE KINETINA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,03/jul/25 9:57 AM,11/ago/25 12:00 AM,15/oct/25 1:55 PM,26/ago/25 2:41 PM,"Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!",25/ago/25 1:08 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Hace unos grumos que nos dice Alejandro que en produccion quitan con mas hidratacion de la goma y turrax asi que lo repetimos,,,Media,,
+Calidad,ID-153,26063,CALIDAD - FLORONE KINETINA F3,FLORONE KINETINA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,CANCELADO,03/jul/25 9:14 AM,04/ago/25 12:00 AM,22/oct/25 8:46 AM,07/jul/25 9:53 AM,"Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!",,,,Media,,
+Calidad,ID-118,24416,CALIDAD - FLORONE KINETINA F2,"	
+FLORONE KINETINA",Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,02/jun/25 9:25 AM,05/jul/25 12:00 AM,15/oct/25 1:55 PM,03/jul/25 11:57 AM,"Tenemos un problema con la 6BA en México asi que hacemos pruebas con kinetina. Con potasa.
+
+Analizar estos parámetros:
+
+!imagen-20250526-120441.png|width=716,height=230,alt=""imagen-20250526-120441.png""!",,,,Media,,
+Calidad,ID-268,29503,CALIDAD - FLORONE MARRUECOS F2,FLORONE MARRUECOS,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,07/oct/25 4:06 PM,14/nov/25 12:00 AM,18/nov/25 1:28 PM,18/nov/25 1:28 PM,sustitucion de hidrolizado animal por vegetal/sintesis,,,,Media,Marruecos,
+Calidad,ID-267,29502,CALIDAD - FLORONE MARRUECOS F1,FLORONE MARRUECOS,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,07/oct/25 4:05 PM,14/nov/25 12:00 AM,18/nov/25 1:28 PM,18/nov/25 1:28 PM,sustitucion de hidrolizado animal por vegetal/sintesis,,,,Media,Marruecos,
+Calidad,ID-282,29732,CALIDAD - FOLICAT B-Mo-Cu F1,FOLICAT B-MO-CU,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,16/oct/25 10:58 AM,20/nov/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,hacer muestra de nuevo para calidad para que vean color y midan pH. La fórmula ya está subida al servidor.,,,,Media,matrisoja,
+Calidad,ID-176,26436,CALIDAD - ID.2025.91 FOLICAT Zn Mo Mn ORIGI F5.1,FOLICAT ZNMO - MN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,17/jul/25 2:07 PM,12/sep/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"Se acuerda que zinc 2% que viene de EDTA. Bajo la urea para ajustar nitrogeno total, estaba muy alta por los edta’s",,,,Media,matrisoja,
+Calidad,ID-74,22571,CALIDAD - ID.2025.41 FOLICAT Zn Mo Mn ORIGI F5,FOLICAT ZNMO - MN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,23/abr/25 3:50 PM,24/may/25 12:00 AM,28/nov/25 12:50 PM,28/nov/25 12:50 PM,Se acuerda que zinc 2% que viene de EDTA,,,,Media,matrisoja,
+Calidad,ID-64,22320,CALIDAD - FOLICAT ZnMo - Mn ORIGI F2 con EDTA,FOLICAT ZNMO - MN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,CANCELADO,16/abr/25 4:43 PM,,22/oct/25 9:18 AM,19/may/25 11:13 AM,"* original EDTA Zn
+
+De momento haz solo la F2",,,,Media,matrisoja,
+Calidad,ID-59,22215,CALIDAD - FOLICAT ZnMo - Mn INDUSTRIAL,FOLICAT ZNMO - MN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,15/abr/25 11:35 AM,15/may/25 12:00 AM,15/oct/25 1:59 PM,24/abr/25 12:55 PM,Se hace en lab la fórmula que ya se fabricó en su momento y que ha solicitado el cliente,,,,Media,matrisoja,
+Calidad,ID-48,21674,CALIDAD - FOLICAT ZnMo - Mn con Xantana F2,FOLICAT ZNMO - MN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,02/abr/25 4:03 PM,08/may/25 12:00 AM,15/oct/25 1:59 PM,17/abr/25 8:22 AM,"He comentado con Santi que con EDTA coste-coste no va a ser viable asi que vamos a intentar una suspension o mitigar el problema mezclando edta y sulfato
+
+Se hacen 3 aproximaciones:
+
+* sulfato de zinc y escala de goma xantana
+* sulfato de zinc y aumentar mucho el edta tetrasodico para que quelate
+* se quita el sulfato de zinc, se pone oxido de zinc y se hace escala de xantana",,,,Media,matrisoja,
+Calidad,ID-47,21673,CALIDAD - FOLICAT ZnMo - Mn con Xantana F1,FOLICAT ZNMO - MN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,02/abr/25 4:01 PM,05/may/25 12:00 AM,15/oct/25 1:59 PM,17/abr/25 8:22 AM,"He comentado con Santi que con EDTA coste-coste no va a ser viable asi que vamos a intentar una suspension o mitigar el problema mezclando edta y sulfato
+
+Se hacen 3 aproximaciones:
+
+* sulfato de zinc y escala de goma xantana
+* sulfato de zinc y aumentar mucho el edta tetrasodico para que quelate
+* se quita el sulfato de zinc, se pone oxido de zinc y se hace escala de xantana",,,,Media,matrisoja,
+Calidad,ID-6,20622,CALIDAD - ID.2025.23 FOLICAT Zn Mo Mn MUESTRA ORIGINAL (F-ORIGI),FOLICAT ZNMO - MN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,11/mar/25 11:04 AM,08/may/25 12:00 AM,16/oct/25 5:38 PM,24/abr/25 12:48 PM,"* original EDTA Zn
+* minima EDTA Zn
+
+17/03/2025 siguen OK
+
+He comentado con Santi que con EDTA coste-coste no va a ser viable asi que vamos a intentar una suspension o mitigar el problema mezclando edta y sulfato",,,,Media,matrisoja,
+Calidad,ID-96,24150,CALIDAD - ID.2025.48 GRAINMAX - F5,GRAINMAX RECLAMACION,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,22/may/25 11:48 AM,30/jun/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"Le quitamos algas y le ponemos manitol para ver si mejora la compatibilidad. Como veo un poco de fases en calidad, hago 2 fórmulas más, una con un poquito de algas para dar color y otra con goma xant. 
+
+Como la F3 no queda muy bien y la F4 sí, juntamos las dos aproximaciones para ver si mejora.",,,,Baja,mejora,
+Calidad,ID-53,21854,CALIDAD - GRAINMAX reclamacion,GRAINMAX RECLAMACION,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,08/abr/25 5:24 PM,11/may/25 12:00 AM,15/oct/25 2:00 PM,27/may/25 10:07 AM,Le quitamos algas y le ponemos manitol para ver si mejora la compatibilidad ,,,,Media,,
+Calidad,ID-41,21615,KABON DOGRACID-70 F1,KABON DOGRACID-70,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,31/mar/25 3:40 PM,17/may/25 12:00 AM,15/oct/25 2:02 PM,29/may/25 5:06 PM,,,,,Media,,
+Calidad,ID-328,31016,CALIDAD - KELIK Ca-B ESPECIAL - CONTROL,KELIK CAB AGNIQUE,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,NOK,10/nov/25 5:09 PM,13/dic/25 12:00 AM,21/ene/26 1:13 PM,15/dic/25 12:53 PM,"Hacemos un control para verificar que es lo que sale mal, si la fórmula en sí o el tensioactivo. Porque a 50 grados se han visto problemas.
+
+Usa AL2575 ",15/dic/25 12:53 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Falla igual que el que se hizo con tensioactivo de AZELIS,,,Media,,
+Calidad,ID-246,29005,CALIDAD - KELIK Ca-B ESPECIAL - AGNIQUE PG8107,KELIK CAB AGNIQUE,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,22/sep/25 11:18 AM,07/nov/25 12:00 AM,03/feb/26 11:42 AM,12/nov/25 10:24 AM,Sustituir AL2575 por AGNIQUE PG8107,"12/nov/25 10:23 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;vamos a verificar con un control porque aunque el producto sea NOK, hay que ver si es por el cambio de tensioactivo o porque es una formula vieja que no se habia verificado en calidad nunca.",,,Media,,
+Calidad,ID-464,36500,CALIDAD - KELKAT KBNi ACIDO F1, KELKAT KBNI ACIDO,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,CANCELADO,28/ene/26 4:54 PM,,02/feb/26 5:28 PM,02/feb/26 5:28 PM,"No mandar a Calidad, primero hablar conmigo.","29/ene/26 5:35 PM;712020:581e00d3-e32a-4afd-bf82-137ff213c4af;NOTA: el _grade_ actual de cloruro de magnesio tiene un tamaño de grano mayor que el del resto de ingredientes. Mientras se va haciendo la mezcla, el resto de componentes se apelmaza sobre su superficie. Estudiar la posibilidad de procesarlo en fábrica.",02/feb/26 5:28 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;vamos a buscar un cloruro de magnesio mas fino o lo quitaremos de la formula,,Media,,
+Calidad,ID-217,28507,CALIDAD - ID.2025.100 M01 GL F3.5-XNT,M01 GL,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,01/sep/25 2:05 PM,08/oct/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"añade 2% monopropi y 0,2 % de goma xantana, puedes usar turrax y tal para asegurarte de la mezcla
+
+
+
+Detectamos que nitrato y formiato de calcio son incompatibles. Hacemos f3.3 sin fuentes de calcio para ver si hay algo mas que sea incompatible y f3.4 con lignosulfonato de calcio.
+
+
+
+Green Leaves con microalgas, mejora. ",,,,Media,microalgas,
+Calidad,ID-216,28506,CALIDAD - M01 GL F3.5 SIN GOMA,M01 GL,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,01/sep/25 2:05 PM,03/oct/25 12:00 AM,15/oct/25 1:51 PM,06/oct/25 11:54 AM,"Detectamos que nitrato y formiato de calcio son incompatibles. Hacemos f3.3 sin fuentes de calcio para ver si hay algo mas que sea incompatible y f3.4 con lignosulfonato de calcio.
+
+
+
+Green Leaves con microalgas, mejora. ","25/sep/25 8:20 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;NOK, hay fases",,,Media,,
+Calidad,ID-280,29700,CALIDAD - MICROCAT BON + AA F1,MICROCAT BON + AA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,15/oct/25 12:06 PM,17/nov/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"*MICROCAT BON (Marruecos) – Nombre para registro en marruecos: KORION*
+
+ 
+
+* K + Aminoacidos  (Crear formulación Microcat bon + aminoácidos)
+
+ 
+
+* España RD: Abono (solución potásica) con aminoácidos
+
+
+
+A continuación, os paso las propuestas de como deberíamos avanzar para el registro del Microcat Gold y Microcat Bon en Marruecos para poder registralos como fertilizantes teniendo en cuenta que ambos tienen materia orgánica en su composición.  He hecho un análisis inicial con Santi, pero necesito que Ivan y Castillo revisen que esto cuadra 😉, sobre todo porque para Marruecos necesitaremos un Certificado de Analisis de Fitosoil que confirme lo que esta declarado en el CLV de España.",,,,Media,,
+Calidad,ID-201,26733,CALIDAD - MITIGADOR 23% F2.3,MITIGADOR,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,29/jul/25 12:24 PM,01/sep/25 12:00 AM,15/oct/25 1:49 PM,04/sep/25 10:43 AM,"
+
+Para Brasil se necesita un 3% de materia orgánica oxidable, así que se añade a esta fórmula polisacaridos para conseguirlo.
+
+petición de modificación a 23% p/p y 25% p/v de GB
+
+Medir pH y densidad y me la mandas para FT",,,,Máxima,matrisoja,
+Calidad,ID-185,26516,CALIDAD - MITIGADOR 23% F2.2,MITIGADOR,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,21/jul/25 2:47 PM,,15/oct/25 1:49 PM,24/jul/25 2:20 PM,"Hace un poco de poso, añado xantana
+
+Es una repetición por el problema de la glicina betaína.
+
+Para Brasil se necesita un 3% de materia orgánica oxidable, así que se añade a esta fórmula melaza para conseguirlo.
+
+petición de modificación a 23% p/p y 25% p/v de GB
+
+Medir pH y densidad y me la mandas para FT",24/jul/25 2:20 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;le salen bolitas de la goma xantana,,,Máxima,matrisoja,
+Calidad,ID-133,24687,CALIDAD - MITIGADOR 23% F3,MITIGADOR,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,12/jun/25 4:59 PM,18/jul/25 12:00 AM,15/oct/25 1:49 PM,21/jul/25 2:44 PM,"Para Brasil hacemos una aproximación inorgánica subiendo el k2o.
+
+petición de modificación a 23% p/p y 25% p/v de GB
+
+Medir pH y densidad y me la mandas para FT",,,,Máxima,matrisoja,
+Calidad,ID-129,24610,CALIDAD - MITIGADOR 23% F2.1,MITIGADOR,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,10/jun/25 10:29 AM,18/jul/25 12:00 AM,15/oct/25 1:49 PM,22/jul/25 10:20 AM,"Es una repetición por el problema de la glicina betaína.
+
+Para Brasil se necesita un 3% de materia orgánica oxidable, así que se añade a esta fórmula melaza para conseguirlo.
+
+petición de modificación a 23% p/p y 25% p/v de GB
+
+Medir pH y densidad y me la mandas para FT",,,,Máxima,matrisoja,
+Calidad,ID-50,21676,CALIDAD - ID.2025.26 MITIGADOR DE ESTRÉS F1 23% GB,MITIGADOR,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,02/abr/25 4:12 PM,05/may/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"petición de modificación a 23% p/p y 25% p/v de GB
+
+Medir pH y densidad y me la mandas para FT",,,,Media,matrisoja,
+Calidad,ID-266,29446,CALIDAD - ID.2025.88 MITIGADOR DE ESTRÉS 23% GB  F2.4,MITIGADOR MATRISOJA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,06/oct/25 4:18 PM,06/nov/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"
+
+Para Brasil se necesita un 3% de materia orgánica oxidable, así que se añade a esta fórmula polisacaridos para conseguirlo.
+
+petición de modificación a 23% p/p y 25% p/v de GB
+
+Medir pH y densidad y me la mandas para FT",,,,Máxima,brasil,matrisoja
+Calidad,ID-210,28174,CALIDAD - ID.2025.97 MIT M01 F3,MITM01,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,27/ago/25 9:38 AM,01/oct/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"Sustituyo algas por bioatlantis
+
+version mitigador ajustada en coste, con microalgas, una sin cmc y otra con cmc",,,,Media,microalgas,
+Calidad,ID-350,31453,CALIDAD - NITRO DELTA Ca F6 GLY.2 R2,NITRO DELTA CA,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,LIBERADO,19/nov/25 10:46 AM,20/dic/25 12:00 AM,10/feb/26 10:58 AM,10/feb/26 10:58 AM,"Es una repetición para validar a otras temperaturas en calidad porque el comercial indica que el producto le vale para su aplicación. 
+
+
+
+Castillo indica: Desde mi punto de vista, si después de las pruebas de 52 grados, el producto es inestable y se aprueba la venta, por lo menos haría pruebas a 35-40 grados para comprobar su estabilidad a estas temperaturas. Ya que seguro que estas las alcanza y no sabemos si afecta. ",03/feb/26 12:44 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;a 35ºC hace un poso blanco precipitado como cristalitos,,,Media,españa,
+Calidad,ID-349,31452,CALIDAD - NITRO DELTA Ca F5 R2,NITRO DELTA CA,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,NOK,19/nov/25 10:40 AM,20/dic/25 12:00 AM,29/dic/25 9:20 AM,29/dic/25 9:20 AM,"Es una repetición para validar a otras temperaturas en calidad porque el comercial indica que el producto le vale para su aplicación. 
+
+
+
+Castillo indica: Desde mi punto de vista, si después de las pruebas de 52 grados, el producto es inestable y se aprueba la venta, por lo menos haría pruebas a 35-40 grados para comprobar su estabilidad a estas temperaturas. Ya que seguro que estas las alcanza y no sabemos si afecta. ",19/nov/25 10:40 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Hacemos producto para calidad porque hay un pedido de 200 L y el prototipo tiene buena pinta a día de hoy. {{2025-03-31}} ,19/nov/25 10:40 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;NOK se forma una capa blanca que puede ser carbonato de calcio porque es insoluble en agua y burbujea con acido fosforico,10/dic/25 1:38 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;a dia de hoy a 35 grados ya hace unos aglomerados que se quedan en flotacion. Seria NOK pero lo dejamos evolucionar.,Media,españa,
+Calidad,ID-221,28513,CALIDAD - NITRO DELTA Ca UREAFORM F6,NITRO DELTA CA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,01/sep/25 2:37 PM,09/oct/25 12:00 AM,15/oct/25 1:50 PM,06/oct/25 11:55 AM,"La de ureaform parece que va bien asi que hacemos escala para corregi pH y color con acido gluconico y ver cual aguanta mejor. Haz F1 y me dices pH
+
+Vemos que con cloruro tampoco funciona y despues del analisis de ofice vemos que no hay nitrogeno ureico sino organico asi que enfocamos con monoeta y ureaformaldehido.
+
+
+
+
+
+----
+
+Probamos con cloruro a ver si es más compatible que el nitrato.
+
+Basada en salsalt original que estaba OK. La mayor diferencia es la adicion de urea.
+
+La 2.1 siguió dando problemas y el pH no parece haber evolucionado. Vamos a usar kelik b en vez de borico y monoeta. En otra añadiremos acido gluconico y en otra nitrico.",,,,Media,españa,
+Calidad,ID-220,28512,CALIDAD - ID.2025.101 NITRO DELTA CALCIO UREAFORM  F5,NITRO DELTA CA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,01/sep/25 2:37 PM,02/oct/25 12:00 AM,18/nov/25 5:53 PM,18/nov/25 5:53 PM,"La de ureaform parece que va bien asi que hacemos escala para corregi pH y color con acido gluconico y ver cual aguanta mejor. Haz F1 y me dices pH
+
+Vemos que con cloruro tampoco funciona y despues del analisis de ofice vemos que no hay nitrogeno ureico sino organico asi que enfocamos con monoeta y ureaformaldehido.
+
+
+
+
+
+----
+
+Probamos con cloruro a ver si es más compatible que el nitrato.
+
+Basada en salsalt original que estaba OK. La mayor diferencia es la adicion de urea.
+
+La 2.1 siguió dando problemas y el pH no parece haber evolucionado. Vamos a usar kelik b en vez de borico y monoeta. En otra añadiremos acido gluconico y en otra nitrico.",,,,Media,españa,
+Calidad,ID-218,28508,CALIDAD - NITRO DELTA Ca UREAFORM F3,NITRO DELTA CA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,01/sep/25 2:29 PM,08/oct/25 12:00 AM,15/oct/25 1:50 PM,30/sep/25 9:48 AM,"La de ureaform parece que va bien asi que hacemos escala para corregi pH y color con acido gluconico y ver cual aguanta mejor. Haz F1 y me dices pH
+
+Vemos que con cloruro tampoco funciona y despues del analisis de ofice vemos que no hay nitrogeno ureico sino organico asi que enfocamos con monoeta y ureaformaldehido.
+
+
+
+
+
+----
+
+Probamos con cloruro a ver si es más compatible que el nitrato.
+
+Basada en salsalt original que estaba OK. La mayor diferencia es la adicion de urea.
+
+La 2.1 siguió dando problemas y el pH no parece haber evolucionado. Vamos a usar kelik b en vez de borico y monoeta. En otra añadiremos acido gluconico y en otra nitrico.",,,,Media,españa,
+Calidad,ID-196,26702,CALIDAD - NITRO DELTA Ca F6 - GLY.2.4 LIGNO1,NITRO DELTA CA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,28/jul/25 9:54 AM,30/ago/25 12:00 AM,15/oct/25 1:50 PM,01/sep/25 11:33 AM,"Basada en salsalt original que estaba OK. La mayor diferencia es la adicion de urea.
+
+La 2.1 siguió dando problemas y el pH no parece haber evolucionado. Vamos a usar kelik b en vez de borico y monoeta. En otra añadiremos acido gluconico y en otra nitrico.",,,,Media,españa,
+Calidad,ID-125,24587,CALIDAD - NITRO DELTA Ca F6 - GLY.2.1,NITRO DELTA CA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,09/jun/25 2:14 PM,11/jul/25 12:00 AM,15/oct/25 1:50 PM,07/jul/25 9:53 AM,"No añadas el ácido glucónico. Dejate un 1-2% de agua sin añadir al principio. Y al final del todo mides el pH, me avisas para verlo y corriges con ácido glucónico o monoetanolamina para dejarlo entre 5.5 - 7.5.
+
+* La urea es *más estable en soluciones neutras o ligeramente ácidas*, es decir, en un *rango de pH entre 5.5 y 7.5*.
+* *Por debajo de pH 5*, comienza a *hidrólisis ácida*, liberando amoníaco y dióxido de carbono.
+* *Por encima de pH 8*, puede sufrir *hidrólisis alcalina*, también formando amoníaco y carbonato.
+
+Se acaban viendo unas nubecitas que no parecen muy importantes pero por si acaso añado dos mejoras que podrian paliarlo, una con melaza para oscurecer y que no se vea y otra con chemipol wt 600 que es un anti cal potente.",,,,Media,españa,
+Calidad,ID-78,22667,CALIDAD - NITRO DELTA Ca F6 - GLY.2,NITRO DELTA CA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,29/abr/25 1:44 PM,05/jun/25 12:00 AM,15/oct/25 1:50 PM,24/jun/25 10:55 AM,"No añadas el ácido glucónico. Dejate un 1-2% de agua sin añadir al principio. Y al final del todo mides el pH, me avisas para verlo y corriges con ácido glucónico o monoetanolamina para dejarlo entre 5.5 - 7.5.
+
+* La urea es *más estable en soluciones neutras o ligeramente ácidas*, es decir, en un *rango de pH entre 5.5 y 7.5*.
+* *Por debajo de pH 5*, comienza a *hidrólisis ácida*, liberando amoníaco y dióxido de carbono.
+* *Por encima de pH 8*, puede sufrir *hidrólisis alcalina*, también formando amoníaco y carbonato.",,,,Media,españa,
+Calidad,ID-55,21894,CALIDAD - NITRO DELTA Ca F6,NITRO DELTA CA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,09/abr/25 12:36 PM,09/may/25 12:00 AM,15/oct/25 1:50 PM,23/abr/25 12:17 PM,con nitrato de calcio cristal pero hay que corregir mas el ph porque en calor sube y se estropea,22/abr/25 2:03 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;NOK se forma una capa blanca que puede ser carbonato de calcio porque es insoluble en agua y burbujea con acido fosforico,,,Media,españa,
+Calidad,ID-36,21540,CALIDAD - NITRO DELTA Ca F5,NITRO DELTA CA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,31/mar/25 8:41 AM,30/abr/25 12:00 AM,19/nov/25 10:40 AM,23/abr/25 12:17 PM,con nitrato de calcio cristal pero hay que corregir mas el ph porque en calor sube y se estropea,31/mar/25 8:42 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Hacemos producto para calidad porque hay un pedido de 200 L y el prototipo tiene buena pinta a día de hoy. {{2025-03-31}} ,22/abr/25 2:03 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;NOK se forma una capa blanca que puede ser carbonato de calcio porque es insoluble en agua y burbujea con acido fosforico,,Media,españa,
+Calidad,ID-165,26131,CALIDAD - NITRO DELTA K F16.1.2 - GLUC 4,NITRO DELTA K,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,07/jul/25 9:51 AM,17/ago/25 12:00 AM,15/oct/25 1:47 PM,27/ago/25 9:36 AM,"Necesito validad cantidad mínima de gluconico por si se va demasiado de precio
+
+
+
+se corrige con glucónico, he puesto a ph 5 para tener más margen",,,,Media,españa,
+Calidad,ID-164,26130,CALIDAD - ID.2025.72 NITRO DELTA K F16.1.2-GLUC 3,NITRO DELTA K,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,07/jul/25 9:51 AM,17/ago/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"Necesito validad cantidad mínima de gluconico por si se va demasiado de precio
+
+
+
+se corrige con glucónico, he puesto a ph 5 para tener más margen",,,,Media,españa,
+Calidad,ID-163,26129,CALIDAD - NITRO DELTA K F16.1.2 - GLUC 5,NITRO DELTA K,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,07/jul/25 9:51 AM,17/ago/25 12:00 AM,15/oct/25 1:47 PM,27/ago/25 9:36 AM,"Necesito validad cantidad mínima de gluconico por si se va demasiado de precio
+
+
+
+se corrige con glucónico, he puesto a ph 5 para tener más margen",,,,Media,españa,
+Calidad,ID-114,24411,CALIDAD - NITRO DELTA K F18.2,NITRO DELTA K,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,02/jun/25 9:14 AM,04/jul/25 12:00 AM,15/oct/25 1:48 PM,07/jul/25 9:40 AM,se mezcla nitrato y formiato para ver si asi no cristaliza en frio y el ph no es tan basico. Sin corregir pH y con gluconato sodico,,,,Media,españa,
+Calidad,ID-107,24243,NITRO DELTA K F16.1.2 PH 4 - GLUC,NITRO DELTA K,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,CANCELADO,27/may/25 10:09 AM,,22/oct/25 9:16 AM,28/may/25 2:02 PM,"se corrige con glucónico, he puesto a ph 5 para evaluar si es más estable",28/may/25 2:02 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;inviable conseguir ese ph con gluconico,,,Media,españa,
+Calidad,ID-106,24241,CALIDAD - ID.2025.74 NITRO DELTA K F16.1.2-GLUC 5,NITRO DELTA K,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,27/may/25 9:34 AM,29/jun/25 12:00 AM,20/oct/25 4:47 PM,07/jul/25 9:40 AM,"se corrige con glucónico, he puesto a ph 5 para tener más margen",,,,Media,españa,
+Calidad,ID-99,24154,"NITRO DELTA K F15.5 BUREA3 mgo - 0 y mgo - 0,1",NITRO DELTA K,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,CANCELADO,22/may/25 4:53 PM,23/jun/25 12:00 AM,27/nov/25 1:29 PM,19/jun/25 12:06 PM,"EN MI MESA
+
+Por petición de produccion se hace 1L de cada para tenerlo en observación en el laboratorio a ver si hace la telilla blanca en el fondo que hemos visto en la muestra de producción.",,,,Máxima,españa,
+Calidad,ID-76,22665,CALIDAD - NITRO DELTA K F15.5 BUREA2,NITRO DELTA K,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,29/abr/25 1:37 PM,05/jun/25 12:00 AM,15/oct/25 1:48 PM,29/may/25 8:32 AM,"Hacemos la burea2 para calidad porque no le han salido cristales, aunque lleva poco tiempo",,,,Media,españa,
+Calidad,ID-61,22219,CALIDAD - NITRO DELTA K F15.6,NITRO DELTA K,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,15/abr/25 1:03 PM,,27/nov/25 11:36 AM,17/abr/25 9:08 AM,F15.2 con etanol y otra con etanol + opacificante BEAPAC OP30C,16/abr/25 11:36 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;BEAPAC OP30C porque es acido,17/abr/25 9:07 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Cristalizan ambos exageradamente y ya se nota que con el etanol algo raro precipita,,Media,españa,
+Calidad,ID-60,22218,CALIDAD - NITRO DELTA K F15.4,NITRO DELTA K,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,15/abr/25 1:03 PM,14/may/25 12:00 AM,15/oct/25 1:48 PM,15/abr/25 1:04 PM,NOK por poso,,,,Media,españa,
+Calidad,ID-58,22071,CALIDAD - NITRO DELTA K F15.2 - 15.3 - 15.4,NITRO DELTA K,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,14/abr/25 9:31 AM,14/may/25 12:00 AM,15/oct/25 1:48 PM,23/abr/25 12:16 PM,"Igual que F15 pero lleva la mitad de urea para validar si hay saturación.
+
+FILTRAR el poso de cloruro de potasio. Version con nitrato y cloruro potasico bajando el potasio a 7, si sale subimos a 10.",,,,Media,españa,
+Calidad,ID-333,31102,CALIDAD - OLEORGAN GEOLIFE F2.6,OLEORGAN GEOLIFE,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,NOK,12/nov/25 4:31 PM,13/dic/25 12:00 AM,19/ene/26 9:21 AM,19/ene/26 9:21 AM,"Ajustada para que no queden grumosa y con el pH tan alto.
+
+Observar 08/10 y ver si siguen bien, en tal caso empezaremos por F1, la he corregido un poco.
+
+
+
+primero hacemos estas con ACEITE DE NEEM NORMAL y luego ya vemos los resultados preliminares que no pase nada raro y lo haremos con un aceite de neem ESPECIAL",,,,Media,,
+Calidad,ID-131,24682,CALIDAD - PD - RAZORMIN F3,PD - RAZORMIN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,12/jun/25 12:16 PM,18/jul/25 12:00 AM,15/oct/25 1:55 PM,21/jul/25 2:43 PM,La idea es hacer una alternativa agroresours para razormin. Se habla con Santi Laserna de meterle hormonas en los niveles de PY y yo le quito norlan para facilitar la formulación.,,,,Media,,
+Calidad,ID-130,24681,CALIDAD - ID.2025.61 PD RAZORMIN F2,PD - RAZORMIN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,12/jun/25 12:16 PM,18/jul/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,La idea es hacer una alternativa agroresours para razormin. Se habla con Santi Laserna de meterle hormonas en los niveles de PY y yo le quito norlan para facilitar la formulación. Nombre comercial: PD RIZOPOL,,,,Media,Agroresources,
+Calidad,ID-126,24588,CALIDAD - PD - RAZORMIN F1,PD - RAZORMIN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,09/jun/25 2:15 PM,13/jul/25 12:00 AM,15/oct/25 1:56 PM,03/jul/25 12:36 PM,La idea es hacer una alternativa agroresours para razormin. Se habla con Santi Laserna de meterle hormonas en los niveles de PY y yo le quito norlan para facilitar la formulación.,,,,Media,,
+Calidad,ID-187,26534,CALIDAD - ID.2025.82 PROTIUM MARRUECOS F2,PROTIUM MARRUECOS,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,22/jul/25 2:55 PM,28/ago/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,Igual que F1 pero con goma xantana,,,,Máxima,Marruecos,
+Calidad,ID-186,26532,CALIDAD - PROTIUM MARRUECOS F1,PROTIUM MARRUECOS,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,22/jul/25 1:06 PM,28/ago/25 12:00 AM,15/oct/25 1:57 PM,04/sep/25 10:38 AM,Repetición de este Protium AA DADELOS NPK (9-3-3) - FA DAVE 25L,,,,Máxima,Marruecos,
+Calidad,ID-415,33600,CALIDAD - R. DESARROLLO MEJORA F1.3.6.8,R. DESARROLLO MEJORA,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,NOK,22/dic/25 9:53 AM,23/ene/26 12:00 AM,03/feb/26 12:43 PM,03/feb/26 12:43 PM,a ver si con más xantana se camufla un poco mas,03/feb/26 12:43 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;hace cristales a -5 como la control y se queda demasiado viscosa,,,Media,,
+Calidad,ID-414,33599,CALIDAD - R. DESARROLLO MEJORA CONTROL,R. DESARROLLO MEJORA,Alejandro Ponomar Fueyo,712020:581e00d3-e32a-4afd-bf82-137ff213c4af,OK NO LIBERADO,22/dic/25 9:52 AM,23/ene/26 12:00 AM,03/feb/26 12:44 PM,03/feb/26 12:44 PM,Es la fórmula estándar de producción para tenerla de control y ver el fallo en las demás que hagamos. Hacer 1L.,"03/feb/26 12:43 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;cristales a -5
+
+pero OK es asi",,,Media,,
+Calidad,ID-194,26700,CALIDAD - ID.2025.84 RAYKAT ENRAIZADOR H F1, R. ENRAIZADOR SUST. H,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,28/jul/25 9:46 AM,30/ago/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,se pide sustituir aib por aia y 6ba por kinetina…revisar orden en las hormonas y cantidad potasa,,,,Media,Antiñapas,
+Calidad,ID-300,29987,CALIDAD - RAYKAT BRIX CN F3.8.2.2 AJREG - 1  (Turrax),RAYKAT BRIX CN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,24/oct/25 8:38 AM,28/nov/25 12:00 AM,01/dic/25 10:18 AM,01/dic/25 10:18 AM,"Pssarle turrax segun procedimiento y filtrar
+
+
+
+Modificaciones con lo que indican de registros",24/oct/25 8:38 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;se le ven puntitos en la estufa asi que repetimos pasando turrax,"01/dic/25 10:17 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;coagula en calor, igual por la monoetanolamina",,Media,China,
+Calidad,ID-251,29163,CALIDAD - RAYKAT BRIX CN F3.8.2.2 AJREG - 2,RAYKAT BRIX CN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,25/sep/25 9:04 AM,01/nov/25 12:00 AM,03/nov/25 2:15 PM,03/nov/25 2:15 PM,"
+
+Modificaciones con lo que indican de registros",,,,Media,China,
+Calidad,ID-250,29162,CALIDAD - RAYKAT BRIX CN F3.8.2.2 AJREG - 1,RAYKAT BRIX CN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,25/sep/25 8:58 AM,01/nov/25 12:00 AM,03/nov/25 2:15 PM,03/nov/25 2:15 PM,"
+
+Modificaciones con lo que indican de registros",24/oct/25 8:38 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;se le ven puntitos en la estufa asi que repetimos pasando turrax,,,Media,China,
+Calidad,ID-214,28178,CALIDAD - RAYKAT BRIX CN F3.8.2.3,RAYKAT BRIX CN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,27/ago/25 12:20 PM,29/sep/25 12:00 AM,15/oct/25 1:53 PM,30/sep/25 9:48 AM,"
+
+Modificaciones con lo que indican de registros","25/sep/25 8:21 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;NOK, en frío cristaliza un poco",,,Media,China,
+Calidad,ID-213,28177,CALIDAD - ID.2025.94 RAYKAT BRIX CN- F3.8.2.2,RAYKAT BRIX CN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,27/ago/25 12:20 PM,29/sep/25 12:00 AM,28/nov/25 12:48 PM,28/nov/25 12:48 PM,"
+
+Modificaciones con lo que indican de registros",,,,Media,China,
+Calidad,ID-211,28175,CALIDAD - RAYKAT BRIX CN F3.8.2.1,RAYKAT BRIX CN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,27/ago/25 11:48 AM,29/sep/25 12:00 AM,15/oct/25 1:53 PM,30/sep/25 9:48 AM,"
+
+Modificaciones con lo que indican de registros",,,,Media,China,
+Calidad,ID-192,26697,CALIDAD - RAYKAT BRIX CN F3.8.2 - BIOATLANTIS,RAYKAT BRIX CN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,CANCELADO,28/jul/25 9:35 AM,,22/oct/25 9:15 AM,29/jul/25 8:12 AM,"con bioatlantis MI 100
+
+
+
+    Modificamos a esto:
+
+*Materia orgánica ≥ 70 g/L*
+
+*N+P*~*2*~*O*~*5*~*+K*~*2*~*O ≥ 130 g/L*
+
+*B+Mo: 5 g/L – 10 g/L*
+
+*pH:  7,0 - 9,0*
+
+*Materia insoluble en agua ≤ 50 g/L*",,,,Media,China,
+Calidad,ID-188,26559,CALIDAD - ID.2025.77 RAYKAT BRIX CN F3.8.2 BIOATLANTIS,RAYKAT BRIX CN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,23/jul/25 11:09 AM,24/ago/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"
+
+Modificamos a esto:
+
+*Materia orgánica ≥ 70 g/L*
+
+*N+P*~*2*~*O*~*5*~*+K*~*2*~*O ≥ 130 g/L*
+
+*B+Mo: 5 g/L – 10 g/L*
+
+*pH:  7,0 - 9,0*
+
+*Materia insoluble en agua ≤ 50 g/L*",,,,Media,China,
+Calidad,ID-162,26099,CALIDAD - RAYKAT BRIX CN F1 1L,RAYKAT BRIX CN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,CANCELADO,04/jul/25 10:21 AM,11/ago/25 12:00 AM,22/oct/25 9:15 AM,28/jul/25 10:06 AM,Adaptación para el mercado China,,,,Alta,China,
+Calidad,ID-160,26078,CALIDAD - RAYKAT BRIX CN F3.8.1,RAYKAT BRIX CN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,03/jul/25 12:38 PM,16/ago/25 12:00 AM,15/oct/25 1:53 PM,23/jul/25 10:43 AM,"
+
+1L para validar en Calidad
+
+AÑADIR LAS ALGAS AL FINAL DEL TODO Y ANTES AVISAME Y LO VEMOS JUNTOS.
+
+
+
+Igual que 3.4 pero añadir un 0,1% de xantana con un poco de monopropi para ver si no caen las algas en frío tan rápido.
+
+Adaptación para el mercado China
+
+Con goma xantana se hacen unos puntitos que sin goma no se ven. Así que cambiamos la goma por CMC 12000 que es más estable. Empezar con 0,1% de CMC y ver la viscosidad cómo se queda por si se añade más.
+
+    Modificamos a esto:
+
+*Materia orgánica ≥ 70 g/L*
+
+*N+P*~*2*~*O*~*5*~*+K*~*2*~*O ≥ 130 g/L*
+
+*B+Mo: 5 g/L – 10 g/L*
+
+*pH:  7,0 - 9,0*
+
+*Materia insoluble en agua ≤ 50 g/L*",03/jul/25 12:38 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;le aparecen pintitas al añadir las algas,,,Media,China,
+Calidad,ID-117,24415,CALIDAD - RAYKAT BRIX CN F3.8,RAYKAT BRIX CN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,02/jun/25 9:21 AM,04/jul/25 12:00 AM,15/oct/25 1:53 PM,04/jul/25 7:16 AM,"
+
+AÑADIR LAS ALGAS AL FINAL DEL TODO Y ANTES AVISAME Y LO VEMOS JUNTOS.
+
+
+
+Igual que 3.4 pero añadir un 0,1% de xantana con un poco de monopropi para ver si no caen las algas en frío tan rápido.
+
+Adaptación para el mercado China
+
+Con goma xantana se hacen unos puntitos que sin goma no se ven. Así que cambiamos la goma por CMC 12000 que es más estable. Empezar con 0,1% de CMC y ver la viscosidad cómo se queda por si se añade más.
+
+    Modificamos a esto:
+
+*Materia orgánica ≥ 70 g/L*
+
+*N+P*~*2*~*O*~*5*~*+K*~*2*~*O ≥ 130 g/L*
+
+*B+Mo: 5 g/L – 10 g/L*
+
+*pH:  7,0 - 9,0*
+
+*Materia insoluble en agua ≤ 50 g/L*",04/jun/25 4:21 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;le aparecen pintitas al añadir las algas,,,Media,China,
+Calidad,ID-116,24414,CALIDAD - RAYKAT BRIX CN F3.7,RAYKAT BRIX CN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,02/jun/25 9:21 AM,03/jul/25 12:00 AM,15/oct/25 1:53 PM,03/jul/25 11:58 AM,"Igual que 3.4 pero añadir un 0,1% de xantana con un poco de monopropi para ver si no caen las algas en frío tan rápido.
+
+Adaptación para el mercado China
+
+Con goma xantana se hacen unos puntitos que sin goma no se ven. Así que cambiamos la goma por CMC 12000 que es más estable. Empezar con 0,1% de CMC y ver la viscosidad cómo se queda por si se añade más.
+
+    Modificamos a esto:
+
+*Materia orgánica ≥ 70 g/L*
+
+*N+P*~*2*~*O*~*5*~*+K*~*2*~*O ≥ 130 g/L*
+
+*B+Mo: 5 g/L – 10 g/L*
+
+*pH:  7,0 - 9,0*
+
+*Materia insoluble en agua ≤ 50 g/L*",,,,Media,China,
+Calidad,ID-83,22801,CALIDAD - RAYKAT BRIX CN F1,RAYKAT BRIX CN,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,05/may/25 12:02 PM,07/jun/25 12:00 AM,15/oct/25 1:53 PM,04/jul/25 10:21 AM,Adaptación para el mercado China,,,,Alta,China,
+Calidad,ID-123,24584,CALIDAD - ID.2025.56 RAYKAT GOLD SUPREME 2.5 -BRASIL,"RAYKAT GOLD SUPREME 2,5% BRASIL",Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,09/jun/25 12:47 PM,11/jul/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"De Brasil nos piden este ajuste: 
+
+# Magnésio – Garantizamos o teor elementar (Mg) y não o oxidado (MgO). Constava 1,5% de MgO, fiz a conversão para Mg (multiplica por 0,603) = 0,9% de Mg. Porém o mínimo para registro es 1% de Mg, por favor disponible se podemos seguir con o registro de 1% de Mg.",,,,Media,matrisoja,
+Calidad,ID-307,30363,CALIDAD - RAYKAT ROOT ECO + M01 F3,RAYKAT ROOT ECO + M01,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,LIBERADO,28/oct/25 7:44 PM,04/dic/25 12:00 AM,10/feb/26 4:03 PM,10/feb/26 10:58 AM,"Usar antiespumante, pala antiburbujas y CMC.
+
+Se hace version root eco mejorado + hidrolizado microalgas M01 (pedir a Rafa)",12/dic/25 9:49 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Hay que ver la viscosidad con producción y hacer prueba industrial para terminar de validar,,,Media,microalgas,
+Calidad,ID-255,29268,CALIDAD - ID.2025.106 RAYKAT ROOT ECO COREA F2,RAYKAT ROOT ECO COREA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,30/sep/25 9:51 AM,02/nov/25 12:00 AM,10/feb/26 10:54 AM,10/feb/26 10:54 AM,"En la F1 hace un poso que no me gusta, subo xantana, bajo monoeta y añado urea
+
+Repetir pero hacer el proceso de hidratacion de la goma y pasarlo un poco por turrax prque ha hecho bolitas de la goma.
+
+
+
+root eco china para Corea con un 4% de nitrogeno total",,,,Media,,
+Calidad,ID-209,28152,CALIDAD - RAYKAT ROOT ECO COREA F1 R2,RAYKAT ROOT ECO COREA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,26/ago/25 2:41 PM,28/sep/25 12:00 AM,26/nov/25 5:21 PM,30/sep/25 9:48 AM,"Repetir pero hacer el proceso de hidratacion de la goma y pasarlo un poco por turrax prque ha hecho bolitas de la goma.
+
+
+
+root eco china para Corea con un 4% de nitrogeno total",26/ago/25 2:41 PM;712020:ee213c39-fa77-4db1-a980-c37a19aac53b;10/07/2025: ajusto agua al preparar la fórmula para que sea exacta la cantidad y este el 100%,,,Media,,
+Calidad,ID-156,26072,CALIDAD - RAYKAT ROOT ECO COREA F1,RAYKAT ROOT ECO COREA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,03/jul/25 10:33 AM,11/ago/25 12:00 AM,15/oct/25 1:54 PM,26/ago/25 2:41 PM,root eco china para Corea con un 4% de nitrogeno total,10/jul/25 9:20 AM;712020:ee213c39-fa77-4db1-a980-c37a19aac53b;10/07/2025: ajusto agua al preparar la fórmula para que sea exacta la cantidad y este el 100%,,,Media,,
+Calidad,ID-227,28648,CALIDAD - RAYKAT ROOT ECO mejora - CMC F1.3 - 1L - VISCOSIDAD,RAYKAT ROOT ECO MEJORA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,CANCELADO,05/sep/25 6:17 PM,17/oct/25 12:00 AM,22/oct/25 9:15 AM,20/oct/25 10:08 AM,"MEDIR VISCOSIDAD VISCOSIMETRO comparar con RAYKAT ROOT ECO normal de producción
+
+
+
+!imagen-20250917-095911.png|width=672%,alt=""imagen-20250917-095911.png""!
+
+
+
+
+
+La f1.1 solo con CMC hace un poco de separación, le añadimos un poco de xantana para evaluar
+
+Usar antiespumante, pala antiburbujas y CMC: 
+
+Se usan sulfatos y se mejora la fórmula para que no se cuaje asi podemos seguir siendo eco. Añadir 1% monopropi + 0,1 % goma adicionales y evaluar reología, si OK, haremos fórmula definitiva. Si no repetir goma.",,,,Media,,
+Calidad,ID-184,26510,CALIDAD - RAYKAT ROOT ECO mejora - CMC F1.2,RAYKAT ROOT ECO MEJORA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,21/jul/25 2:33 PM,28/ago/25 12:00 AM,15/oct/25 1:58 PM,04/sep/25 10:39 AM,"La f1.1 solo con CMC hace un poco de separación, le añadimos un poco de xantana para evaluar
+
+Usar antiespumante, pala antiburbujas y CMC: 
+
+Se usan sulfatos y se mejora la fórmula para que no se cuaje asi podemos seguir siendo eco. Añadir 1% monopropi + 0,1 % goma adicionales y evaluar reología, si OK, haremos fórmula definitiva. Si no repetir goma.",,,,Media,,
+Calidad,ID-182,26508,CALIDAD - ID.2025.78 RAYKAT ROOT ECO F1.3,RAYKAT ROOT ECO MEJORA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,21/jul/25 1:48 PM,28/ago/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"La f1.1 solo con CMC hace un poco de separación, le añadimos un poco de xantana para evaluar
+
+Usar antiespumante, pala antiburbujas y CMC: 
+
+Se usan sulfatos y se mejora la fórmula para que no se cuaje asi podemos seguir siendo eco. Añadir 1% monopropi + 0,1 % goma adicionales y evaluar reología, si OK, haremos fórmula definitiva. Si no repetir goma.",05/sep/25 6:18 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Se revisa en calidad y hay dudas por si es demasiado espeso,20/oct/25 10:08 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Se plantea una prueba industrial para terminar de valorar el producto y dar Ok definitivo,,Media,mejora,
+Calidad,ID-127,24589,CALIDAD - RAYKAT ROOT ECO mejora - CMC,RAYKAT ROOT ECO MEJORA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,09/jun/25 2:15 PM,18/jul/25 12:00 AM,15/oct/25 1:58 PM,21/jul/25 2:43 PM,"Usar antiespumante, pala antiburbujas y CMC: 
+
+Se usan sulfatos y se mejora la fórmula para que no se cuaje asi podemos seguir siendo eco. Añadir 1% monopropi + 0,1 % goma adicionales y evaluar reología, si OK, haremos fórmula definitiva. Si no repetir goma.",,,,Media,,
+Calidad,ID-331,31085,CALIDAD - RAZORMIN MARRUECOS F5,RAZORMIN MARRUECOS,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,NOK,12/nov/25 10:04 AM,13/dic/25 12:00 AM,23/dic/25 12:33 PM,23/dic/25 12:33 PM,"Se quita monoetanolamina y se sustituye por alantoina y todo sintesis
+
+Con AAV-20 sale mal, precipita mucho.
+
+Sustitucion de hidrolizado animal por vegetal/sintesis",,,,Media,Marruecos,
+Calidad,ID-195,26701,CALIDAD - ID.2025.86 RAZORMIN H F1,RAZORMIN SUST. H,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,28/jul/25 9:47 AM,30/ago/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,se pide sustituir aib por aia y 6ba por kinetina…revisar orden en las hormonas.,,,,Media,Antiñapas,
+Calidad,ID-382,32285,CALIDAD - RAYKAT BRIX  mejorada F5.2.1, RBRIX MEJORADA,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,NOK,04/dic/25 12:22 PM,10/ene/26 12:00 AM,18/dic/25 11:07 AM,18/dic/25 11:07 AM,"{{2025-12-04}} 
+
+Hay una predisolucion de agua, carbonato potasico y alantoina. Hacerla lo primero para ver si se queda transparente. Si es que si, se sigue adelante con el resto de la formula y se añade la predisolucion de alantoina donde esta puesta en la formula. MEDIR EL PH en ese momento a ver como se queda y ver si la formula no se hace lechosa ni pasa nada raro.
+
+----
+
+
+
+Hacer lo normal para calidad + 1L adicional para meter tal cual
+
+
+
+
+
+Se forma un precipitado con el tiempo en producción que el lab es dificil de observar pero vamos a tratar de mejorar la fórmula para que sea menos reactiva.","04/dic/25 12:22 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;la alantoina no es soluble en % mayor a 0,5% en agua y por eso puede dar problemas",18/dic/25 11:07 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;se forma un precipitado duro,,Media,mejora,
+Calidad,ID-296,29874,CALIDAD - RAYKAT BRIX  mejorada F5.3, RBRIX MEJORADA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,21/oct/25 4:03 PM,23/nov/25 12:00 AM,01/dic/25 10:18 AM,01/dic/25 10:16 AM,"Hacer lo normal para calidad + 1L adicional para meter tal cual
+
+
+
+
+
+Se forma un precipitado con el tiempo en producción que el lab es dificil de observar pero vamos a tratar de mejorar la fórmula para que sea menos reactiva.","01/dic/25 10:18 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;muy pastoso en calor en el fondo, hay mucho poso blando…seguramente la monoetanolamina",,,Media,mejora,
+Calidad,ID-295,29873,CALIDAD - RAYKAT BRIX  mejorada F5.2, RBRIX MEJORADA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,21/oct/25 4:03 PM,23/nov/25 12:00 AM,10/feb/26 10:58 AM,10/feb/26 10:58 AM,"Hacer lo normal para calidad + 1L adicional para meter tal cual
+
+
+
+
+
+Se forma un precipitado con el tiempo en producción que el lab es dificil de observar pero vamos a tratar de mejorar la fórmula para que sea menos reactiva.","24/oct/25 1:45 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;la alantoina no es soluble en % mayor a 0,5% en agua y por eso puede dar problemas",,,Media,mejora,
+Calidad,ID-193,26698,CALIDAD - ID.2025.83 RAYKAT BRIX  mejorada F5.1-BIOATLANTIS, RBRIX MEJORADA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,28/jul/25 9:42 AM,01/sep/25 12:00 AM,10/feb/26 10:54 AM,10/feb/26 10:54 AM,"Hacer lo normal para calidad + 1L adicional para meter tal cual
+
+
+
+
+
+Se forma un precipitado con el tiempo en producción que el lab es dificil de observar pero vamos a tratar de mejorar la fórmula para que sea menos reactiva.",30/jul/25 1:42 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;salen unos puntos raros. Repetimos en pequeño y la muestra se ve bien. Mañana va a volver a hacerla Mangeles para ver si salen los puntos o no.,,,Media,mejora,
+Calidad,ID-258,29271,CALIDAD - RENRAIZADOR MARRUECOS F1,RENRAIZADOR MARRUECOS,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,30/sep/25 9:53 AM,03/nov/25 12:00 AM,03/nov/25 4:20 PM,03/nov/25 2:15 PM,sustitucion de hidrolizado animal por vegetal/sintesis,,,,Media,Marruecos,
+Calidad,ID-489,38396,MUESTRA - Salsalt Arabia F8, SALSALT ARABIA,MªAngeles Roque,712020:ee213c39-fa77-4db1-a980-c37a19aac53b,OK NO LIBERADO,09/feb/26 8:22 AM,10/mar/26 12:00 AM,10/feb/26 11:01 AM,10/feb/26 11:01 AM,"1L de Muestra para analisis CALIDAD
+
+si no tenemos densidad contar 1.5 g/ml
+
+----
+
+Con ligno de calcio para mejorar compatibilidad
+
+quitar nitrato de la fórmula. Confirmar que con cloruro es viable. Igual se forma un poco de poso blanco del cloruro en polvo.
+
+Usamos cloruro calcio líquido de produccion y varios % de formiato para ver cual es soluble. Abarato esta versión todo lo posible.",,,,Máxima,,
+Calidad,ID-159,26077,CALIDAD - Salsalt Arabia F3 - 1L, SALSALT ARABIA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,CANCELADO,03/jul/25 12:37 PM,07/ago/25 12:00 AM,22/oct/25 9:15 AM,28/jul/25 10:05 AM,"1L para validar en calidad
+
+quitar nitrato de la fórmula. Confirmar que con cloruro es viable. Igual se forma un poco de poso blanco del cloruro en polvo.
+
+Usamos cloruro calcio líquido de produccion y varios % de formiato para ver cual es soluble",,,,Media,,
+Calidad,ID-149,25148,CALIDAD - SALSALT ARABIA F8, SALSALT ARABIA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,LIBERADO,25/jun/25 2:26 PM,27/jul/25 12:00 AM,10/feb/26 10:57 AM,10/feb/26 10:57 AM,"
+
+Con ligno de calcio para mejorar compatibilidad
+
+quitar nitrato de la fórmula. Confirmar que con cloruro es viable. Igual se forma un poco de poso blanco del cloruro en polvo.
+
+Usamos cloruro calcio líquido de produccion y varios % de formiato para ver cual es soluble. Abarato esta versión todo lo posible.",,,,Máxima,,
+Calidad,ID-128,24609,CALIDAD - Salsalt Arabia F7, SALSALT ARABIA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,OK NO LIBERADO,10/jun/25 10:23 AM,11/jul/25 12:00 AM,15/oct/25 1:59 PM,17/jul/25 9:39 AM,"Se modifica añadiendo melaza para oscurecer el producto.
+
+quitar nitrato de la fórmula. Confirmar que con cloruro es viable. Igual se forma un poco de poso blanco del cloruro en polvo.
+
+Usamos cloruro calcio líquido de produccion y varios % de formiato para ver cual es soluble. Abarato esta versión todo lo posible.",,,,Máxima,,
+Calidad,ID-105,24235,CALIDAD - Salsalt Arabia F6, SALSALT ARABIA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,26/may/25 4:21 PM,27/jun/25 12:00 AM,15/oct/25 1:59 PM,03/jul/25 11:57 AM,"quitar nitrato de la fórmula. Confirmar que con cloruro es viable. Igual se forma un poco de poso blanco del cloruro en polvo.
+
+Usamos cloruro calcio líquido de produccion y varios % de formiato para ver cual es soluble. Abarato esta versión todo lo posible.",,,,Media,,
+Calidad,ID-104,24231,CALIDAD - Salsalt Arabia F3, SALSALT ARABIA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,NOK,26/may/25 2:11 PM,26/jun/25 12:00 AM,15/oct/25 1:59 PM,03/jul/25 12:38 PM,"quitar nitrato de la fórmula. Confirmar que con cloruro es viable. Igual se forma un poco de poso blanco del cloruro en polvo.
+
+Usamos cloruro calcio líquido de produccion y varios % de formiato para ver cual es soluble",,,,Media,,
+Calidad,ID-98,24152,CALIDAD- Salsalt Arabia F4, SALSALT ARABIA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,CANCELADO,22/may/25 11:52 AM,,22/oct/25 9:15 AM,26/may/25 3:54 PM,"quitar nitrato de la fórmula. Confirmar que con cloruro es viable. Igual se forma un poco de poso blanco del cloruro en polvo.
+
+Usamos cloruro calcio líquido de produccion y varios % de formiato para ver cual es soluble",,,,Media,,
+Calidad,ID-97,24151,CALIDAD- Salsalt Arabia F5, SALSALT ARABIA,Iván Navarro,712020:d8d35c01-546b-498f-aa7f-dbe2c966820c,CANCELADO,22/may/25 11:51 AM,,22/oct/25 9:17 AM,26/may/25 8:36 AM,"quitar nitrato de la fórmula. Confirmar que con cloruro es viable. Igual se forma un poco de poso blanco del cloruro en polvo.
+
+Usamos cloruro calcio líquido de produccion y varios % de formiato para ver cual es soluble",,,,Media,,
