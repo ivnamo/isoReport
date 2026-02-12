@@ -10,16 +10,32 @@ Aplicación Streamlit para:
 
 ### Requisitos
 
-```bash
+Se usa un entorno virtual en `venv/`. La primera vez (o si no existe el venv):
+
+```powershell
+cd isoReport
+python -m venv venv
+.\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
 ### Ejecución
 
-Desde este directorio:
+**Opción rápida (doble clic):** ejecutar `run_streamlit.bat`. Usa el venv si existe.
 
-```bash
+**Desde terminal** (con el venv activado):
+
+```powershell
+cd isoReport
+.\venv\Scripts\Activate.ps1   # activar entorno
 streamlit run app.py
+```
+
+Sin venv (Python global):
+
+```powershell
+streamlit run app.py
+# o: & "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe" -m streamlit run app.py
 ```
 
 ### Flujo básico
