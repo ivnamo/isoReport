@@ -11,6 +11,18 @@ from pathlib import Path
 
 import streamlit as st
 
+# #region agent log
+DEBUG_LOG_PATH = r"c:\Users\IVANNAVARRO\OneDrive - ATLANTICA AGRICOLA\Escritorio\Repos\.cursor\debug.log"
+def _log(msg: str, data: dict | None = None, hypothesis_id: str = ""):
+    try:
+        import time
+        line = json.dumps({"timestamp": int(time.time() * 1000), "location": "app.py", "message": msg, "data": data or {}, "hypothesisId": hypothesis_id}) + "\n"
+        with open(DEBUG_LOG_PATH, "a", encoding="utf-8") as f:
+            f.write(line)
+    except Exception:
+        pass
+# #endregion
+
 from iso_reports.data_loading import load_table
 from iso_reports.editor_data import (
     DEFAULT_JSON_PATH,
@@ -126,20 +138,45 @@ def _run_generar() -> None:
 
 
 def _run_editar() -> None:
+    # #region agent log
+    _run_count = st.session_state.get("_debug_run_count", 0) + 1
+    st.session_state["_debug_run_count"] = _run_count
+    _log("_run_editar entry", {"run_count": _run_count, "has_solicitudes_data": st.session_state.get("solicitudes_data") is not None, "solicitudes_len": len(st.session_state.get("solicitudes_data") or [])}, "H4")
+    # #endregion
     st.title("Editar solicitudes ISO")
     path = Path(st.session_state.get("editor_json_path", DEFAULT_JSON_PATH))
 
     # Importar / Exportar
     with st.sidebar.expander("Importar / Exportar"):
         import_file = st.file_uploader("Importar JSON", type=["json"], key="editor_import")
+        # #region agent log
+        _log("after file_uploader", {"import_file_is_none": import_file is None}, "H1")
+        # #endregion
         if import_file is not None:
-            try:
-                raw = json.load(import_file)
-                st.session_state["solicitudes_data"] = raw_to_solicitudes(raw)
-                st.success("JSON importado.")
-                st.rerun()
-            except Exception as e:
-                st.error(f"Error al importar: {e}")
+            # Evitar bucle: tras st.rerun() el file_uploader sigue con el mismo archivo; no reprocesar.
+            _file_key = (import_file.name, getattr(import_file, "size", 0))
+            if st.session_state.get("_last_import_file_key") == _file_key:
+                # Ya importamos este archivo en el run anterior; no volver a cargar ni rerun.
+                pass
+            else:
+                # #region agent log
+                _log("import block entered", {"run_count": _run_count}, "H1")
+                # #endregion
+                try:
+                    raw = json.load(import_file)
+                    solicitudes = raw_to_solicitudes(raw)
+                    st.session_state["solicitudes_data"] = solicitudes
+                    st.session_state["_last_import_file_key"] = _file_key
+                    # #region agent log
+                    _log("import success, about to rerun", {"solicitudes_len": len(solicitudes)}, "H1")
+                    # #endregion
+                    st.success("JSON importado.")
+                    st.rerun()
+                except Exception as e:
+                    # #region agent log
+                    _log("import exception", {"error": str(e), "type": type(e).__name__}, "H2")
+                    # #endregion
+                    st.error(f"Error al importar: {e}")
 
     # Cargar datos: sesión o disco
     solicitudes = st.session_state.get("solicitudes_data")
@@ -152,9 +189,15 @@ def _run_editar() -> None:
             return
 
     if not solicitudes:
+        # #region agent log
+        _log("no solicitudes, returning", {"solicitudes": solicitudes}, "H4")
+        # #endregion
         st.info("No hay solicitudes cargadas. Importa un JSON (sidebar) o genera primero en el modo «Generar JSON».")
         return
 
+    # #region agent log
+    _log("have solicitudes, rendering list", {"len": len(solicitudes)}, "H4")
+    # #endregion
     # Exportar JSON
     raw_export = solicitudes_to_raw(solicitudes)
     export_str = json.dumps(raw_export, ensure_ascii=False, indent=2)
