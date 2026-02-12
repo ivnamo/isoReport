@@ -1,27 +1,30 @@
+"""
+Carga de archivos para Paso 1: listado Jira ISO y BBDD_Sesion-PT-INAVARRO.
+
+Acepta CSV (cualquier delimitador) y Excel (.xlsx, .xls).
+"""
+
 from __future__ import annotations
 
 import csv
 import io
-from typing import Optional
+from typing import Union
 
 import pandas as pd
 
 
 def _detect_delimiter(sample: bytes) -> str:
-    """Intenta detectar el delimitador de un CSV a partir de una muestra."""
+    """Detecta el delimitador de un CSV a partir de una muestra."""
     try:
         sniffer = csv.Sniffer()
         dialect = sniffer.sniff(sample.decode("utf-8", errors="ignore"))
         return dialect.delimiter
     except Exception:
-        return ";"  # valor por defecto razonable
+        return ";"
 
 
-def read_csv_flexible(file_obj) -> pd.DataFrame:
-    """
-    Lee un CSV tolerante a delimitadores desconocidos.
-    Acepta tanto UploadedFile de Streamlit como rutas locales.
-    """
+def _read_csv(file_obj) -> pd.DataFrame:
+    """Lee un CSV (delimitador auto-detectado). Acepta UploadedFile o ruta."""
     if hasattr(file_obj, "read"):
         raw = file_obj.read()
         buffer = io.BytesIO(raw)
@@ -33,42 +36,26 @@ def read_csv_flexible(file_obj) -> pd.DataFrame:
         sample = raw[:2048]
 
     delimiter = _detect_delimiter(sample)
+    buffer.seek(0)
     df = pd.read_csv(buffer, sep=delimiter, engine="python")
     df.columns = [str(c).strip() for c in df.columns]
     return df
 
 
-def load_solicitudes_excel(file_obj, sheet_name: Optional[str | int] = 0) -> pd.DataFrame:
-    """
-    Carga el Excel de Solicitudes 2025.
-
-    No fuerza nombres de columnas concretos: simplemente limpia espacios.
-    """
+def _read_excel(file_obj, sheet_name: Union[str, int] = 0) -> pd.DataFrame:
+    """Lee la primera hoja de un Excel."""
     df = pd.read_excel(file_obj, sheet_name=sheet_name, engine="openpyxl")
     df.columns = [str(c).strip() for c in df.columns]
     return df
 
 
-def load_bbdd_csv(file_obj) -> pd.DataFrame:
+def load_table(file_obj) -> pd.DataFrame:
     """
-    Carga una BBDD F10-02 exportada (CSV).
-    Mantiene las columnas existentes y no aplica lógica adicional.
+    Carga una tabla desde CSV o Excel (listado Jira o BBDD).
+    - CSV: .csv (delimitador auto)
+    - Excel: .xlsx, .xls
     """
-    return read_csv_flexible(file_obj)
-
-
-def load_jira_export(file_obj) -> pd.DataFrame:
-    """
-    Carga la exportación de Jira (normalmente CSV).
-    """
-    # Permitimos también Excel, por si en el futuro lo usas así.
-    name = getattr(file_obj, "name", "")
-    if name.lower().endswith((".xlsx", ".xls")):
-        df = pd.read_excel(file_obj, sheet_name=0, engine="openpyxl")
-    else:
-        df = read_csv_flexible(file_obj)
-
-    df.columns = [str(c).strip() for c in df.columns]
-    return df
-
-
+    name = getattr(file_obj, "name", "").lower()
+    if name.endswith((".xlsx", ".xls")):
+        return _read_excel(file_obj)
+    return _read_csv(file_obj)
