@@ -13,7 +13,7 @@ import streamlit as st
 
 from iso_reports.data_loading import load_table
 from iso_reports.paso1 import Paso1Error, build_all_paso1
-from iso_reports.paso2 import Paso2Error, build_all_paso2_1
+from iso_reports.paso2 import Paso2Error, build_all_paso2_1, enrich_paso2_2
 
 
 def main() -> None:
@@ -21,10 +21,10 @@ def main() -> None:
         page_title="ISO Report · Paso 1",
         layout="wide",
     )
-    st.title("Paso 1 + Paso 2.1 — Cabecera y Ensayos")
+    st.title("Paso 1 + Paso 2.1 + Paso 2.2 — Cabecera, Ensayos y Fórmulas")
 
     st.markdown(
-        "Sube los dos archivos para generar **Paso 1** (cabecera) y **Paso 2.1** (ensayos/formulaciones por producto). "
+        "Sube los dos archivos para generar **Paso 1** (cabecera), **Paso 2.1** (ensayos por producto) y **Paso 2.2** (fórmula y motivo/comentario desde BBDD). "
         "No se generan Excel ni documentos finales."
     )
 
@@ -56,12 +56,13 @@ def main() -> None:
         st.error(f"Error al cargar archivos: {exc}")
         return
 
-    if st.button("Generar Paso 1 + Paso 2.1", type="primary"):
+    if st.button("Generar Paso 1 + Paso 2.1 + Paso 2.2", type="primary"):
         try:
             resultado = build_all_paso1(df_jira, df_bbdd)
             paso_1_lista = resultado["paso_1"]
             paso2_lista = build_all_paso2_1(df_jira, paso_1_lista)
-            # paso_2 con referencias explícitas a la solicitud para unir sin depender del índice
+            paso2_lista = enrich_paso2_2(paso2_lista, df_bbdd)
+            # paso_2 con referencias explícitas a la solicitud y ensayos enriquecidos con fórmula/motivo
             resultado["paso_2"] = [
                 {
                     "numero_solicitud": b["numero_solicitud"],
@@ -82,7 +83,7 @@ def main() -> None:
             return
 
         n = len(resultado["paso_1"])
-        st.success(f"Generado correctamente: {n} solicitud(es) con Paso 1 y Paso 2.1.")
+        st.success(f"Generado correctamente: {n} solicitud(es) con Paso 1, Paso 2.1 y Paso 2.2.")
         # Advertencias si alguna solicitud no tiene ensayos
         for i, b in enumerate(paso2_lista):
             if b.get("advertencia_sin_ensayos"):
@@ -98,7 +99,7 @@ def main() -> None:
         st.download_button(
             "Descargar JSON",
             data=json_str,
-            file_name="paso_1_y_paso_2_1.json",
+            file_name="paso_1_paso_2_1_paso_2_2.json",
             mime="application/json",
         )
 
