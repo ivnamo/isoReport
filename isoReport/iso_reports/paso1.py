@@ -24,6 +24,13 @@ BBDD_COLUMN_RESPONSABLE = "Responsable"
 BBDD_COLUMN_TIPO = "Tipo"
 BBDD_COLUMNS_REQUIRED = [BBDD_COLUMN_NUMERO_SOLICITUD, BBDD_COLUMN_PRODUCTO_BASE, BBDD_COLUMN_DESCRIPCION]
 
+# Para el flujo "from_master" no se usa Nº Solicitud; solo estas columnas para cabecera y joins
+BBDD_COLUMNS_REQUIRED_FOR_MASTER = [
+    BBDD_COLUMN_PRODUCTO_BASE,
+    BBDD_COLUMN_DESCRIPCION,
+    BBDD_COLUMN_ID_ENSAYO,
+]
+
 # Columnas del listado maestro Solicitudes 2025.xlsx
 SOLICITUDES2025_COL_NUMERO_ALIAS = ["Nº Solicitud", "Nº solicitud"]
 SOLICITUDES2025_COL_NUMERO = "Nº Solicitud"
@@ -94,6 +101,18 @@ def _validate_bbdd_columns(df: pd.DataFrame) -> None:
     if missing:
         raise Paso1Error(
             f"En el archivo 'BBDD_Sesion-PT-INAVARRO' faltan las columnas requeridas: {', '.join(missing)}."
+        )
+
+
+def _validate_bbdd_columns_for_master(df: pd.DataFrame) -> None:
+    """
+    Valida BBDD para el flujo desde Solicitudes 2025 (build_all_paso1_from_master).
+    No exige Nº Solicitud; solo Producto base, Descripción diseño e ID ensayo (joins por Clave=ID y fallback NOMBRE=Producto base).
+    """
+    missing = [c for c in BBDD_COLUMNS_REQUIRED_FOR_MASTER if c not in df.columns]
+    if missing:
+        raise Paso1Error(
+            f"En el archivo 'BBDD_Sesion-PT-INAVARRO' faltan las columnas requeridas para este flujo: {', '.join(missing)}."
         )
 
 
@@ -382,7 +401,7 @@ def build_all_paso1_from_master(
     if not df_jira.empty:
         _validate_jira_columns(df_jira)
     if not df_bbdd.empty:
-        _validate_bbdd_columns(df_bbdd)
+        _validate_bbdd_columns_for_master(df_bbdd)
 
     col_proyecto = _find_column(df_jira, JIRA_PROYECTO_ALIAS) if not df_jira.empty else None
     rows_master = _iter_solicitudes2025_rows(df_solicitudes2025)
