@@ -36,6 +36,7 @@ from iso_reports.editor_ui import (
     render_listado_solicitudes,
     render_panel_ensayo,
     render_tabla_ensayos_flat,
+    render_vista_pendientes_formula,
 )
 from iso_reports.paso1 import Paso1Error, build_all_paso1_from_master
 from iso_reports.paso2 import Paso2Error, build_all_paso2_1, enrich_paso2_2
@@ -48,6 +49,7 @@ def _init_session_state() -> None:
         "editor_solicitud_idx": None,
         "editor_ensayo_idx": None,
         "editor_json_path": DEFAULT_JSON_PATH,
+        "editor_subview": "pendientes",
     }
     for k, v in defaults.items():
         if k not in st.session_state:
@@ -213,7 +215,68 @@ def _run_editar() -> None:
     # #region agent log
     _log("have solicitudes, rendering list", {"len": len(solicitudes)}, "H4")
     # #endregion
-    # Exportar JSON
+
+    # Selector de vista: Pendientes de fórmula | Por solicitud
+    subview = st.radio(
+        "Vista del editor",
+        ("Rellenar fórmulas (pendientes)", "Por solicitud"),
+        index=0 if st.session_state.get("editor_subview") == "pendientes" else 1,
+        key="editor_subview_radio",
+        horizontal=True,
+    )
+    st.session_state["editor_subview"] = "pendientes" if subview == "Rellenar fórmulas (pendientes)" else "solicitud"
+
+    if st.session_state["editor_subview"] == "pendientes":
+        def _get_on_save(sol_idx: int, ens_idx: int):
+            def _save(ensayo_updated: dict) -> None:
+                solicitudes[sol_idx]["paso_2"]["ensayos"][ens_idx] = ensayo_updated
+                st.session_state["solicitudes_data"] = solicitudes
+                try:
+                    save_solicitudes_json(path, solicitudes)
+                    st.success("Cambios guardados en disco.")
+                except Exception as e:
+                    st.error(f"Error al guardar: {e}")
+                st.rerun()
+            return _save
+
+        def _get_on_apply_paste(sol_idx: int, ens_idx: int):
+            def _apply(formula_list: list) -> None:
+                solicitudes[sol_idx]["paso_2"]["ensayos"][ens_idx]["formula"] = formula_list
+                st.session_state["solicitudes_data"] = solicitudes
+                st.rerun()
+            return _apply
+
+        def _on_revert() -> None:
+            if path.exists():
+                try:
+                    loaded = load_solicitudes_json(path)
+                    st.session_state["solicitudes_data"] = loaded
+                    st.info("Cambios revertidos; recargado desde disco.")
+                except Exception as e:
+                    st.error(f"Error al recargar: {e}")
+            st.rerun()
+
+        def _on_switch_to_solicitud() -> None:
+            st.session_state["editor_subview"] = "solicitud"
+            st.rerun()
+
+        st.download_button(
+            "Exportar JSON",
+            data=json.dumps(solicitudes_to_raw(solicitudes), ensure_ascii=False, indent=2),
+            file_name="solicitudes_iso.json",
+            mime="application/json",
+            key="editor_export_pendientes",
+        )
+        render_vista_pendientes_formula(
+            solicitudes,
+            get_on_save=_get_on_save,
+            get_on_apply_paste=_get_on_apply_paste,
+            on_revert=_on_revert,
+            on_switch_to_solicitud=_on_switch_to_solicitud,
+        )
+        return
+
+    # Vista "Por solicitud": flujo actual
     raw_export = solicitudes_to_raw(solicitudes)
     export_str = json.dumps(raw_export, ensure_ascii=False, indent=2)
     st.download_button(
@@ -272,6 +335,8 @@ def _run_editar() -> None:
         solicitudes[sel_idx]["paso_2"]["ensayos"][ensayo_idx]["formula"] = formula_list
         st.session_state["solicitudes_data"] = solicitudes
 
+    formula_list, _ = (ensayo.get("formula") or [], ensayo.get("motivo_comentario") or "")
+    paste_expanded = not (formula_list and len(formula_list) > 0)
     render_panel_ensayo(
         ensayo,
         sel_idx,
@@ -279,6 +344,7 @@ def _run_editar() -> None:
         on_save=on_save,
         on_revert=on_revert,
         on_apply_paste=on_apply_paste,
+        paste_expanded=paste_expanded,
     )
 
 

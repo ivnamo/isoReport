@@ -33,6 +33,29 @@ def _get_ensayo_safe(ensayo: Dict[str, Any]) -> tuple[List[Dict[str, Any]], str]
     return formula, str(motivo)
 
 
+def build_ensayos_sin_formula(solicitudes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    Devuelve lista de ensayos que no tienen fórmula (o está vacía), para la vista "Pendientes de fórmula".
+    Cada elemento: solicitud_idx, ensayo_idx, ensayo, numero_solicitud (para cabecera).
+    """
+    result: List[Dict[str, Any]] = []
+    for sol_idx, s in enumerate(solicitudes):
+        p1 = s.get("paso_1") or {}
+        p2 = s.get("paso_2") or {}
+        ensayos = p2.get("ensayos") or []
+        num_sol = p1.get("numero_solicitud", "?")
+        for ens_idx, e in enumerate(ensayos):
+            formula, _ = _get_ensayo_safe(e)
+            if not (formula and len(formula) > 0):
+                result.append({
+                    "solicitud_idx": sol_idx,
+                    "ensayo_idx": ens_idx,
+                    "ensayo": e,
+                    "numero_solicitud": num_sol,
+                })
+    return result
+
+
 def build_tabla_ensayos_flat(solicitudes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
     Construye una lista plana de filas (una por ensayo) con columnas para vista general.
@@ -217,11 +240,13 @@ def render_panel_ensayo(
     on_save: Callable[[Dict[str, Any]], None],
     on_revert: Callable[[], None],
     on_apply_paste: Callable[[List[Dict[str, Any]]], None] | None = None,
+    paste_expanded: bool = False,
 ) -> None:
     """
     Renderiza el panel de detalle del ensayo: resumen (solo lectura), tabla fórmula,
     textarea motivo, botones Guardar / Revertir / Pegar fórmula / Copiar fórmula.
     on_save(ensayo_updated) y on_revert() son llamados al pulsar los botones.
+    paste_expanded: si True, el expander "Pegar fórmula" va abierto por defecto.
     """
     st.subheader("Resumen del ensayo (solo lectura)")
     st.write("**ID:**", ensayo.get("id", ""))
@@ -234,7 +259,7 @@ def render_panel_ensayo(
 
     # Bloque fórmula
     st.subheader("Fórmula")
-    with st.expander("Pegar fórmula", expanded=False):
+    with st.expander("Pegar fórmula", expanded=paste_expanded):
         paste_area = st.text_area(
             "Pega líneas con Materia prima y % peso (separados por TAB o ;)",
             height=120,
@@ -304,3 +329,43 @@ def render_panel_ensayo(
         if tsv:
             st.code(tsv, language=None)
             st.caption("Copia el contenido anterior al portapapeles (Ctrl+C) para pegarlo en Excel.")
+
+
+def render_vista_pendientes_formula(
+    solicitudes: List[Dict[str, Any]],
+    get_on_save: Callable[[int, int], Callable[[Dict[str, Any]], None]],
+    get_on_apply_paste: Callable[[int, int], Callable[[List[Dict[str, Any]]], None]],
+    on_revert: Callable[[], None],
+    on_switch_to_solicitud: Callable[[], None] | None = None,
+) -> None:
+    """
+    Muestra de golpe todos los ensayos sin fórmula, cada uno con su bloque completo
+    (resumen, Pegar fórmula desplegado, motivo, Guardar). Para cada card se usan
+    get_on_save(sol_idx, ens_idx) y get_on_apply_paste(sol_idx, ens_idx) para obtener los callbacks.
+    """
+    pendientes = build_ensayos_sin_formula(solicitudes)
+    if not pendientes:
+        st.info("No hay ensayos pendientes de fórmula.")
+        if on_switch_to_solicitud and st.button("Ir a vista por solicitud", key="editor_switch_to_solicitud"):
+            on_switch_to_solicitud()
+        return
+
+    st.caption(f"Ensayos sin fórmula: {len(pendientes)}. Rellena y guarda cada uno.")
+    for i, item in enumerate(pendientes):
+        sol_idx = item["solicitud_idx"]
+        ens_idx = item["ensayo_idx"]
+        ensayo = item["ensayo"]
+        num_sol = item["numero_solicitud"]
+        id_ensayo = ensayo.get("id", "")
+        if i > 0:
+            st.divider()
+        st.subheader(f"Solicitud {num_sol} · {id_ensayo}")
+        render_panel_ensayo(
+            ensayo,
+            sol_idx,
+            ens_idx,
+            on_save=get_on_save(sol_idx, ens_idx),
+            on_revert=on_revert,
+            on_apply_paste=get_on_apply_paste(sol_idx, ens_idx),
+            paste_expanded=True,
+        )
