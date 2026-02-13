@@ -37,7 +37,7 @@ from iso_reports.editor_ui import (
     render_panel_ensayo,
     render_tabla_ensayos_flat,
 )
-from iso_reports.paso1 import Paso1Error, build_all_paso1
+from iso_reports.paso1 import Paso1Error, build_all_paso1_from_master
 from iso_reports.paso2 import Paso2Error, build_all_paso2_1, enrich_paso2_2
 
 
@@ -57,30 +57,37 @@ def _init_session_state() -> None:
 def _run_generar() -> None:
     st.title("Paso 1 + Paso 2.1 + Paso 2.2 — Cabecera, Ensayos y Fórmulas")
     st.markdown(
-        "Sube los dos archivos para generar **Paso 1** (cabecera), **Paso 2.1** (ensayos por producto) y **Paso 2.2** (fórmula y motivo/comentario desde BBDD). "
+        "Sube los **tres** archivos para generar **Paso 1** (cabecera desde listado maestro), **Paso 2.1** (ensayos por producto) y **Paso 2.2** (fórmula y motivo/comentario desde BBDD). "
         "No se generan Excel ni documentos finales."
     )
     col1, col2 = st.columns(2)
     with col1:
+        solicitudes2025_file = st.file_uploader(
+            "1) Solicitudes 2025 (listado maestro)",
+            type=["xlsx", "xls"],
+            key="solicitudes_2025",
+            help="Excel con columnas Nº Solicitud, SOLICITANTE y NOMBRE (listado maestro de solicitudes)",
+        )
         jira_file = st.file_uploader(
-            "1) Listado Jira ISO",
+            "2) Listado Jira ISO",
             type=["csv", "xlsx", "xls"],
             key="listado_jira",
             help="Tabla con columnas: Persona asignada, ProyectoID, Clave de incidencia",
         )
     with col2:
         bbdd_file = st.file_uploader(
-            "2) BBDD_Sesion-PT-INAVARRO",
+            "3) BBDD_Sesion-PT-INAVARRO",
             type=["csv", "xlsx", "xls"],
             key="bbdd_sesion",
             help="Tabla con columna 'Descripción diseño' y referencia a ID ensayo",
         )
 
-    if not jira_file or not bbdd_file:
-        st.info("Sube ambos archivos para continuar.")
+    if not solicitudes2025_file or not jira_file or not bbdd_file:
+        st.info("Sube los tres archivos para continuar.")
         return
 
     try:
+        df_solicitudes2025 = load_table(solicitudes2025_file)
         df_jira = load_table(jira_file)
         df_bbdd = load_table(bbdd_file)
     except Exception as exc:
@@ -89,7 +96,7 @@ def _run_generar() -> None:
 
     if st.button("Generar Paso 1 + Paso 2.1 + Paso 2.2", type="primary"):
         try:
-            resultado = build_all_paso1(df_jira, df_bbdd)
+            resultado = build_all_paso1_from_master(df_solicitudes2025, df_jira, df_bbdd)
             paso_1_lista = resultado["paso_1"]
             paso2_lista = build_all_paso2_1(df_jira, paso_1_lista)
             paso2_lista = enrich_paso2_2(paso2_lista, df_bbdd)
@@ -119,7 +126,7 @@ def _run_generar() -> None:
                 p = paso_1_lista[i]
                 st.warning(
                     f"No hay filas en 'listado jira iso' con ProyectoID igual al producto de la solicitud "
-                    f"nº {p.get('numero_solicitud', i+1)} (producto: «{p.get('producto_base_linea', '')}»)."
+                    f"nº {p.get('numero_solicitud', i+1)!s} (producto: «{p.get('producto_base_linea', '')}»)."
                 )
         st.subheader("Salida (JSON)")
         st.json(resultado)

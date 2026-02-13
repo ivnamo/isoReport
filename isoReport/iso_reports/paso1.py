@@ -24,6 +24,12 @@ BBDD_COLUMN_RESPONSABLE = "Responsable"
 BBDD_COLUMN_TIPO = "Tipo"
 BBDD_COLUMNS_REQUIRED = [BBDD_COLUMN_NUMERO_SOLICITUD, BBDD_COLUMN_PRODUCTO_BASE, BBDD_COLUMN_DESCRIPCION]
 
+# Columnas del listado maestro Solicitudes 2025.xlsx
+SOLICITUDES2025_COL_NUMERO_ALIAS = ["Nº Solicitud", "Nº solicitud"]
+SOLICITUDES2025_COL_NUMERO = "Nº Solicitud"
+SOLICITUDES2025_COL_SOLICITANTE = "SOLICITANTE"
+SOLICITUDES2025_COL_NOMBRE = "NOMBRE"
+
 # Detecta ID de ensayo en texto (ID-6, ID - 6, Ensayo 6, etc.)
 ID_ENSAYO_REGEX = re.compile(
     r"ID\s*-\s*(\d+)|ID-(\d+)|Ensayo\s*(\d+)",
@@ -155,6 +161,53 @@ def _first_jira_row_for_producto(
     return df_jira[mask].iloc[0]
 
 
+def _validate_solicitudes2025_columns(df: pd.DataFrame) -> str:
+    """
+    Comprueba que el Excel Solicitudes 2025 tenga al menos Nº Solicitud y NOMBRE.
+    SOLICITANTE es opcional (si falta, se usará "interno" por defecto).
+    Devuelve el nombre de la columna usada para Nº Solicitud. Lanza Paso1Error si falta obligatoria.
+    """
+    col_num = _find_column(df, SOLICITUDES2025_COL_NUMERO_ALIAS)
+    if col_num is None:
+        raise Paso1Error(
+            "En el archivo 'Solicitudes 2025' falta la columna 'Nº Solicitud' (o 'Nº solicitud')."
+        )
+    if SOLICITUDES2025_COL_NOMBRE not in df.columns:
+        raise Paso1Error(
+            "En el archivo 'Solicitudes 2025' falta la columna 'NOMBRE'."
+        )
+    return col_num
+
+
+def _sort_key_numero_solicitud(value: Any) -> tuple:
+    """Clave de ordenación: numéricos primero (por valor), luego no numéricos (orden estable)."""
+    try:
+        s = str(value).strip() if value is not None and not (isinstance(value, float) and pd.isna(value)) else ""
+        if not s:
+            return (float("inf"), "")
+        n = int(float(s))
+        return (n, s)
+    except (ValueError, TypeError):
+        return (float("inf"), str(value) if value is not None else "")
+
+
+def _iter_solicitudes2025_rows(df: pd.DataFrame) -> List[pd.Series]:
+    """
+    Devuelve la lista de filas del Excel Solicitudes 2025 ordenada:
+    numéricos 1..N primero, luego no numéricos (p. ej. "01/2025"), orden estable.
+    """
+    col_num = _find_column(df, SOLICITUDES2025_COL_NUMERO_ALIAS)
+    if col_num is None:
+        return []
+    df = df.copy()
+    df["_sort_key"] = df[col_num].apply(
+        lambda v: _sort_key_numero_solicitud(v)
+        if pd.notna(v) and str(v).strip() else (float("inf"), "")
+    )
+    df = df.sort_values(by="_sort_key", kind="stable")
+    return [df.loc[i] for i in df.index]
+
+
 def _unique_numero_solicitud_sorted(series: pd.Series) -> List[Any]:
     """Devuelve valores únicos de Nº Solicitud ordenados (numéricamente si es posible)."""
     uniq = series.dropna().unique().tolist()
@@ -251,6 +304,99 @@ def build_all_paso1(
                 numero_solicitud_val = int(num_sol)
         except (ValueError, TypeError):
             pass
+
+        lista.append({
+            "responsable": responsable,
+            "numero_solicitud": numero_solicitud_val,
+            "tipo": tipo,
+            "producto_base_linea": producto_base_linea,
+            "descripcion_partida_diseno": descripcion_partida_diseno,
+            "mapeo": {
+                "id_ensayo_detectado": id_ensayo_detectado,
+                "clave_incidencia_jira": clave_incidencia_jira,
+            },
+        })
+
+    return {"paso_1": lista}
+
+
+def build_all_paso1_from_master(
+    df_solicitudes2025: pd.DataFrame,
+    df_jira: pd.DataFrame,
+    df_bbdd: pd.DataFrame,
+) -> Dict[str, Any]:
+    """
+    Construye un Paso 1 por cada fila del listado maestro Solicitudes 2025.
+    Para cada solicitud: si hay datos en BBDD/Jira se rellenan; si no, cabecera mínima (Nº, tipo, nombre) para completar a mano.
+    """
+    col_num_2025 = _validate_solicitudes2025_columns(df_solicitudes2025)
+    if df_solicitudes2025.empty:
+        raise Paso1Error("El archivo 'Solicitudes 2025' no tiene filas de datos.")
+
+    if not df_jira.empty:
+        _validate_jira_columns(df_jira)
+    if not df_bbdd.empty:
+        _validate_bbdd_columns(df_bbdd)
+
+    col_proyecto = _find_column(df_jira, JIRA_PROYECTO_ALIAS) if not df_jira.empty else None
+    col_bbdd_num = BBDD_COLUMN_NUMERO_SOLICITUD
+    rows_master = _iter_solicitudes2025_rows(df_solicitudes2025)
+    lista: List[Dict[str, Any]] = []
+
+    for row_2025 in rows_master:
+        num_sol_raw = row_2025.get(col_num_2025)
+        if num_sol_raw is None or (isinstance(num_sol_raw, float) and pd.isna(num_sol_raw)):
+            continue
+        num_sol_str = str(num_sol_raw).strip()
+        if not num_sol_str:
+            continue
+
+        nombre = str(row_2025.get(SOLICITUDES2025_COL_NOMBRE, "") or "").strip()
+        solicitante = ""
+        if SOLICITUDES2025_COL_SOLICITANTE in df_solicitudes2025.columns:
+            solicitante = str(row_2025.get(SOLICITUDES2025_COL_SOLICITANTE, "") or "").strip().lower()
+
+        if "extern" in solicitante:
+            tipo = "Externa"
+        else:
+            tipo = "Interna"
+
+        numero_solicitud_val: Any = num_sol_raw
+        try:
+            n = int(float(num_sol_str))
+            numero_solicitud_val = n
+        except (ValueError, TypeError):
+            numero_solicitud_val = num_sol_str
+
+        producto_base_linea = nombre
+        descripcion_partida_diseno = ""
+        responsable = ""
+        id_ensayo_detectado = ""
+
+        if not df_bbdd.empty and col_bbdd_num in df_bbdd.columns:
+            mask_sol = df_bbdd[col_bbdd_num].astype(str).str.strip() == num_sol_str
+            if mask_sol.any():
+                bbdd_rep = df_bbdd[mask_sol].iloc[0]
+                producto_base_linea = str(bbdd_rep.get(BBDD_COLUMN_PRODUCTO_BASE, "") or nombre).strip() or nombre
+                descripcion_partida_diseno = str(bbdd_rep.get(BBDD_COLUMN_DESCRIPCION, "") or "").strip()
+                responsable = (
+                    str(bbdd_rep.get(BBDD_COLUMN_RESPONSABLE, "") or "").strip()
+                    if BBDD_COLUMN_RESPONSABLE in df_bbdd.columns
+                    else ""
+                )
+                if BBDD_COLUMN_TIPO in df_bbdd.columns:
+                    t = str(bbdd_rep.get(BBDD_COLUMN_TIPO, "") or "").strip()
+                    if t:
+                        tipo = t
+                id_ensayo_detectado = _get_id_ensayo_from_bbdd_row(bbdd_rep, df_bbdd)
+
+        clave_incidencia_jira = ""
+        if col_proyecto and producto_base_linea:
+            jira_row = _first_jira_row_for_producto(df_jira, col_proyecto, producto_base_linea)
+            if jira_row is not None:
+                clave_incidencia_jira = str(jira_row.get("Clave de incidencia", "") or "").strip()
+                if not id_ensayo_detectado and clave_incidencia_jira:
+                    id_ensayo_detectado = clave_incidencia_jira
 
         lista.append({
             "responsable": responsable,

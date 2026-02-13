@@ -78,7 +78,7 @@ def render_tabla_ensayos_flat(
         return
     df = pd.DataFrame([
         {
-            "Nº Solicitud": r["numero_solicitud"],
+            "Nº Solicitud": str(r["numero_solicitud"]),
             "Producto": r["producto"],
             "ID ensayo": r["id_ensayo"],
             "Resumen": r["resumen"],
@@ -89,7 +89,7 @@ def render_tabla_ensayos_flat(
     ])
     st.dataframe(df, use_container_width=True)
     options = [
-        f"Solicitud {r['numero_solicitud']} · {r['id_ensayo']} — {r['resumen']}"
+        f"Solicitud {str(r['numero_solicitud'])} · {r['id_ensayo']} — {r['resumen']}"
         for r in flat
     ]
     sel = st.selectbox(
@@ -136,7 +136,7 @@ def render_listado_solicitudes(
     options = []
     for i, s in enumerate(filtered):
         p1 = s.get("paso_1") or {}
-        num = p1.get("numero_solicitud", "?")
+        num = str(p1.get("numero_solicitud", "?"))
         prod = (p1.get("producto_base_linea") or "")[:40]
         resp = p1.get("responsable", "")
         tipo = p1.get("tipo", "")
@@ -185,7 +185,7 @@ def render_detalle_solicitud(
     col1, col2 = st.columns(2)
     with col1:
         st.write("**Responsable:**", p1.get("responsable", ""))
-        st.write("**Nº Solicitud:**", p1.get("numero_solicitud", ""))
+        st.write("**Nº Solicitud:**", str(p1.get("numero_solicitud", "")))
         st.write("**Tipo:**", p1.get("tipo", ""))
     with col2:
         st.write("**Producto base / línea:**", p1.get("producto_base_linea", ""))
