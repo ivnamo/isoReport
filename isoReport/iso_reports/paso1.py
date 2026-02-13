@@ -1,8 +1,8 @@
 """
 Paso 1: cabecera / datos generales.
 
-Genera un Paso 1 por cada fila del listado Jira, enlazando con BBDD por
-ID ensayo (BBDD) ↔ Clave de incidencia (Jira).
+Genera un Paso 1 por cada Nº Solicitud único en la BBDD (una solicitud por proyecto),
+enlazando con Jira por ProyectoID == Producto base para ensayos.
 """
 
 from __future__ import annotations
@@ -18,6 +18,11 @@ JIRA_PROYECTO_ALIAS = ["ProyectoID", "Campo personalizado (ProyectoID)"]
 
 BBDD_COLUMN_DESCRIPCION = "Descripción diseño"
 BBDD_COLUMN_ID_ENSAYO = "ID ensayo"
+BBDD_COLUMN_NUMERO_SOLICITUD = "Nº Solicitud"
+BBDD_COLUMN_PRODUCTO_BASE = "Producto base"
+BBDD_COLUMN_RESPONSABLE = "Responsable"
+BBDD_COLUMN_TIPO = "Tipo"
+BBDD_COLUMNS_REQUIRED = [BBDD_COLUMN_NUMERO_SOLICITUD, BBDD_COLUMN_PRODUCTO_BASE, BBDD_COLUMN_DESCRIPCION]
 
 # Detecta ID de ensayo en texto (ID-6, ID - 6, Ensayo 6, etc.)
 ID_ENSAYO_REGEX = re.compile(
@@ -78,10 +83,11 @@ def _validate_jira_columns(df: pd.DataFrame) -> None:
 
 
 def _validate_bbdd_columns(df: pd.DataFrame) -> None:
-    """Comprueba que la BBDD tenga al menos 'Descripción diseño'. Lanza Paso1Error si falta."""
-    if BBDD_COLUMN_DESCRIPCION not in df.columns:
+    """Comprueba que la BBDD tenga las columnas requeridas. Lanza Paso1Error si falta alguna."""
+    missing = [c for c in BBDD_COLUMNS_REQUIRED if c not in df.columns]
+    if missing:
         raise Paso1Error(
-            f"En el archivo 'BBDD_Sesion-PT-INAVARRO' falta la columna requerida: '{BBDD_COLUMN_DESCRIPCION}'."
+            f"En el archivo 'BBDD_Sesion-PT-INAVARRO' faltan las columnas requeridas: {', '.join(missing)}."
         )
 
 
@@ -133,6 +139,38 @@ def _find_bbdd_row_for_clave(df_bbdd: pd.DataFrame, clave_incidencia: str) -> Op
     return None
 
 
+def _first_jira_row_for_producto(
+    df_jira: pd.DataFrame, col_proyecto: Optional[str], producto_base: str
+) -> Optional[pd.Series]:
+    """Devuelve la primera fila del listado Jira donde ProyectoID == producto_base."""
+    if not col_proyecto or not producto_base:
+        return None
+    producto = str(producto_base).strip()
+    if not producto:
+        return None
+    col_vals = df_jira[col_proyecto].astype(str).str.strip()
+    mask = col_vals == producto
+    if not mask.any():
+        return None
+    return df_jira[mask].iloc[0]
+
+
+def _unique_numero_solicitud_sorted(series: pd.Series) -> List[Any]:
+    """Devuelve valores únicos de Nº Solicitud ordenados (numéricamente si es posible)."""
+    uniq = series.dropna().unique().tolist()
+    # Intentar orden numérico
+    nums: List[Any] = []
+    for v in uniq:
+        try:
+            n = int(float(v)) if v != "" else None
+            if n is not None:
+                nums.append((n, v))
+        except (ValueError, TypeError):
+            nums.append((float("inf"), v))  # no numéricos al final
+    nums.sort(key=lambda x: (x[0], str(x[1])))
+    return [v for _, v in nums]
+
+
 def build_paso1(
     df_jira: pd.DataFrame,
     df_bbdd: pd.DataFrame,
@@ -140,7 +178,7 @@ def build_paso1(
     numero_solicitud: Optional[int] = None,
 ) -> Dict[str, Any]:
     """
-    Construye UN solo Paso 1 (primera fila del listado Jira).
+    Construye UN solo Paso 1 para el numero_solicitud dado.
     Para generar todas las solicitudes use build_all_paso1.
     """
     all_result = build_all_paso1(df_jira, df_bbdd)
@@ -159,47 +197,65 @@ def build_all_paso1(
     df_bbdd: pd.DataFrame,
 ) -> Dict[str, Any]:
     """
-    Construye un Paso 1 por cada fila del listado Jira (todas las solicitudes).
-    - responsable, producto_base_linea, clave_incidencia: de cada fila Jira.
-    - descripcion_partida_diseno: de la fila de BBDD cuyo ID ensayo coincide con Clave de incidencia (Jira).
-    - numero_solicitud: 1, 2, 3, ... (incremental).
-    - mapeo: id_ensayo_detectado (valor en BBDD) y clave_incidencia_jira (valor en Jira) del enlace.
+    Construye un Paso 1 por cada Nº Solicitud único en la BBDD (una solicitud por proyecto).
+    - numero_solicitud, producto_base_linea, responsable, descripcion_partida_diseno, tipo: de BBDD.
+    - mapeo: clave_incidencia_jira e id_ensayo_detectado desde la primera fila Jira del producto
+      (ProyectoID == Producto base), o desde la primera fila BBDD de ese Nº Solicitud si no hay Jira.
     """
     _validate_jira_columns(df_jira)
     _validate_bbdd_columns(df_bbdd)
 
-    if df_jira.empty:
-        raise Paso1Error("El archivo 'listado jira iso' está vacío (sin filas).")
     if df_bbdd.empty:
         raise Paso1Error("El archivo 'BBDD_Sesion-PT-INAVARRO' está vacío (sin filas).")
 
     col_proyecto = _find_column(df_jira, JIRA_PROYECTO_ALIAS)
+    col_num_sol = BBDD_COLUMN_NUMERO_SOLICITUD
+    numeros = _unique_numero_solicitud_sorted(df_bbdd[col_num_sol])
     lista: List[Dict[str, Any]] = []
 
-    for num, (_, jira_row) in enumerate(df_jira.iterrows(), start=1):
-        numero_solicitud = num
-        responsable = str(jira_row.get("Persona asignada", "")).strip()
-        producto_base_linea = (
-            str(jira_row.get(col_proyecto, "")).strip() if col_proyecto else ""
+    for num_sol in numeros:
+        mask_sol = df_bbdd[col_num_sol].astype(str) == str(num_sol)
+        bbdd_rep = df_bbdd[mask_sol].iloc[0]
+        producto_base_linea = str(bbdd_rep.get(BBDD_COLUMN_PRODUCTO_BASE, "")).strip()
+        descripcion_partida_diseno = str(
+            bbdd_rep.get(BBDD_COLUMN_DESCRIPCION, "")
+        ).strip()
+        responsable = (
+            str(bbdd_rep.get(BBDD_COLUMN_RESPONSABLE, "")).strip()
+            if BBDD_COLUMN_RESPONSABLE in df_bbdd.columns
+            else ""
         )
-        clave_incidencia_jira = str(jira_row.get("Clave de incidencia", "")).strip()
+        tipo = (
+            str(bbdd_rep.get(BBDD_COLUMN_TIPO, "")).strip()
+            if BBDD_COLUMN_TIPO in df_bbdd.columns
+            else "Interna"
+        )
+        if not tipo:
+            tipo = "Interna"
 
-        descripcion_partida_diseno = ""
-        id_ensayo_detectado = ""
+        id_ensayo_detectado = _get_id_ensayo_from_bbdd_row(bbdd_rep, df_bbdd)
+        clave_incidencia_jira = ""
 
-        bbdd_row = _find_bbdd_row_for_clave(df_bbdd, clave_incidencia_jira)
-        if bbdd_row is not None:
-            descripcion_partida_diseno = str(
-                bbdd_row.get(BBDD_COLUMN_DESCRIPCION, "")
-            ).strip()
-            id_ensayo_detectado = _get_id_ensayo_from_bbdd_row(bbdd_row, df_bbdd)
-        if not id_ensayo_detectado and clave_incidencia_jira:
-            id_ensayo_detectado = clave_incidencia_jira
+        jira_row = _first_jira_row_for_producto(df_jira, col_proyecto, producto_base_linea)
+        if jira_row is not None:
+            clave_incidencia_jira = str(jira_row.get("Clave de incidencia", "")).strip()
+            if not id_ensayo_detectado and clave_incidencia_jira:
+                id_ensayo_detectado = clave_incidencia_jira
+
+        # numero_solicitud: mantener tipo numérico si viene como número de la BBDD
+        numero_solicitud_val = num_sol
+        try:
+            if isinstance(num_sol, float) and num_sol == int(num_sol):
+                numero_solicitud_val = int(num_sol)
+            elif isinstance(num_sol, str) and num_sol.isdigit():
+                numero_solicitud_val = int(num_sol)
+        except (ValueError, TypeError):
+            pass
 
         lista.append({
             "responsable": responsable,
-            "numero_solicitud": numero_solicitud,
-            "tipo": "Interna",
+            "numero_solicitud": numero_solicitud_val,
+            "tipo": tipo,
             "producto_base_linea": producto_base_linea,
             "descripcion_partida_diseno": descripcion_partida_diseno,
             "mapeo": {
