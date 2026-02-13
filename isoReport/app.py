@@ -125,9 +125,16 @@ def _run_generar() -> None:
             if b.get("advertencia_sin_ensayos"):
                 p = paso_1_lista[i]
                 st.warning(
-                    f"No hay filas en 'listado jira iso' con ProyectoID igual al producto de la solicitud "
-                    f"nº {p.get('numero_solicitud', i+1)!s} (producto: «{p.get('producto_base_linea', '')}»)."
+                    f"No se encontraron incidencias en Jira para esta solicitud "
+                    f"(nº {p.get('numero_solicitud', i+1)!s}, NOMBRE = «{p.get('producto_base_linea', '')}»)."
                 )
+        count_sin_bbdd = sum(
+            1 for b in paso2_lista for e in b.get("ensayos", []) if e.get("sin_documentar_bbdd")
+        )
+        if count_sin_bbdd > 0:
+            st.warning(
+                f"{count_sin_bbdd} ensayo(s) sin documentar en BBDD (pueden requerir revisión manual)."
+            )
         st.subheader("Salida (JSON)")
         st.json(resultado)
         json_str = json.dumps(resultado, ensure_ascii=False, indent=2)

@@ -148,6 +148,16 @@ def _get_bbdd_rows_for_ensayo_id(df_bbdd: pd.DataFrame, ensayo_id: str) -> pd.Da
     return df_bbdd[mask].copy()
 
 
+def _get_bbdd_rows_by_producto_base(df_bbdd: pd.DataFrame, producto_base: str) -> pd.DataFrame:
+    """Devuelve filas de BBDD donde Producto base (strip) coincide con producto_base. Fallback cuando no hay match por ID ensayo."""
+    if "Producto base" not in df_bbdd.columns or not (producto_base or "").strip():
+        return df_bbdd.iloc[0:0]
+    nombre = str(producto_base).strip()
+    col_vals = df_bbdd["Producto base"].astype(str).str.strip()
+    mask = col_vals == nombre
+    return df_bbdd[mask].copy()
+
+
 def enrich_paso2_2(
     paso2_lista: List[Dict[str, Any]],
     df_bbdd: pd.DataFrame,
@@ -165,10 +175,13 @@ def enrich_paso2_2(
     result: List[Dict[str, Any]] = []
     for bloque in paso2_lista:
         new_bloque = {**bloque, "ensayos": []}
+        producto_base_linea = (bloque.get("producto_base_linea") or "").strip()
         for ensayo in bloque.get("ensayos", []):
             enr = dict(ensayo)
             ensayo_id = (enr.get("id") or "").strip()
             df_match = _get_bbdd_rows_for_ensayo_id(df_bbdd, ensayo_id)
+            if df_match.empty and producto_base_linea:
+                df_match = _get_bbdd_rows_by_producto_base(df_bbdd, producto_base_linea)
             if not df_match.empty:
                 formula: List[Dict[str, Any]] = []
                 for _, row in df_match.iterrows():
@@ -189,6 +202,8 @@ def enrich_paso2_2(
                         break
                 if motivo:
                     enr["motivo_comentario"] = motivo
+            else:
+                enr["sin_documentar_bbdd"] = True
             new_bloque["ensayos"].append(enr)
         result.append(new_bloque)
     return result

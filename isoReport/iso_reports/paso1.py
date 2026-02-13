@@ -191,6 +191,52 @@ def _sort_key_numero_solicitud(value: Any) -> tuple:
         return (float("inf"), str(value) if value is not None else "")
 
 
+def _get_bbdd_rows_by_ensayo_id(df_bbdd: pd.DataFrame, ensayo_id: str) -> pd.DataFrame:
+    """Devuelve filas de BBDD donde ID ensayo (normalizado) coincide con ensayo_id (normalizado)."""
+    ensayo_norm = _normalize_id_for_match(ensayo_id)
+    if not ensayo_norm:
+        return df_bbdd.iloc[0:0]
+    if BBDD_COLUMN_ID_ENSAYO not in df_bbdd.columns:
+        return df_bbdd.iloc[0:0]
+    mask = df_bbdd[BBDD_COLUMN_ID_ENSAYO].apply(
+        lambda v: _normalize_id_for_match(str(v) if v is not None else "") == ensayo_norm
+    )
+    return df_bbdd[mask].copy()
+
+
+def _get_bbdd_representative_row_for_nombre(
+    df_bbdd: pd.DataFrame,
+    df_jira: pd.DataFrame,
+    col_proyecto: Optional[str],
+    nombre: str,
+) -> Optional[pd.Series]:
+    """
+    Obtiene una fila representativa de BBDD para rellenar cabecera (descripción, responsable, tipo).
+    1) Jira por ProyectoID == nombre; luego BBDD por Clave de incidencia == ID ensayo.
+    2) Si no hay match, fallback: BBDD por Producto base == nombre.
+    Devuelve la primera fila encontrada o None.
+    """
+    if not nombre or df_bbdd.empty:
+        return None
+    nombre = str(nombre).strip()
+    # 1) Primera incidencia Jira para este proyecto
+    jira_row = _first_jira_row_for_producto(df_jira, col_proyecto, nombre)
+    if jira_row is not None:
+        clave = str(jira_row.get("Clave de incidencia", "") or "").strip()
+        if clave:
+            df_match = _get_bbdd_rows_by_ensayo_id(df_bbdd, clave)
+            if not df_match.empty:
+                return df_match.iloc[0]
+    # 2) Fallback: BBDD por Producto base == nombre
+    if BBDD_COLUMN_PRODUCTO_BASE not in df_bbdd.columns:
+        return None
+    col_vals = df_bbdd[BBDD_COLUMN_PRODUCTO_BASE].astype(str).str.strip()
+    mask = col_vals == nombre
+    if mask.any():
+        return df_bbdd[mask].iloc[0]
+    return None
+
+
 def _iter_solicitudes2025_rows(df: pd.DataFrame) -> List[pd.Series]:
     """
     Devuelve la lista de filas del Excel Solicitudes 2025 ordenada:
@@ -339,7 +385,6 @@ def build_all_paso1_from_master(
         _validate_bbdd_columns(df_bbdd)
 
     col_proyecto = _find_column(df_jira, JIRA_PROYECTO_ALIAS) if not df_jira.empty else None
-    col_bbdd_num = BBDD_COLUMN_NUMERO_SOLICITUD
     rows_master = _iter_solicitudes2025_rows(df_solicitudes2025)
     lista: List[Dict[str, Any]] = []
 
@@ -373,22 +418,21 @@ def build_all_paso1_from_master(
         responsable = ""
         id_ensayo_detectado = ""
 
-        if not df_bbdd.empty and col_bbdd_num in df_bbdd.columns:
-            mask_sol = df_bbdd[col_bbdd_num].astype(str).str.strip() == num_sol_str
-            if mask_sol.any():
-                bbdd_rep = df_bbdd[mask_sol].iloc[0]
-                producto_base_linea = str(bbdd_rep.get(BBDD_COLUMN_PRODUCTO_BASE, "") or nombre).strip() or nombre
-                descripcion_partida_diseno = str(bbdd_rep.get(BBDD_COLUMN_DESCRIPCION, "") or "").strip()
-                responsable = (
-                    str(bbdd_rep.get(BBDD_COLUMN_RESPONSABLE, "") or "").strip()
-                    if BBDD_COLUMN_RESPONSABLE in df_bbdd.columns
-                    else ""
-                )
-                if BBDD_COLUMN_TIPO in df_bbdd.columns:
-                    t = str(bbdd_rep.get(BBDD_COLUMN_TIPO, "") or "").strip()
-                    if t:
-                        tipo = t
-                id_ensayo_detectado = _get_id_ensayo_from_bbdd_row(bbdd_rep, df_bbdd)
+        bbdd_rep = _get_bbdd_representative_row_for_nombre(
+            df_bbdd, df_jira, col_proyecto, nombre
+        )
+        if bbdd_rep is not None:
+            descripcion_partida_diseno = str(bbdd_rep.get(BBDD_COLUMN_DESCRIPCION, "") or "").strip()
+            responsable = (
+                str(bbdd_rep.get(BBDD_COLUMN_RESPONSABLE, "") or "").strip()
+                if BBDD_COLUMN_RESPONSABLE in df_bbdd.columns
+                else ""
+            )
+            if BBDD_COLUMN_TIPO in df_bbdd.columns:
+                t = str(bbdd_rep.get(BBDD_COLUMN_TIPO, "") or "").strip()
+                if t:
+                    tipo = t
+            id_ensayo_detectado = _get_id_ensayo_from_bbdd_row(bbdd_rep, df_bbdd)
 
         clave_incidencia_jira = ""
         if col_proyecto and producto_base_linea:
