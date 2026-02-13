@@ -35,6 +35,7 @@ from iso_reports.editor_ui import (
     render_detalle_solicitud,
     render_listado_solicitudes,
     render_panel_ensayo,
+    render_tabla_ensayos_flat,
 )
 from iso_reports.paso1 import Paso1Error, build_all_paso1
 from iso_reports.paso2 import Paso2Error, build_all_paso2_1, enrich_paso2_2
@@ -209,14 +210,23 @@ def _run_editar() -> None:
         key="editor_export",
     )
 
+    with st.expander("Vista general (todos los ensayos)", expanded=True):
+        def _on_ir_a_editar(sol_idx: int, ens_idx: int) -> None:
+            st.session_state["editor_solicitud_idx"] = sol_idx
+            st.session_state["editor_ensayo_idx"] = ens_idx
+            st.rerun()
+        render_tabla_ensayos_flat(solicitudes, on_ir_a_editar=_on_ir_a_editar)
+
     search = st.text_input("Buscar (Nº solicitud, producto, responsable)", key="editor_search")
-    sel_idx = render_listado_solicitudes(solicitudes, search or "")
+    preselected_sol = st.session_state.get("editor_solicitud_idx")
+    preselected_ens = st.session_state.get("editor_ensayo_idx")
+    sel_idx = render_listado_solicitudes(solicitudes, search or "", preselected_idx=preselected_sol)
     if sel_idx is None:
         return
 
     st.session_state["editor_solicitud_idx"] = sel_idx
     solicitud = solicitudes[sel_idx]
-    ensayo_idx = render_detalle_solicitud(solicitud, sel_idx)
+    ensayo_idx = render_detalle_solicitud(solicitud, sel_idx, preselected_ensayo_idx=preselected_ens)
     if ensayo_idx is None:
         return
 

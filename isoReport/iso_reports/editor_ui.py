@@ -33,10 +33,85 @@ def _get_ensayo_safe(ensayo: Dict[str, Any]) -> tuple[List[Dict[str, Any]], str]
     return formula, str(motivo)
 
 
-def render_listado_solicitudes(solicitudes: List[Dict[str, Any]], search_query: str) -> int | None:
+def build_tabla_ensayos_flat(solicitudes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    Construye una lista plana de filas (una por ensayo) con columnas para vista general.
+    Cada dict incluye solicitud_idx, ensayo_idx y campos para mostrar (numero_solicitud,
+    producto, id_ensayo, resumen, formula_status, motivo_status).
+    """
+    rows: List[Dict[str, Any]] = []
+    for sol_idx, s in enumerate(solicitudes):
+        p1 = s.get("paso_1") or {}
+        p2 = s.get("paso_2") or {}
+        ensayos = p2.get("ensayos") or []
+        num_sol = p1.get("numero_solicitud", "?")
+        producto = (p1.get("producto_base_linea") or "")[:40]
+        for ens_idx, e in enumerate(ensayos):
+            formula, motivo = _get_ensayo_safe(e)
+            formula_status = f"Sí ({len(formula)} líneas)" if formula else "No"
+            motivo_status = "Sí" if (motivo or "").strip() else "No"
+            resumen = (e.get("ensayo") or "")[:50]
+            rows.append({
+                "solicitud_idx": sol_idx,
+                "ensayo_idx": ens_idx,
+                "numero_solicitud": num_sol,
+                "producto": producto,
+                "id_ensayo": e.get("id", ""),
+                "resumen": resumen,
+                "formula_status": formula_status,
+                "motivo_status": motivo_status,
+            })
+    return rows
+
+
+def render_tabla_ensayos_flat(
+    solicitudes: List[Dict[str, Any]],
+    on_ir_a_editar: Callable[[int, int], None],
+) -> None:
+    """
+    Muestra tabla plana de todos los ensayos y un selectbox + botón "Ir a editar"
+    para abrir el panel de un ensayo concreto.
+    """
+    flat = build_tabla_ensayos_flat(solicitudes)
+    if not flat:
+        st.info("No hay ensayos para mostrar.")
+        return
+    df = pd.DataFrame([
+        {
+            "Nº Solicitud": r["numero_solicitud"],
+            "Producto": r["producto"],
+            "ID ensayo": r["id_ensayo"],
+            "Resumen": r["resumen"],
+            "Fórmula": r["formula_status"],
+            "Motivo": r["motivo_status"],
+        }
+        for r in flat
+    ])
+    st.dataframe(df, use_container_width=True)
+    options = [
+        f"Solicitud {r['numero_solicitud']} · {r['id_ensayo']} — {r['resumen']}"
+        for r in flat
+    ]
+    sel = st.selectbox(
+        "Ir a editar este ensayo",
+        range(len(flat)),
+        format_func=lambda i: options[i],
+        key="editor_flat_goto_select",
+    )
+    if st.button("Ir a editar", key="editor_flat_goto_btn"):
+        row = flat[sel]
+        on_ir_a_editar(row["solicitud_idx"], row["ensayo_idx"])
+
+
+def render_listado_solicitudes(
+    solicitudes: List[Dict[str, Any]],
+    search_query: str,
+    preselected_idx: int | None = None,
+) -> int | None:
     """
     Renderiza la tabla/lista de solicitudes con buscador.
     Devuelve el índice de la fila seleccionada (si se usa selectbox/click) o None.
+    preselected_idx: si se informa, el selectbox mostrará esa solicitud como seleccionada.
     """
     if not solicitudes:
         st.info("No hay solicitudes. Importa un JSON o genera primero.")
@@ -67,10 +142,19 @@ def render_listado_solicitudes(solicitudes: List[Dict[str, Any]], search_query: 
         tipo = p1.get("tipo", "")
         options.append(f"{num} · {prod} · {resp} · {tipo}")
 
+    index_default = 0
+    if preselected_idx is not None and 0 <= preselected_idx < len(solicitudes):
+        try:
+            sel_sol = solicitudes[preselected_idx]
+            index_default = filtered.index(sel_sol)
+        except ValueError:
+            pass
+
     idx_in_filtered = st.selectbox(
         "Selecciona una solicitud",
         range(len(filtered)),
         format_func=lambda i: options[i],
+        index=index_default,
         key="editor_listado_select",
     )
     if idx_in_filtered is None:
@@ -86,10 +170,12 @@ def render_listado_solicitudes(solicitudes: List[Dict[str, Any]], search_query: 
 def render_detalle_solicitud(
     solicitud: Dict[str, Any],
     solicitud_idx: int,
+    preselected_ensayo_idx: int | None = None,
 ) -> int | None:
     """
     Renderiza el detalle de una solicitud: Paso 1 (solo lectura) y lista de ensayos.
     Devuelve el índice del ensayo seleccionado o None.
+    preselected_ensayo_idx: si se informa, el selectbox mostrará ese ensayo como seleccionado.
     """
     p1 = solicitud.get("paso_1") or {}
     p2 = solicitud.get("paso_2") or {}
@@ -111,10 +197,14 @@ def render_detalle_solicitud(
         return None
 
     options = [f"{e.get('id', '')} — {str(e.get('ensayo', ''))[:50]}" for e in ensayos]
+    index_default = 0
+    if preselected_ensayo_idx is not None and 0 <= preselected_ensayo_idx < len(ensayos):
+        index_default = preselected_ensayo_idx
     ensayo_idx = st.selectbox(
         "Selecciona un ensayo",
         range(len(ensayos)),
         format_func=lambda i: options[i],
+        index=index_default,
         key=f"editor_ensayo_select_{solicitud_idx}",
     )
     return ensayo_idx
