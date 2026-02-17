@@ -8,7 +8,7 @@ enlazando con Jira por ProyectoID == Producto base para ensayos.
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import pandas as pd
 
@@ -20,8 +20,10 @@ BBDD_COLUMN_DESCRIPCION = "Descripción diseño"
 BBDD_COLUMN_ID_ENSAYO = "ID ensayo"
 BBDD_COLUMN_NUMERO_SOLICITUD = "Nº Solicitud"
 BBDD_COLUMN_PRODUCTO_BASE = "Producto base"
+BBDD_COLUMN_RESULTADO = "Resultado"
 BBDD_COLUMN_RESPONSABLE = "Responsable"
 BBDD_COLUMN_TIPO = "Tipo"
+RESULTADO_LIBERADO = "LIBERADO"
 BBDD_COLUMNS_REQUIRED = [BBDD_COLUMN_NUMERO_SOLICITUD, BBDD_COLUMN_PRODUCTO_BASE, BBDD_COLUMN_DESCRIPCION]
 
 # Para el flujo "from_master" no se usa Nº Solicitud; solo estas columnas para cabecera y joins
@@ -223,37 +225,79 @@ def _get_bbdd_rows_by_ensayo_id(df_bbdd: pd.DataFrame, ensayo_id: str) -> pd.Dat
     return df_bbdd[mask].copy()
 
 
+def _filter_bbdd_liberados(df_bbdd: pd.DataFrame) -> pd.DataFrame:
+    """Filtra filas con Resultado == LIBERADO. Si no existe columna Resultado, devuelve el DataFrame sin filtrar."""
+    if BBDD_COLUMN_RESULTADO not in df_bbdd.columns:
+        return df_bbdd
+    mask = (
+        df_bbdd[BBDD_COLUMN_RESULTADO]
+        .astype(str)
+        .str.strip()
+        .str.upper()
+        == RESULTADO_LIBERADO.upper()
+    )
+    return df_bbdd[mask].copy()
+
+
+def _get_bbdd_liberados_for_producto(
+    df_bbdd: pd.DataFrame, nombre: str
+) -> Tuple[Optional[pd.Series], List[str]]:
+    """
+    Obtiene filas de BBDD para producto (Producto base == nombre) con Resultado == LIBERADO.
+    Devuelve (fila representativa, lista de ID ensayos liberados).
+    - 0 liberados: (None, []).
+    - 1 liberado: (fila, []).
+    - Varios: (fila del primero, [id1, id2, ...]).
+    """
+    if not nombre or df_bbdd.empty or BBDD_COLUMN_PRODUCTO_BASE not in df_bbdd.columns:
+        return None, []
+    nombre = str(nombre).strip()
+    col_vals = df_bbdd[BBDD_COLUMN_PRODUCTO_BASE].astype(str).str.strip()
+    df_product = df_bbdd[col_vals == nombre].copy()
+    df_product = _filter_bbdd_liberados(df_product)
+    if df_product.empty:
+        return None, []
+    seen_norm: set[str] = set()
+    ids_raw: List[str] = []
+    for _, row in df_product.iterrows():
+        raw = _get_id_ensayo_from_bbdd_row(row, df_bbdd)
+        nid = _normalize_id_for_match(raw)
+        if nid and nid not in seen_norm:
+            seen_norm.add(nid)
+            ids_raw.append(raw)
+    rep_row = df_product.iloc[0]
+    if len(ids_raw) == 0:
+        return None, []
+    if len(ids_raw) == 1:
+        return rep_row, []
+    return rep_row, ids_raw
+
+
 def _get_bbdd_representative_row_for_nombre(
     df_bbdd: pd.DataFrame,
     df_jira: pd.DataFrame,
     col_proyecto: Optional[str],
     nombre: str,
-) -> Optional[pd.Series]:
+) -> Tuple[Optional[pd.Series], List[str]]:
     """
-    Obtiene una fila representativa de BBDD para rellenar cabecera (descripción, responsable, tipo).
-    1) Jira por ProyectoID == nombre; luego BBDD por Clave de incidencia == ID ensayo.
-    2) Si no hay match, fallback: BBDD por Producto base == nombre.
-    Devuelve la primera fila encontrada o None.
+    Obtiene una fila representativa de BBDD (solo filas con Resultado == LIBERADO) y opcionalmente
+    la lista de ID ensayos liberados cuando hay varios.
+    Devuelve (fila, id_ensayos_liberados). id_ensayos_liberados solo tiene elementos si hay >1 ID.
     """
     if not nombre or df_bbdd.empty:
-        return None
+        return None, []
     nombre = str(nombre).strip()
-    # 1) Primera incidencia Jira para este proyecto
+    # 1) Jira por ProyectoID == nombre; luego BBDD por Clave == ID ensayo, solo filas LIBERADO
     jira_row = _first_jira_row_for_producto(df_jira, col_proyecto, nombre)
     if jira_row is not None:
         clave = str(jira_row.get("Clave de incidencia", "") or "").strip()
         if clave:
             df_match = _get_bbdd_rows_by_ensayo_id(df_bbdd, clave)
+            df_match = _filter_bbdd_liberados(df_match)
             if not df_match.empty:
-                return df_match.iloc[0]
-    # 2) Fallback: BBDD por Producto base == nombre
-    if BBDD_COLUMN_PRODUCTO_BASE not in df_bbdd.columns:
-        return None
-    col_vals = df_bbdd[BBDD_COLUMN_PRODUCTO_BASE].astype(str).str.strip()
-    mask = col_vals == nombre
-    if mask.any():
-        return df_bbdd[mask].iloc[0]
-    return None
+                return df_match.iloc[0], []
+    # 2) Fallback: BBDD por Producto base == nombre, solo LIBERADO
+    return _get_bbdd_liberados_for_producto(df_bbdd, nombre)
 
 
 def _iter_solicitudes2025_rows(df: pd.DataFrame) -> List[pd.Series]:
@@ -333,7 +377,9 @@ def build_all_paso1(
 
     for num_sol in numeros:
         mask_sol = df_bbdd[col_num_sol].astype(str) == str(num_sol)
-        bbdd_rep = df_bbdd[mask_sol].iloc[0]
+        df_sol = df_bbdd[mask_sol]
+        df_sol_lib = _filter_bbdd_liberados(df_sol)
+        bbdd_rep = df_sol.iloc[0]  # cabecera desde cualquier fila
         producto_base_linea = str(bbdd_rep.get(BBDD_COLUMN_PRODUCTO_BASE, "")).strip()
         descripcion_partida_diseno = str(
             bbdd_rep.get(BBDD_COLUMN_DESCRIPCION, "")
@@ -351,9 +397,21 @@ def build_all_paso1(
         if not tipo:
             tipo = "Interna"
 
-        id_ensayo_detectado = _get_id_ensayo_from_bbdd_row(bbdd_rep, df_bbdd)
-        clave_incidencia_jira = ""
+        id_ensayo_detectado = ""
+        id_ensayos_liberados_list: List[str] = []
+        if not df_sol_lib.empty:
+            seen_norm: set[str] = set()
+            for _, row in df_sol_lib.iterrows():
+                raw = _get_id_ensayo_from_bbdd_row(row, df_bbdd)
+                nid = _normalize_id_for_match(raw)
+                if nid and nid not in seen_norm:
+                    seen_norm.add(nid)
+                    id_ensayos_liberados_list.append(raw)
+            if id_ensayos_liberados_list:
+                bbdd_rep = df_sol_lib.iloc[0]
+                id_ensayo_detectado = _get_id_ensayo_from_bbdd_row(bbdd_rep, df_bbdd)
 
+        clave_incidencia_jira = ""
         jira_row = _first_jira_row_for_producto(df_jira, col_proyecto, producto_base_linea)
         if jira_row is not None:
             clave_incidencia_jira = str(jira_row.get("Clave de incidencia", "")).strip()
@@ -370,16 +428,20 @@ def build_all_paso1(
         except (ValueError, TypeError):
             pass
 
+        mapeo: Dict[str, Any] = {
+            "id_ensayo_detectado": id_ensayo_detectado,
+            "clave_incidencia_jira": clave_incidencia_jira,
+        }
+        if len(id_ensayos_liberados_list) > 1:
+            mapeo["id_ensayos_liberados"] = id_ensayos_liberados_list
+
         lista.append({
             "responsable": responsable,
             "numero_solicitud": numero_solicitud_val,
             "tipo": tipo,
             "producto_base_linea": producto_base_linea,
             "descripcion_partida_diseno": descripcion_partida_diseno,
-            "mapeo": {
-                "id_ensayo_detectado": id_ensayo_detectado,
-                "clave_incidencia_jira": clave_incidencia_jira,
-            },
+            "mapeo": mapeo,
             "verificacion_diseno": {
                 "producto_final": "",
                 "formula_ok": "",
@@ -441,8 +503,9 @@ def build_all_paso1_from_master(
         descripcion_partida_diseno = ""
         responsable = ""
         id_ensayo_detectado = ""
+        id_ensayos_liberados: List[str] = []
 
-        bbdd_rep = _get_bbdd_representative_row_for_nombre(
+        bbdd_rep, id_ensayos_liberados = _get_bbdd_representative_row_for_nombre(
             df_bbdd, df_jira, col_proyecto, nombre
         )
         if bbdd_rep is not None:
@@ -466,16 +529,20 @@ def build_all_paso1_from_master(
                 if not id_ensayo_detectado and clave_incidencia_jira:
                     id_ensayo_detectado = clave_incidencia_jira
 
+        mapeo: Dict[str, Any] = {
+            "id_ensayo_detectado": id_ensayo_detectado,
+            "clave_incidencia_jira": clave_incidencia_jira,
+        }
+        if len(id_ensayos_liberados) > 1:
+            mapeo["id_ensayos_liberados"] = id_ensayos_liberados
+
         lista.append({
             "responsable": responsable,
             "numero_solicitud": numero_solicitud_val,
             "tipo": tipo,
             "producto_base_linea": producto_base_linea,
             "descripcion_partida_diseno": descripcion_partida_diseno,
-            "mapeo": {
-                "id_ensayo_detectado": id_ensayo_detectado,
-                "clave_incidencia_jira": clave_incidencia_jira,
-            },
+            "mapeo": mapeo,
             "verificacion_diseno": {
                 "producto_final": "",
                 "formula_ok": "",

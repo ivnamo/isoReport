@@ -235,6 +235,24 @@ def _run_editar() -> None:
     )
     st.session_state["editor_subview"] = _subview_map.get(subview, "pendientes")
 
+    def _on_apply_id_ensayo(sol_idx: int, selected_id: str) -> None:
+        p1 = solicitudes[sol_idx].get("paso_1") or {}
+        if "mapeo" not in p1 or not isinstance(p1["mapeo"], dict):
+            prev_mapeo = p1.get("mapeo") or {}
+            p1["mapeo"] = {
+                "id_ensayo_detectado": "",
+                "clave_incidencia_jira": prev_mapeo.get("clave_incidencia_jira", "") or p1.get("mapeo_clave_incidencia_jira", ""),
+            }
+        p1["mapeo"]["id_ensayo_detectado"] = (selected_id or "").strip()
+        p1["mapeo_id_ensayo_detectado"] = (selected_id or "").strip()
+        st.session_state["solicitudes_data"] = solicitudes
+        try:
+            save_solicitudes_json(path, solicitudes)
+            st.success("ID ensayo actualizado y guardado en disco.")
+        except Exception as e:
+            st.error(f"Error al guardar: {e}")
+        st.rerun()
+
     if st.session_state["editor_subview"] == "verificacion":
         # Enriquecer desde CSV (opcional)
         csv_verif = st.file_uploader(
@@ -294,6 +312,7 @@ def _run_editar() -> None:
             get_on_save_verificacion=_get_on_save_verificacion,
             on_switch_to_solicitud=_on_switch_to_solicitud,
             on_switch_to_pendientes=_on_switch_to_pendientes,
+            on_apply_id_ensayo=_on_apply_id_ensayo,
         )
         return
 
@@ -374,7 +393,11 @@ def _run_editar() -> None:
 
     st.session_state["editor_solicitud_idx"] = sel_idx
     solicitud = solicitudes[sel_idx]
-    ensayo_idx = render_detalle_solicitud(solicitud, sel_idx, preselected_ensayo_idx=preselected_ens)
+    ensayo_idx = render_detalle_solicitud(
+        solicitud, sel_idx,
+        preselected_ensayo_idx=preselected_ens,
+        on_apply_id_ensayo=_on_apply_id_ensayo,
+    )
     if ensayo_idx is None:
         return
 

@@ -16,6 +16,7 @@ from .editor_data import (
     filter_empty_formula_rows,
     formula_to_tsv,
     get_id_ensayo_from_paso1_item,
+    get_id_ensayos_liberados_from_paso1_item,
     parse_pasted_formula,
     validate_peso,
 )
@@ -195,11 +196,13 @@ def render_detalle_solicitud(
     solicitud: Dict[str, Any],
     solicitud_idx: int,
     preselected_ensayo_idx: int | None = None,
+    on_apply_id_ensayo: Callable[[int, str], None] | None = None,
 ) -> int | None:
     """
     Renderiza el detalle de una solicitud: Paso 1 (solo lectura) y lista de ensayos.
     Devuelve el índice del ensayo seleccionado o None.
     preselected_ensayo_idx: si se informa, el selectbox mostrará ese ensayo como seleccionado.
+    on_apply_id_ensayo: si hay varios id_ensayos_liberados, permite elegir ID ensayo a usar.
     """
     p1 = solicitud.get("paso_1") or {}
     p2 = solicitud.get("paso_2") or {}
@@ -214,6 +217,24 @@ def render_detalle_solicitud(
     with col2:
         st.write("**Producto base / línea:**", p1.get("producto_base_linea", ""))
     st.write("**Descripción partida diseño:**", p1.get("descripcion_partida_diseno", ""))
+
+    id_ensayo = get_id_ensayo_from_paso1_item(p1)
+    ids_liberados = get_id_ensayos_liberados_from_paso1_item(p1)
+    if len(ids_liberados) > 1 and on_apply_id_ensayo:
+        default_idx = 0
+        if id_ensayo:
+            try:
+                default_idx = ids_liberados.index(id_ensayo)
+            except ValueError:
+                pass
+        sel_id = st.selectbox(
+            "ID ensayo a usar para esta solicitud",
+            options=ids_liberados,
+            index=default_idx,
+            key=f"editor_detalle_{solicitud_idx}_id_ensayo_select",
+        )
+        if st.button("Aplicar ID ensayo", key=f"editor_detalle_{solicitud_idx}_aplicar_id"):
+            on_apply_id_ensayo(solicitud_idx, sel_id)
 
     st.subheader("Ensayos")
     if not ensayos:
@@ -360,10 +381,12 @@ def render_vista_verificacion_diseno(
     get_on_save_verificacion: Callable[[int], Callable[[str, str, str], None]],
     on_switch_to_solicitud: Callable[[], None] | None = None,
     on_switch_to_pendientes: Callable[[], None] | None = None,
+    on_apply_id_ensayo: Callable[[int, str], None] | None = None,
 ) -> None:
     """
     Muestra solicitudes pendientes de verificación (Diseño): cabecera solo lectura y
     tres campos editables (Producto final, Fórmula OK, Riquezas) con botón Guardar.
+    Si hay varios id_ensayos_liberados, muestra selector para elegir ID ensayo a usar.
     """
     pendientes = build_solicitudes_pendientes_verificacion(solicitudes)
     if not pendientes:
@@ -396,6 +419,23 @@ def render_vista_verificacion_diseno(
         st.divider()
         st.subheader(f"Nº Solicitud {num_sol} · ID ensayo: {id_ensayo or '—'}")
         st.caption(f"Producto base / línea: {producto}")
+
+        ids_liberados = get_id_ensayos_liberados_from_paso1_item(p1)
+        if len(ids_liberados) > 1 and on_apply_id_ensayo:
+            default_idx = 0
+            if id_ensayo:
+                try:
+                    default_idx = ids_liberados.index(id_ensayo)
+                except ValueError:
+                    pass
+            sel_id = st.selectbox(
+                "ID ensayo a usar para esta solicitud",
+                options=ids_liberados,
+                index=default_idx,
+                key=f"verificacion_{sol_idx}_id_ensayo_select",
+            )
+            if st.button("Aplicar ID ensayo", key=f"verificacion_{sol_idx}_aplicar_id"):
+                on_apply_id_ensayo(sol_idx, sel_id)
 
         key_pf = f"verificacion_{sol_idx}_producto_final"
         key_fo = f"verificacion_{sol_idx}_formula_ok"

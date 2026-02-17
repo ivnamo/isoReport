@@ -136,6 +136,8 @@ VERIF_COL_ID_ENSAYO = "ID ensayo"
 VERIF_COL_PRODUCTO_FINAL = "Producto final"
 VERIF_COL_FORMULA_OK = "Fórmula OK"
 VERIF_COL_RIQUEZAS = "Riquezas"
+VERIF_COL_RESULTADO = "Resultado"
+VERIF_RESULTADO_LIBERADO = "LIBERADO"
 
 
 def get_id_ensayo_from_paso1_item(paso_1_item: Dict[str, Any]) -> str:
@@ -150,6 +152,24 @@ def get_id_ensayo_from_paso1_item(paso_1_item: Dict[str, Any]) -> str:
         return str(flat).strip()
     mapeo = paso_1_item.get("mapeo") or {}
     return str(mapeo.get("id_ensayo_detectado", "") or "").strip()
+
+
+def get_id_ensayos_liberados_from_paso1_item(paso_1_item: Dict[str, Any]) -> List[str]:
+    """
+    Obtiene la lista de ID ensayos liberados desde un elemento de paso_1.
+    Soporta formato plano (mapeo_id_ensayos_liberados) y anidado (mapeo.id_ensayos_liberados).
+    Devuelve lista vacía si no existe o tiene 0 o 1 elemento (solo se persiste cuando hay varios).
+    """
+    if not paso_1_item:
+        return []
+    flat = paso_1_item.get("mapeo_id_ensayos_liberados")
+    if isinstance(flat, list):
+        return [str(x).strip() for x in flat if x is not None and str(x).strip()]
+    mapeo = paso_1_item.get("mapeo") or {}
+    ids = mapeo.get("id_ensayos_liberados")
+    if isinstance(ids, list):
+        return [str(x).strip() for x in ids if x is not None and str(x).strip()]
+    return []
 
 
 def _ensure_verificacion_diseno(paso_1_item: Dict[str, Any]) -> None:
@@ -185,9 +205,21 @@ def enriquecer_verificacion_diseno_desde_csv(
     if col_id not in df_bbdd.columns:
         return solicitudes
 
-    # Índice normalizado -> primera fila que tiene ese ID (para tomar una representante)
+    # Si existe columna Resultado, filtrar solo filas LIBERADO
+    work = df_bbdd
+    if VERIF_COL_RESULTADO in df_bbdd.columns:
+        mask = (
+            df_bbdd[VERIF_COL_RESULTADO]
+            .astype(str)
+            .str.strip()
+            .str.upper()
+            == VERIF_RESULTADO_LIBERADO.upper()
+        )
+        work = df_bbdd[mask].copy()
+
+    # Índice normalizado -> primera fila que tiene ese ID (representante; si hay varias por ID, primera por orden)
     id_to_row: Dict[str, pd.Series] = {}
-    for idx, row in df_bbdd.iterrows():
+    for idx, row in work.iterrows():
         raw_id = row.get(col_id)
         nid = _normalize_id_for_match(str(raw_id) if raw_id is not None else "")
         if nid and nid not in id_to_row:
