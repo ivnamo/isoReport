@@ -15,6 +15,7 @@ import streamlit as st
 from .editor_data import (
     filter_empty_formula_rows,
     formula_to_tsv,
+    get_id_ensayo_from_paso1_item,
     parse_pasted_formula,
     validate_peso,
 )
@@ -329,6 +330,85 @@ def render_panel_ensayo(
         if tsv:
             st.code(tsv, language=None)
             st.caption("Copia el contenido anterior al portapapeles (Ctrl+C) para pegarlo en Excel.")
+
+
+def build_solicitudes_pendientes_verificacion(
+    solicitudes: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    """
+    Devuelve la lista de solicitudes pendientes de verificación (Diseño).
+    Pendiente = verificacion_diseno no existe o los tres campos (producto_final, formula_ok, riquezas) están vacíos.
+    Cada elemento: solicitud_idx, paso_1 (para cabecera y guardado).
+    """
+    result: List[Dict[str, Any]] = []
+    for sol_idx, s in enumerate(solicitudes):
+        p1 = s.get("paso_1") or {}
+        v = p1.get("verificacion_diseno")
+        if not isinstance(v, dict):
+            result.append({"solicitud_idx": sol_idx, "paso_1": p1})
+            continue
+        pf = (v.get("producto_final") or "").strip()
+        fo = (v.get("formula_ok") or "").strip()
+        riq = (v.get("riquezas") or "").strip()
+        if not pf and not fo and not riq:
+            result.append({"solicitud_idx": sol_idx, "paso_1": p1})
+    return result
+
+
+def render_vista_verificacion_diseno(
+    solicitudes: List[Dict[str, Any]],
+    get_on_save_verificacion: Callable[[int], Callable[[str, str, str], None]],
+    on_switch_to_solicitud: Callable[[], None] | None = None,
+    on_switch_to_pendientes: Callable[[], None] | None = None,
+) -> None:
+    """
+    Muestra solicitudes pendientes de verificación (Diseño): cabecera solo lectura y
+    tres campos editables (Producto final, Fórmula OK, Riquezas) con botón Guardar.
+    """
+    pendientes = build_solicitudes_pendientes_verificacion(solicitudes)
+    if not pendientes:
+        st.info("No hay solicitudes pendientes de verificación (Diseño).")
+        col1, col2 = st.columns(2)
+        with col1:
+            if on_switch_to_solicitud and st.button(
+                "Ir a vista por solicitud", key="editor_verif_switch_solicitud"
+            ):
+                on_switch_to_solicitud()
+        with col2:
+            if on_switch_to_pendientes and st.button(
+                "Ir a Rellenar fórmulas (pendientes)", key="editor_verif_switch_pendientes"
+            ):
+                on_switch_to_pendientes()
+        return
+
+    st.caption(f"Solicitudes pendientes de verificación (Diseño): {len(pendientes)}. Rellena y guarda cada una.")
+    for item in pendientes:
+        sol_idx = item["solicitud_idx"]
+        p1 = item["paso_1"]
+        num_sol = p1.get("numero_solicitud", "?")
+        id_ensayo = get_id_ensayo_from_paso1_item(p1)
+        producto = (p1.get("producto_base_linea") or "")[:60]
+        v = p1.get("verificacion_diseno") or {}
+        pf = (v.get("producto_final") or "").strip()
+        fo = (v.get("formula_ok") or "").strip()
+        riq = (v.get("riquezas") or "").strip()
+
+        st.divider()
+        st.subheader(f"Nº Solicitud {num_sol} · ID ensayo: {id_ensayo or '—'}")
+        st.caption(f"Producto base / línea: {producto}")
+
+        key_pf = f"verificacion_{sol_idx}_producto_final"
+        key_fo = f"verificacion_{sol_idx}_formula_ok"
+        key_riq = f"verificacion_{sol_idx}_riquezas"
+        key_btn = f"verificacion_{sol_idx}_guardar"
+
+        producto_final_val = st.text_input("Producto final", value=pf, key=key_pf)
+        formula_ok_val = st.text_input("Fórmula OK", value=fo, key=key_fo)
+        riquezas_val = st.text_area("Riquezas", value=riq, height=100, key=key_riq)
+
+        if st.button("Guardar", type="primary", key=key_btn):
+            on_save = get_on_save_verificacion(sol_idx)
+            on_save(producto_final_val or "", formula_ok_val or "", riquezas_val or "")
 
 
 def render_vista_pendientes_formula(

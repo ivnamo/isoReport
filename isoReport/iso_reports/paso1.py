@@ -380,6 +380,11 @@ def build_all_paso1(
                 "id_ensayo_detectado": id_ensayo_detectado,
                 "clave_incidencia_jira": clave_incidencia_jira,
             },
+            "verificacion_diseno": {
+                "producto_final": "",
+                "formula_ok": "",
+                "riquezas": "",
+            },
         })
 
     return {"paso_1": lista}
@@ -470,6 +475,11 @@ def build_all_paso1_from_master(
             "mapeo": {
                 "id_ensayo_detectado": id_ensayo_detectado,
                 "clave_incidencia_jira": clave_incidencia_jira,
+            },
+            "verificacion_diseno": {
+                "producto_final": "",
+                "formula_ok": "",
+                "riquezas": "",
             },
         })
 

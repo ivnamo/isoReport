@@ -12,6 +12,8 @@ import re
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
+from iso_reports.paso1 import _normalize_id_for_match
+
 
 DEFAULT_JSON_PATH = "data/solicitudes.json"
 
@@ -127,3 +129,88 @@ def formula_to_tsv(formula: List[Dict[str, Any]]) -> str:
         pct = (row.get("porcentaje_peso") or "").strip()
         lines.append(f"{mp}\t{pct}")
     return "\n".join(lines)
+
+
+# Columnas del CSV BBDD para verificación diseño (enriquecimiento)
+VERIF_COL_ID_ENSAYO = "ID ensayo"
+VERIF_COL_PRODUCTO_FINAL = "Producto final"
+VERIF_COL_FORMULA_OK = "Fórmula OK"
+VERIF_COL_RIQUEZAS = "Riquezas"
+
+
+def get_id_ensayo_from_paso1_item(paso_1_item: Dict[str, Any]) -> str:
+    """
+    Obtiene el ID de ensayo desde un elemento de paso_1.
+    Soporta formato plano (mapeo_id_ensayo_detectado) y anidado (mapeo.id_ensayo_detectado).
+    """
+    if not paso_1_item:
+        return ""
+    flat = paso_1_item.get("mapeo_id_ensayo_detectado")
+    if flat is not None and str(flat).strip():
+        return str(flat).strip()
+    mapeo = paso_1_item.get("mapeo") or {}
+    return str(mapeo.get("id_ensayo_detectado", "") or "").strip()
+
+
+def _ensure_verificacion_diseno(paso_1_item: Dict[str, Any]) -> None:
+    """Asegura que paso_1_item tenga verificacion_diseno con las tres claves."""
+    if "verificacion_diseno" not in paso_1_item or not isinstance(paso_1_item["verificacion_diseno"], dict):
+        paso_1_item["verificacion_diseno"] = {
+            "producto_final": "",
+            "formula_ok": "",
+            "riquezas": "",
+        }
+    v = paso_1_item["verificacion_diseno"]
+    for key in ("producto_final", "formula_ok", "riquezas"):
+        if key not in v:
+            v[key] = ""
+
+
+def enriquecer_verificacion_diseno_desde_csv(
+    solicitudes: List[Dict[str, Any]],
+    df_bbdd: Any,
+) -> List[Dict[str, Any]]:
+    """
+    Enriquece verificacion_diseno de cada paso_1 haciendo join por ID ensayo (normalizado).
+    df_bbdd debe tener columnas "ID ensayo", y opcionalmente "Producto final", "Fórmula OK", "Riquezas".
+    Si falta alguna columna, no falla y rellena solo las presentes.
+    Modifica los elementos de solicitudes in-place y devuelve la misma lista.
+    """
+    import pandas as pd
+
+    if not solicitudes or df_bbdd is None or (hasattr(df_bbdd, "empty") and df_bbdd.empty):
+        return solicitudes
+
+    col_id = VERIF_COL_ID_ENSAYO
+    if col_id not in df_bbdd.columns:
+        return solicitudes
+
+    # Índice normalizado -> primera fila que tiene ese ID (para tomar una representante)
+    id_to_row: Dict[str, pd.Series] = {}
+    for idx, row in df_bbdd.iterrows():
+        raw_id = row.get(col_id)
+        nid = _normalize_id_for_match(str(raw_id) if raw_id is not None else "")
+        if nid and nid not in id_to_row:
+            id_to_row[nid] = row
+
+    for sol in solicitudes:
+        paso_1 = sol.get("paso_1") or {}
+        id_ensayo = get_id_ensayo_from_paso1_item(paso_1)
+        nid = _normalize_id_for_match(id_ensayo)
+        if not nid or nid not in id_to_row:
+            _ensure_verificacion_diseno(paso_1)
+            continue
+        row = id_to_row[nid]
+        _ensure_verificacion_diseno(paso_1)
+        v = paso_1["verificacion_diseno"]
+        if VERIF_COL_PRODUCTO_FINAL in df_bbdd.columns:
+            val = row.get(VERIF_COL_PRODUCTO_FINAL)
+            v["producto_final"] = str(val).strip() if val is not None and not (isinstance(val, float) and pd.isna(val)) else ""
+        if VERIF_COL_FORMULA_OK in df_bbdd.columns:
+            val = row.get(VERIF_COL_FORMULA_OK)
+            v["formula_ok"] = str(val).strip() if val is not None and not (isinstance(val, float) and pd.isna(val)) else ""
+        if VERIF_COL_RIQUEZAS in df_bbdd.columns:
+            val = row.get(VERIF_COL_RIQUEZAS)
+            v["riquezas"] = str(val).strip() if val is not None and not (isinstance(val, float) and pd.isna(val)) else ""
+
+    return solicitudes

@@ -26,6 +26,7 @@ def _log(msg: str, data: dict | None = None, hypothesis_id: str = ""):
 from iso_reports.data_loading import load_table
 from iso_reports.editor_data import (
     DEFAULT_JSON_PATH,
+    enriquecer_verificacion_diseno_desde_csv,
     load_solicitudes_json,
     raw_to_solicitudes,
     save_solicitudes_json,
@@ -37,6 +38,7 @@ from iso_reports.editor_ui import (
     render_panel_ensayo,
     render_tabla_ensayos_flat,
     render_vista_pendientes_formula,
+    render_vista_verificacion_diseno,
 )
 from iso_reports.paso1 import Paso1Error, build_all_paso1_from_master
 from iso_reports.paso2 import Paso2Error, build_all_paso2_1, enrich_paso2_2
@@ -216,15 +218,84 @@ def _run_editar() -> None:
     _log("have solicitudes, rendering list", {"len": len(solicitudes)}, "H4")
     # #endregion
 
-    # Selector de vista: Pendientes de fórmula | Por solicitud
+    # Selector de vista: Pendientes de fórmula | Por solicitud | Rellenar verificación (Diseño)
+    _subview_map = {
+        "Rellenar fórmulas (pendientes)": "pendientes",
+        "Por solicitud": "solicitud",
+        "Rellenar verificación (Diseño)": "verificacion",
+    }
+    _current = st.session_state.get("editor_subview", "pendientes")
+    _index = {"pendientes": 0, "solicitud": 1, "verificacion": 2}.get(_current, 0)
     subview = st.radio(
         "Vista del editor",
-        ("Rellenar fórmulas (pendientes)", "Por solicitud"),
-        index=0 if st.session_state.get("editor_subview") == "pendientes" else 1,
+        ("Rellenar fórmulas (pendientes)", "Por solicitud", "Rellenar verificación (Diseño)"),
+        index=_index,
         key="editor_subview_radio",
         horizontal=True,
     )
-    st.session_state["editor_subview"] = "pendientes" if subview == "Rellenar fórmulas (pendientes)" else "solicitud"
+    st.session_state["editor_subview"] = _subview_map.get(subview, "pendientes")
+
+    if st.session_state["editor_subview"] == "verificacion":
+        # Enriquecer desde CSV (opcional)
+        csv_verif = st.file_uploader(
+            "Enriquecer verificación desde CSV (BBDD_Sesion-PT-INAVARRO)",
+            type=["csv", "xlsx", "xls"],
+            key="editor_verif_csv",
+            help="Opcional: sube el CSV/Excel para rellenar Producto final, Fórmula OK y Riquezas por ID ensayo.",
+        )
+        if csv_verif is not None:
+            _file_key = (csv_verif.name, getattr(csv_verif, "size", 0))
+            if st.session_state.get("_last_verif_csv_key") != _file_key:
+                try:
+                    df_bbdd = load_table(csv_verif)
+                    enriquecer_verificacion_diseno_desde_csv(solicitudes, df_bbdd)
+                    st.session_state["solicitudes_data"] = solicitudes
+                    st.session_state["_last_verif_csv_key"] = _file_key
+                    save_solicitudes_json(path, solicitudes)
+                    st.success("Verificación (Diseño) enriquecida desde CSV. Cambios guardados.")
+                    st.rerun()
+                except Exception as e:
+                    st.error(f"Error al enriquecer desde CSV: {e}")
+
+        def _get_on_save_verificacion(sol_idx: int):
+            def _save(pf: str, fo: str, riq: str) -> None:
+                p1 = solicitudes[sol_idx].get("paso_1") or {}
+                if "verificacion_diseno" not in p1 or not isinstance(p1["verificacion_diseno"], dict):
+                    p1["verificacion_diseno"] = {"producto_final": "", "formula_ok": "", "riquezas": ""}
+                p1["verificacion_diseno"]["producto_final"] = (pf or "").strip()
+                p1["verificacion_diseno"]["formula_ok"] = (fo or "").strip()
+                p1["verificacion_diseno"]["riquezas"] = (riq or "").strip()
+                st.session_state["solicitudes_data"] = solicitudes
+                try:
+                    save_solicitudes_json(path, solicitudes)
+                    st.success("Cambios guardados en disco.")
+                except Exception as e:
+                    st.error(f"Error al guardar: {e}")
+                st.rerun()
+            return _save
+
+        def _on_switch_to_solicitud() -> None:
+            st.session_state["editor_subview"] = "solicitud"
+            st.rerun()
+
+        def _on_switch_to_pendientes() -> None:
+            st.session_state["editor_subview"] = "pendientes"
+            st.rerun()
+
+        st.download_button(
+            "Exportar JSON",
+            data=json.dumps(solicitudes_to_raw(solicitudes), ensure_ascii=False, indent=2),
+            file_name="solicitudes_iso.json",
+            mime="application/json",
+            key="editor_export_verificacion",
+        )
+        render_vista_verificacion_diseno(
+            solicitudes,
+            get_on_save_verificacion=_get_on_save_verificacion,
+            on_switch_to_solicitud=_on_switch_to_solicitud,
+            on_switch_to_pendientes=_on_switch_to_pendientes,
+        )
+        return
 
     if st.session_state["editor_subview"] == "pendientes":
         def _get_on_save(sol_idx: int, ens_idx: int):
