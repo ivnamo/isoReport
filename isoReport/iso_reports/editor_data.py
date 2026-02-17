@@ -18,18 +18,53 @@ from iso_reports.paso1 import _normalize_id_for_match
 DEFAULT_JSON_PATH = "data/solicitudes.json"
 
 
+def _normalize_numero_solicitud_for_match(value: Any) -> str:
+    """Valor canónico para comparar numero_solicitud (1, '1', 1.0 -> '1')."""
+    if value is None:
+        return ""
+    s = str(value).strip()
+    try:
+        n = int(float(s))
+        return str(n)
+    except (ValueError, TypeError):
+        return s
+
+
 def raw_to_solicitudes(raw: Dict[str, Any]) -> List[Dict[str, Any]]:
     """
     Convierte el JSON generado por la app (paso_1[] + paso_2[]) en lista de solicitudes.
-    solicitudes[i] = { "paso_1": paso_1[i], "paso_2": paso_2[i] }.
+    Empareja por numero_solicitud (y producto_base_linea si hay varios) para que el orden
+    distinto entre paso_1 y paso_2 en el JSON no mezcle productos con ensayos de otra solicitud.
     """
     paso_1_list = raw.get("paso_1") or []
     paso_2_list = raw.get("paso_2") or []
-    n = min(len(paso_1_list), len(paso_2_list))
-    return [
-        {"paso_1": paso_1_list[i], "paso_2": paso_2_list[i]}
-        for i in range(n)
-    ]
+    if not paso_2_list:
+        return [{"paso_1": p1, "paso_2": {"ensayos": [], "numero_solicitud": p1.get("numero_solicitud"), "producto_base_linea": p1.get("producto_base_linea", ""), "clave_incidencia_jira": ""}} for p1 in paso_1_list]
+
+    # Índice: (num_sol_norm, producto_norm) -> paso_2 block (usar el primero si hay duplicados)
+    paso_2_by_key: Dict[Tuple[str, str], Dict[str, Any]] = {}
+    for blq in paso_2_list:
+        num = _normalize_numero_solicitud_for_match(blq.get("numero_solicitud"))
+        prod = (str(blq.get("producto_base_linea") or "").strip())[:80]
+        key = (num, prod)
+        if key not in paso_2_by_key:
+            paso_2_by_key[key] = blq
+
+    result: List[Dict[str, Any]] = []
+    for p1 in paso_1_list:
+        num_norm = _normalize_numero_solicitud_for_match(p1.get("numero_solicitud"))
+        prod = (str(p1.get("producto_base_linea") or "").strip())[:80]
+        p2 = paso_2_by_key.get((num_norm, prod))
+        if p2 is None:
+            # Fallback: mismo numero_solicitud, cualquier producto
+            for (n, _), blq in paso_2_by_key.items():
+                if n == num_norm:
+                    p2 = blq
+                    break
+        if p2 is None:
+            p2 = {"ensayos": [], "numero_solicitud": p1.get("numero_solicitud"), "producto_base_linea": p1.get("producto_base_linea", ""), "clave_incidencia_jira": ""}
+        result.append({"paso_1": p1, "paso_2": p2})
+    return result
 
 
 def solicitudes_to_raw(solicitudes: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -46,13 +81,16 @@ def load_solicitudes_json(path: str | Path) -> List[Dict[str, Any]]:
     """
     Carga el JSON desde disco y devuelve la lista de solicitudes.
     Si el fichero no existe o está vacío, devuelve [].
+    Aplica auto-relleno de verificación (producto_final, formula_ok) desde paso_2 cuando hay LIBERADO.
     """
     path = Path(path)
     if not path.exists() or path.stat().st_size == 0:
         return []
     with open(path, encoding="utf-8") as f:
         raw = json.load(f)
-    return raw_to_solicitudes(raw)
+    solicitudes = raw_to_solicitudes(raw)
+    autorellenar_verificacion_desde_paso2_liberado(solicitudes)
+    return solicitudes
 
 
 def save_solicitudes_json(path: str | Path, solicitudes: List[Dict[str, Any]]) -> None:
@@ -154,6 +192,23 @@ def get_id_ensayo_from_paso1_item(paso_1_item: Dict[str, Any]) -> str:
     return str(mapeo.get("id_ensayo_detectado", "") or "").strip()
 
 
+def get_id_formula_ok_from_paso1_item(paso_1_item: Dict[str, Any]) -> str:
+    """
+    Obtiene el ID de la fórmula liberada desde verificacion_diseno.formula_ok.
+    El formato es "ID-xxx || nombre formulación"; devuelve la parte antes de " || " (trimmed).
+    Si no hay " || ", devuelve cadena vacía (o el valor completo si se prefiere; aquí vacío por coherencia).
+    """
+    if not paso_1_item:
+        return ""
+    v = paso_1_item.get("verificacion_diseno")
+    if not isinstance(v, dict):
+        return ""
+    fo = (v.get("formula_ok") or "").strip()
+    if " || " in fo:
+        return fo.split(" || ", 1)[0].strip()
+    return ""
+
+
 def get_id_ensayos_liberados_from_paso1_item(paso_1_item: Dict[str, Any]) -> List[str]:
     """
     Obtiene la lista de ID ensayos liberados desde un elemento de paso_1.
@@ -184,6 +239,143 @@ def _ensure_verificacion_diseno(paso_1_item: Dict[str, Any]) -> None:
     for key in ("producto_final", "formula_ok", "riquezas"):
         if key not in v:
             v[key] = ""
+
+
+# ANEXO F10-03: 9 filas fijas de validación (VALIDAR por defecto OK)
+ANEXO_F10_03_FILAS_VALIDACION: List[Dict[str, Any]] = [
+    {"area": "I+D+i", "aspecto_a_validar": "Fórmula - Funcionalidad", "validar_ok_nok": "OK", "comentarios": ""},
+    {"area": "Técnico", "aspecto_a_validar": "Validación agronómica", "validar_ok_nok": "OK", "comentarios": ""},
+    {"area": "Registros", "aspecto_a_validar": "Cumplimiento legislativo", "validar_ok_nok": "OK", "comentarios": ""},
+    {"area": "Producción", "aspecto_a_validar": "Viabilidad productiva", "validar_ok_nok": "OK", "comentarios": ""},
+    {"area": "Calidad", "aspecto_a_validar": "Cumplimiento legislativo", "validar_ok_nok": "OK", "comentarios": ""},
+    {"area": "Calidad", "aspecto_a_validar": "Composición declarada", "validar_ok_nok": "OK", "comentarios": ""},
+    {"area": "Calidad", "aspecto_a_validar": "Estabilidad química", "validar_ok_nok": "OK", "comentarios": ""},
+    {"area": "Marketing y/o Dirección", "aspecto_a_validar": "Precio Tarifa", "validar_ok_nok": "OK", "comentarios": ""},
+    {"area": "Marketing y/o Dirección", "aspecto_a_validar": "Lanzamiento", "validar_ok_nok": "OK", "comentarios": ""},
+]
+
+
+def _ensure_anexo_f10_03(paso_1_item: Dict[str, Any]) -> None:
+    """
+    Asegura que paso_1_item tenga anexo_f10_03 con especificacion_final y validacion.filas.
+    Si no existe, crea la estructura con las 9 filas por defecto (validar_ok_nok = OK).
+    Si ya existe pero faltan filas, completa sin sobrescribir valores guardados.
+    """
+    if "anexo_f10_03" not in paso_1_item or not isinstance(paso_1_item["anexo_f10_03"], dict):
+        paso_1_item["anexo_f10_03"] = {
+            "especificacion_final": {
+                "descripcion": "",
+                "aspecto": "",
+                "densidad": "",
+                "color": "",
+                "ph": "",
+                "caracteristicas_quimicas": "",
+            },
+            "validacion": {
+                "fecha_validacion": "",
+                "filas": [dict(f) for f in ANEXO_F10_03_FILAS_VALIDACION],
+            },
+        }
+        return
+    a = paso_1_item["anexo_f10_03"]
+    if "especificacion_final" not in a or not isinstance(a["especificacion_final"], dict):
+        a["especificacion_final"] = {
+            "descripcion": "", "aspecto": "", "densidad": "", "color": "", "ph": "", "caracteristicas_quimicas": "",
+        }
+    esp = a["especificacion_final"]
+    for key in ("descripcion", "aspecto", "densidad", "color", "ph", "caracteristicas_quimicas"):
+        if key not in esp:
+            esp[key] = ""
+    if "validacion" not in a or not isinstance(a["validacion"], dict):
+        a["validacion"] = {"fecha_validacion": "", "filas": [dict(f) for f in ANEXO_F10_03_FILAS_VALIDACION]}
+        return
+    val = a["validacion"]
+    if "fecha_validacion" not in val:
+        val["fecha_validacion"] = ""
+    if "filas" not in val or not isinstance(val["filas"], list):
+        val["filas"] = [dict(f) for f in ANEXO_F10_03_FILAS_VALIDACION]
+        return
+    # Completar hasta 9 filas si faltan; nuevas filas con default OK
+    default_filas = ANEXO_F10_03_FILAS_VALIDACION
+    while len(val["filas"]) < len(default_filas):
+        idx = len(val["filas"])
+        val["filas"].append({
+            "area": default_filas[idx]["area"],
+            "aspecto_a_validar": default_filas[idx]["aspecto_a_validar"],
+            "validar_ok_nok": "OK",
+            "comentarios": "",
+        })
+
+
+def build_solicitudes_listas_validacion_producto(
+    solicitudes: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    """
+    Devuelve solicitudes listas para el formulario ANEXO F10-03: tienen al menos un ensayo
+    con resultado LIBERADO y verificación de diseño completa (producto_final, formula_ok, riquezas no vacíos).
+    Cada elemento: solicitud_idx, paso_1.
+    """
+    result: List[Dict[str, Any]] = []
+    for sol_idx, s in enumerate(solicitudes):
+        p2 = s.get("paso_2") or {}
+        ensayos = p2.get("ensayos") or []
+        tiene_liberado = any(
+            str(e.get("resultado", "") or "").strip().upper() == VERIF_RESULTADO_LIBERADO.upper()
+            for e in ensayos
+        )
+        if not tiene_liberado:
+            continue
+        p1 = s.get("paso_1") or {}
+        v = p1.get("verificacion_diseno")
+        if not isinstance(v, dict):
+            continue
+        pf = (v.get("producto_final") or "").strip()
+        fo = (v.get("formula_ok") or "").strip()
+        riq = (v.get("riquezas") or "").strip()
+        if pf and fo and riq:
+            result.append({"solicitud_idx": sol_idx, "paso_1": p1})
+    return result
+
+
+def autorellenar_verificacion_desde_paso2_liberado(
+    solicitudes: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    """
+    Rellena automáticamente producto_final y formula_ok en verificacion_diseno cuando
+    en paso_2 hay al menos un ensayo con resultado LIBERADO.
+    - Producto final = paso_1.producto_base_linea
+    - Fórmula OK = "{id} || {ensayo}" del ensayo liberado (preferir el que coincida con id_ensayo de paso_1).
+    No modifica riquezas. Modifica in-place y devuelve la misma lista.
+    """
+    if not solicitudes:
+        return solicitudes
+    for sol in solicitudes:
+        paso_1 = sol.get("paso_1") or {}
+        paso_2 = sol.get("paso_2") or {}
+        ensayos = paso_2.get("ensayos") or []
+        liberados = [
+            e for e in ensayos
+            if str(e.get("resultado", "") or "").strip().upper() == VERIF_RESULTADO_LIBERADO.upper()
+        ]
+        if not liberados:
+            _ensure_verificacion_diseno(paso_1)
+            continue
+        id_ensayo = get_id_ensayo_from_paso1_item(paso_1)
+        id_norm = _normalize_id_for_match(id_ensayo)
+        elegido = None
+        for e in liberados:
+            if id_norm and _normalize_id_for_match(str(e.get("id") or "")) == id_norm:
+                elegido = e
+                break
+        if elegido is None:
+            elegido = liberados[0]
+        _ensure_verificacion_diseno(paso_1)
+        v = paso_1["verificacion_diseno"]
+        v["producto_final"] = str(paso_1.get("producto_base_linea") or "").strip()
+        e_id = str(elegido.get("id") or "").strip()
+        e_ensayo = str(elegido.get("ensayo") or "").strip()
+        v["formula_ok"] = f"{e_id} || {e_ensayo}" if (e_id or e_ensayo) else ""
+    return solicitudes
 
 
 def enriquecer_verificacion_diseno_desde_csv(

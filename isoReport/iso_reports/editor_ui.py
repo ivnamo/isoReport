@@ -13,10 +13,14 @@ import pandas as pd
 import streamlit as st
 
 from .editor_data import (
+    ANEXO_F10_03_FILAS_VALIDACION,
+    _ensure_anexo_f10_03,
+    build_solicitudes_listas_validacion_producto,
     filter_empty_formula_rows,
     formula_to_tsv,
     get_id_ensayo_from_paso1_item,
     get_id_ensayos_liberados_from_paso1_item,
+    get_id_formula_ok_from_paso1_item,
     parse_pasted_formula,
     validate_peso,
 )
@@ -84,7 +88,7 @@ def build_tabla_ensayos_flat(solicitudes: List[Dict[str, Any]]) -> List[Dict[str
             motivo_status = "Sí" if (motivo or "").strip() else "No"
             resumen = (e.get("ensayo") or "")[:50]
             resultado = str(e.get("resultado", "") or "").strip()
-            rows.append({
+            row = {
                 "solicitud_idx": sol_idx,
                 "ensayo_idx": ens_idx,
                 "numero_solicitud": num_sol,
@@ -95,7 +99,8 @@ def build_tabla_ensayos_flat(solicitudes: List[Dict[str, Any]]) -> List[Dict[str
                 "formula_status": formula_status,
                 "motivo_status": motivo_status,
                 "verificacion_status": verificacion_status,
-            })
+            }
+            rows.append(row)
     return rows
 
 
@@ -114,10 +119,10 @@ def render_tabla_ensayos_flat(
     df = pd.DataFrame([
         {
             "Nº Solicitud": str(r["numero_solicitud"]),
-            "Producto": r["producto"],
+            "Producto (solicitud)": r["producto"],
             "ID ensayo": r["id_ensayo"],
             "Resultado": r["resultado"],
-            "Resumen": r["resumen"],
+            "Resumen (ensayo)": r["resumen"],
             "Fórmula": r["formula_status"],
             "Motivo": r["motivo_status"],
             "Verificación": r["verificacion_status"],
@@ -125,6 +130,7 @@ def render_tabla_ensayos_flat(
         for r in flat
     ])
     st.dataframe(df, use_container_width=True)
+    st.caption("Producto (solicitud) = producto base de la solicitud; Resumen (ensayo) = descripción del ensayo/incidencia (puede citar otra formulación).")
     options = [
         f"Solicitud {str(r['numero_solicitud'])} · {r['id_ensayo']} — {r['resumen']}"
         for r in flat
@@ -371,7 +377,7 @@ def build_solicitudes_pendientes_verificacion(
     """
     Devuelve la lista de solicitudes pendientes de verificación (Diseño).
     Solo aplica a solicitudes que tienen al menos un ensayo con resultado LIBERADO.
-    Pendiente = tiene liberados Y (verificacion_diseno no existe o los tres campos vacíos).
+    Pendiente = tiene liberados Y verificación incompleta (al menos uno de producto_final, formula_ok, riquezas vacío).
     Cada elemento: solicitud_idx, paso_1 (para cabecera y guardado).
     """
     result: List[Dict[str, Any]] = []
@@ -392,7 +398,7 @@ def build_solicitudes_pendientes_verificacion(
         pf = (v.get("producto_final") or "").strip()
         fo = (v.get("formula_ok") or "").strip()
         riq = (v.get("riquezas") or "").strip()
-        if not pf and not fo and not riq:
+        if not pf or not fo or not riq:
             result.append({"solicitud_idx": sol_idx, "paso_1": p1})
     return result
 
@@ -470,6 +476,116 @@ def render_vista_verificacion_diseno(
         if st.button("Guardar", type="primary", key=key_btn):
             on_save = get_on_save_verificacion(sol_idx)
             on_save(producto_final_val or "", formula_ok_val or "", riquezas_val or "")
+
+
+def render_vista_validacion_producto(
+    solicitudes: List[Dict[str, Any]],
+    get_on_save_anexo_f10_03: Callable[[int], Callable[[Dict[str, Any]], None]],
+    on_switch_to_solicitud: Callable[[], None] | None = None,
+    on_switch_to_verificacion: Callable[[], None] | None = None,
+) -> None:
+    """
+    Muestra el formulario ANEXO F10-03 (Validación de producto) para solicitudes con
+    LIBERADO y verificación de diseño completa. Incluye especificación final (descripción,
+    físicas, características químicas) y tabla de validación de 9 filas (VALIDAR por defecto OK).
+    """
+    listas = build_solicitudes_listas_validacion_producto(solicitudes)
+    if not listas:
+        st.info("No hay solicitudes listas para Validación de producto (ANEXO F10-03). Completa antes la verificación de diseño (Producto final, Fórmula OK, Riquezas) en solicitudes con ensayo LIBERADO.")
+        col1, col2 = st.columns(2)
+        with col1:
+            if on_switch_to_solicitud and st.button(
+                "Ir a vista por solicitud", key="editor_validprod_switch_solicitud"
+            ):
+                on_switch_to_solicitud()
+        with col2:
+            if on_switch_to_verificacion and st.button(
+                "Ir a Rellenar verificación (Diseño)", key="editor_validprod_switch_verificacion"
+            ):
+                on_switch_to_verificacion()
+        return
+
+    st.caption(f"Solicitudes listas para Validación de producto (ANEXO F10-03): {len(listas)}. Rellena y guarda cada una.")
+    for item in listas:
+        sol_idx = item["solicitud_idx"]
+        p1 = item["paso_1"]
+        _ensure_anexo_f10_03(p1)
+        anexo = p1.get("anexo_f10_03") or {}
+        esp = anexo.get("especificacion_final") or {}
+        val = anexo.get("validacion") or {}
+        filas = val.get("filas") or []
+
+        num_sol = p1.get("numero_solicitud", "?")
+        id_formula_ok = get_id_formula_ok_from_paso1_item(p1)
+        if not id_formula_ok:
+            id_formula_ok = get_id_ensayo_from_paso1_item(p1)
+        producto = (p1.get("producto_base_linea") or "")[:60]
+
+        st.divider()
+        st.subheader(f"Nº Solicitud {num_sol} · ID fórmula liberada: {id_formula_ok or '—'}")
+        st.caption(f"Producto base / línea: {producto}")
+
+        prefix = f"anexo_f10_03_{sol_idx}"
+        desc = st.text_area("DESCRIPCIÓN (Especificación final)", value=(esp.get("descripcion") or "").strip(), height=80, key=f"{prefix}_desc")
+        st.caption("Características físicas")
+        c1, c2 = st.columns(2)
+        with c1:
+            aspecto_val = st.text_input("Aspecto", value=(esp.get("aspecto") or "").strip(), key=f"{prefix}_aspecto")
+            densidad_val = st.text_input("Densidad", value=(esp.get("densidad") or "").strip(), key=f"{prefix}_densidad")
+        with c2:
+            color_val = st.text_input("Color", value=(esp.get("color") or "").strip(), key=f"{prefix}_color")
+            ph_val = st.text_input("pH", value=(esp.get("ph") or "").strip(), key=f"{prefix}_ph")
+        quimicas_val = st.text_area(
+            "Características químicas (pegar tabla Excel)",
+            value=(esp.get("caracteristicas_quimicas") or "").strip(),
+            height=120,
+            key=f"{prefix}_quimicas",
+            help="Pega aquí la tabla (ej. Ntotal	1,159 por línea).",
+        )
+
+        st.caption("2. VALIDACIÓN (El producto satisface los requisitos)")
+        fecha_val = st.text_input("Fecha de validación", value=(val.get("fecha_validacion") or "").strip(), key=f"{prefix}_fecha")
+
+        filas_out: List[Dict[str, Any]] = []
+        for i in range(9):
+            default_row = ANEXO_F10_03_FILAS_VALIDACION[i]
+            area = default_row["area"]
+            aspecto_f = default_row["aspecto_a_validar"]
+            f = filas[i] if i < len(filas) else {}
+            ok_nok = (f.get("validar_ok_nok") or "OK").strip().upper()
+            if ok_nok not in ("OK", "NOK"):
+                ok_nok = "OK"
+            coment = (f.get("comentarios") or "").strip()
+            st.markdown(f"**{area}** — {aspecto_f}")
+            col_v, col_c = st.columns([1, 3])
+            with col_v:
+                ok_nok_new = st.selectbox(
+                    "VALIDAR (OK/NOK)",
+                    options=["OK", "NOK"],
+                    index=0 if ok_nok == "OK" else 1,
+                    key=f"{prefix}_oknok_{i}",
+                )
+            with col_c:
+                coment_new = st.text_input("Comentarios", value=coment, key=f"{prefix}_coment_{i}")
+            filas_out.append({"area": area, "aspecto_a_validar": aspecto_f, "validar_ok_nok": ok_nok_new, "comentarios": coment_new})
+
+        if st.button("Guardar ANEXO F10-03", type="primary", key=f"{prefix}_guardar"):
+            payload = {
+                "especificacion_final": {
+                    "descripcion": (desc or "").strip(),
+                    "aspecto": (aspecto_val or "").strip(),
+                    "densidad": (densidad_val or "").strip(),
+                    "color": (color_val or "").strip(),
+                    "ph": (ph_val or "").strip(),
+                    "caracteristicas_quimicas": (quimicas_val or "").strip(),
+                },
+                "validacion": {
+                    "fecha_validacion": (fecha_val or "").strip(),
+                    "filas": filas_out,
+                },
+            }
+            on_save = get_on_save_anexo_f10_03(sol_idx)
+            on_save(payload)
 
 
 def render_vista_pendientes_formula(

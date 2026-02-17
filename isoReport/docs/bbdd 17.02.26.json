@@ -23,7 +23,7 @@
           "caracteristicas_quimicas": "Ntotal\t1,159\nNorg\t0,882\nNnitr\t0,000\nNure\t0,000\nNamo\t0,325\nK2O\t0,000\nP2O5\t0,000\nCaO\t0,000\nMgO\t1,560\nSO3\t0,185\nZn\t1,995\nMn\t3,959\nFe\t0,000\nCu\t0,244\nB\t0,238\nMo\t1,250\nCo\t0,075\nSiO2\t0,000\nMseca\t1,139\nMorg\t1,053\nCorg\t0,611\nExtracto Húmico total\t1,053\nAcidos fulvicos\t1,053\nAcidos húmicos\t0,000\nExtracto de Algas\t0,000\nPolisacaridos\t0,000\nSum AA totales\t1,053\nSum AA libres\t1,053\nAc aspartico\t0,000\nAc glutamico\t0,360\nAlanina\t0,000\nGlicina\t0,000\nHistidina\t0,000\nIsoleucina\t0,000\nLeucina\t0,000\nLisina\t0,000\nSerina\t0,000\nTirosina\t0,000\nTreonina\t0,000\nValina\t0,000\nArginina\t0,347\nFenilalanina\t0,000\nMetionina\t0,000\nProlina\t0,347\nHidroxiprolina\t0,000\nTriptofano\t0,000\nAs\t0,000\nHg\t0,000\nPb\t0,000\nCd\t0,000\nCr\t0,000\nNi\t0,000"
         },
         "validacion": {
-          "fecha_validacion": "10/02/2026",
+          "fecha_validacion": "08/05/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -106,7 +106,7 @@
           "caracteristicas_quimicas": "Ntotal\t2,198\nNorg\t1,600\nNnitr\t0,000\nNure\t0,000\nNamo\t0,766\nK2O\t0,000\nP2O5\t0,000\nCaO\t0,000\nMgO\t0,000\nSO3\t0,205\nZn\t15,200\nMn\t0,000\nFe\t0,000\nCu\t0,000\nB\t0,000\nMo\t4,400\nCo\t0,241\nSiO2\t0,000\nMseca\t6,336\nMorg\t8,384\nCorg\t4,863\nExtracto Húmico total\t8,344\nAcidos fulvicos\t8,344\nAcidos húmicos\t0,000\nExtracto de Algas\t0,000\nPolisacaridos\t2,464\nSum AA totales\t5,880\nSum AA libres\t5,880\nAc aspartico\t0,000\nAc glutamico\t1,920\nAlanina\t0,000\nGlicina\t0,000\nHistidina\t0,000\nIsoleucina\t0,000\nLeucina\t0,000\nLisina\t0,000\nSerina\t0,000\nTirosina\t0,000\nTreonina\t0,000\nValina\t0,000\nArginina\t1,980\nFenilalanina\t0,000\nMetionina\t0,000\nProlina\t1,980\nHidroxiprolina\t0,000\nTriptofano\t0,000\nAs\t0,000\nHg\t0,000\nPb\t0,000\nCd\t0,000\nCr\t0,000\nNi\t0,840"
         },
         "validacion": {
-          "fecha_validacion": "10/02/2026",
+          "fecha_validacion": "08/05/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -217,7 +217,7 @@
           "caracteristicas_quimicas": "Ntotal\t3,1695\nNorg\t1,5175\nNnitr\t0,847\nNure\t0\nNamo\t0,805\nK2O\t0,993\nP2O5\t1,02\nCaO\t0\nMgO\t0\nSO3\t0,055\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0,64\nMorg\t17,86\nCorg\t9,5926\nExtracto Húmico total\t3,09\nAcidos fulvicos\t3,09\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t3,15\nSum AA libres\t10,59\nAc aspartico\t0,54\nAc glutamico\t1,865\nAlanina\t0,402\nGlicina\t3,423\nHistidina\t0,225\nIsoleucina\t0,0385\nLeucina\t0,527\nLisina\t1,801\nSerina\t0,1885\nTirosina\t0,04225\nTreonina\t0,976\nValina\t0,305\nArginina\t0,1875\nFenilalanina\t0,2255\nMetionina\t0,045\nProlina\t0,1885\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "18/10/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -300,7 +300,7 @@
           "caracteristicas_quimicas": "Ntotal\t0\nNorg\t0\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t0\nP2O5\t0\nCaO\t32,9187\nMgO\t0,1182\nSO3\t0\nZn\t1,52\nMn\t0,4972\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0,1773\nMseca\t0\nMorg\t0\nCorg\t0\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0\nSum AA libres\t0\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "07/09/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -383,7 +383,7 @@
           "caracteristicas_quimicas": "Ntotal\t0,00695\nNorg\t0,00604\nNnitr\t0\nNure\t0\nNamo\t0,00081\nK2O\t0,0049\nP2O5\t0,00527\nCaO\t32,9187\nMgO\t0,1182\nSO3\t0\nZn\t1,52\nMn\t0,4972\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0,1773\nMseca\t0,0823\nMorg\t0,0728\nCorg\t0,0422\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0,038\nSum AA libres\t0,0084\nAc aspartico\t0,0024\nAc glutamico\t0,0071\nAlanina\t0,0038\nGlicina\t0,0016\nHistidina\t0,0012\nIsoleucina\t0,00135\nLeucina\t0,0042\nLisina\t0,0014\nSerina\t0,0019\nTirosina\t0,0014\nTreonina\t0,0014\nValina\t0,002\nArginina\t0,0017\nFenilalanina\t0,0017\nMetionina\t0,0008\nProlina\t0,0039\nHidroxiprolina\t0,0001\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "26/12/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -494,7 +494,7 @@
           "caracteristicas_quimicas": "Ntotal\t1,278\nNorg\t1,208\nNnitr\t0\nNure\t0\nNamo\t0,07\nK2O\t0\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0,6\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0,5\nCo\t0,065\nSiO2\t0\nMseca\t4,95\nMorg\t6,36\nCorg\t3,829003\nExtracto Húmico total\t6,36\nAcidos fulvicos\t6,415\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t6,48\nSum AA libres\t6,415\nAc aspartico\t0\nAc glutamico\t2,4\nAlanina\t0\nGlicina\t1,98\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t1,98\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "07/12/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -605,7 +605,7 @@
           "caracteristicas_quimicas": "Ntotal\t0\nNorg\t0\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t0\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t99\nCorg\t0\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0\nSum AA libres\t0\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "20/12/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -688,7 +688,7 @@
           "caracteristicas_quimicas": "Ntotal\t0\nNorg\t0\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t0\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t99\nCorg\t0\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0\nSum AA libres\t0\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "03/01/2026",
           "filas": [
             {
               "area": "I+D+i",
@@ -785,7 +785,7 @@
           "caracteristicas_quimicas": "Ntotal\t7,3549\nNorg\t2,2729\nNnitr\t2,244\nNure\t0\nNamo\t2,838\nK2O\t3,85812\nP2O5\t2,979476\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0,352\nMo\t0,2028\nCo\t0\nSiO2\t0\nMseca\t12,17972\nMorg\t7,2394\nCorg\t4,0907542\nExtracto Húmico total\t4,41488\nAcidos fulvicos\t2,57212\nAcidos húmicos\t1,84276\nExtracto de Algas\t0\nPolisacaridos\t0,3506\nSum AA totales\t0,975\nSum AA libres\t2,035\nAc aspartico\t0\nAc glutamico\t0,48\nAlanina\t0\nGlicina\t0,495\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "16/08/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -910,7 +910,7 @@
           "caracteristicas_quimicas": "Ntotal\t0\nNorg\t0\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t13,25\nP2O5\t10,25\nCaO\t0\nMgO\t0\nSO3\t2,61\nZn\t0\nMn\t0\nFe\t0\nCu\t2,07\nB\t7,089\nMo\t8,931\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t0\nCorg\t0\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0\nSum AA libres\t0\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "20/11/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -993,7 +993,7 @@
           "caracteristicas_quimicas": "Ntotal\t5,273\nNorg\t1,941\nNnitr\t0\nNure\t0,92\nNamo\t2,412\nK2O\t0\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t13,065\nZn\t1,96\nMn\t0,468\nFe\t0\nCu\t0\nB\t0\nMo\t1,521\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t5,544\nCorg\t3,215612\nExtracto Húmico total\t3,564\nAcidos fulvicos\t3,564\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t3,564\nSum AA libres\t3,564\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t3,564\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "12/09/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -1076,7 +1076,7 @@
           "caracteristicas_quimicas": "Ntotal\t6,035574\nNorg\t3,101574\nNnitr\t0\nNure\t0\nNamo\t2,934\nK2O\t0,09\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0,1876\nMn\t0,0924\nFe\t0,0912\nCu\t0,0462\nB\t0,0969\nMo\t0,0195\nCo\t0,01001\nSiO2\t0\nMseca\t0\nMorg\t0\nCorg\t0\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0\nSum AA libres\t8,802\nAc aspartico\t0,22005\nAc glutamico\t2,4939\nAlanina\t0,5868\nGlicina\t0,01467\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t5,5746\nSerina\t0\nTirosina\t0,183375\nTreonina\t0\nValina\t0,110025\nArginina\t0,01467\nFenilalanina\t0\nMetionina\t0\nProlina\t0,07335\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "30/06/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -1187,7 +1187,7 @@
           "caracteristicas_quimicas": "Ntotal\t2,461\nNorg\t2,461\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t0,396\nP2O5\t0,0019\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t3,399\nMorg\t8,1992\nCorg\t4,7557015\nExtracto Húmico total\t6,7988\nAcidos fulvicos\t6,4612\nAcidos húmicos\t0,3376\nExtracto de Algas\t0\nPolisacaridos\t0,0148\nSum AA totales\t6,15\nSum AA libres\t6,15\nAc aspartico\t0\nAc glutamico\t1,2\nAlanina\t0\nGlicina\t4,95\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "08/10/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -1270,7 +1270,7 @@
           "caracteristicas_quimicas": "Ntotal\t0,36\nNorg\t0,36\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t6,3\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t1,98\nCorg\t1,1484\nExtracto Húmico total\t1,98\nAcidos fulvicos\t1,98\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t1,98\nSum AA libres\t1,98\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t1,98\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "17/11/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -1353,7 +1353,7 @@
           "caracteristicas_quimicas": "Ntotal\t3,929002521\nNorg\t3,929002521\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t0,525\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t4,257\nMorg\t7,817\nCorg\t4,534075\nExtracto Húmico total\t6,817\nAcidos fulvicos\t6,817\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t6,817\nSum AA libres\t6,817\nAc aspartico\t0\nAc glutamico\t2,56\nAlanina\t0\nGlicina\t3,168\nHistidina\t0\nIsoleucina\t0\nLeucina\t0,099\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0,99\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "05/05/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -1436,7 +1436,7 @@
           "caracteristicas_quimicas": "Ntotal\t3,929001217\nNorg\t3,929001217\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t0,525\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t4,257\nMorg\t15,517\nCorg\t9,000435\nExtracto Húmico total\t14,517\nAcidos fulvicos\t14,517\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t7,7\nSum AA totales\t6,817\nSum AA libres\t6,817\nAc aspartico\t0\nAc glutamico\t2,56\nAlanina\t0\nGlicina\t3,168\nHistidina\t0\nIsoleucina\t0\nLeucina\t0,099\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0,99\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "06/11/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -1519,7 +1519,7 @@
           "caracteristicas_quimicas": "Ntotal\t4,3805\nNorg\t4,3805\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t1,065\nP2O5\t0,00475\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t8,547\nMorg\t6,777\nCorg\t3,931012\nExtracto Húmico total\t4,776\nAcidos fulvicos\t3,932\nAcidos húmicos\t0,844\nExtracto de Algas\t0\nPolisacaridos\t0,037\nSum AA totales\t3,154\nSum AA libres\t3,154\nAc aspartico\t0\nAc glutamico\t2,56\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0,099\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0,495\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "01/10/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -1616,7 +1616,7 @@
           "caracteristicas_quimicas": "Ntotal\t3,62846\nNorg\t0,80326\nNnitr\t1,1084\nNure\t0\nNamo\t1,7168\nK2O\t3,065\nP2O5\t4,16\nCaO\t0\nMgO\t0\nSO3\t2,185415418\nZn\t0,1169\nMn\t0,1146\nFe\t0,6432\nCu\t0,0189\nB\t0,102\nMo\t0,0117\nCo\t0\nSiO2\t0\nMseca\t11,085\nMorg\t11,61\nCorg\t6,71589334\nExtracto Húmico total\t3,77\nAcidos fulvicos\t3,77\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0,77\nSum AA totales\t3,9\nSum AA libres\t3,15\nAc aspartico\t0,225\nAc glutamico\t2,31\nAlanina\t0,315\nGlicina\t0,015\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0,015\nTirosina\t0\nTreonina\t0\nValina\t0,015\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0,405\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "18/07/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -1699,7 +1699,7 @@
           "caracteristicas_quimicas": "Ntotal\t9,28\nNorg\t1,71\nNnitr\t3,895\nNure\t0\nNamo\t3,57\nK2O\t3,165\nP2O5\t3,12\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t2,97\nMorg\t12,9\nCorg\t7,342111\nExtracto Húmico total\t2,4\nAcidos fulvicos\t11,5\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t28,65\nSum AA libres\t11,5\nAc aspartico\t0,84\nAc glutamico\t3,1\nAlanina\t0,7\nGlicina\t1,05\nHistidina\t0,056\nIsoleucina\t0,105\nLeucina\t0,056\nLisina\t0,35\nSerina\t1,4\nTirosina\t0,105\nTreonina\t0,875\nValina\t0,525\nArginina\t0,945\nFenilalanina\t0,07\nMetionina\t0,105\nProlina\t1,33\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "28/08/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -1796,7 +1796,7 @@
           "caracteristicas_quimicas": "Ntotal\t2,61204\nNorg\t1,92724\nNnitr\t0,2941\nNure\t0\nNamo\t0,2941\nK2O\t7,854\nP2O5\t6,864\nCaO\t0\nMgO\t0\nSO3\t0,4974\nZn\t0,0196\nMn\t0\nFe\t0,102\nCu\t0\nB\t0,0308\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0,693\nMorg\t11,673\nCorg\t6,7708854\nExtracto Húmico total\t11,473\nAcidos fulvicos\t11,473\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t10,78\nSum AA totales\t4,005\nSum AA libres\t4,005\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0,495\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0,198\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "30/08/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -1879,7 +1879,7 @@
           "caracteristicas_quimicas": "Ntotal\t1,645\nNorg\t1,645\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t11,91\nP2O5\t0,00475\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0,33\nMo\t0,195\nCo\t0\nSiO2\t0\nMseca\t4,785\nMorg\t2,623\nCorg\t1,5215\nExtracto Húmico total\t1,622\nAcidos fulvicos\t0,778\nAcidos húmicos\t0,844\nExtracto de Algas\t0\nPolisacaridos\t0,037\nSum AA totales\t0\nSum AA libres\t0\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "24/08/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -1962,7 +1962,7 @@
           "caracteristicas_quimicas": "Ntotal\t1,380747199\nNorg\t0,9332086\nNnitr\t0\nNure\t0\nNamo\t0,4475386\nK2O\t0\nP2O5\t0\nCaO\t0\nMgO\t1,677\nSO3\t0,4845\nZn\t1,995\nMn\t3,9585\nFe\t0\nCu\t0,2439\nB\t0,2376\nMo\t2,5\nCo\t0,07475\nSiO2\t0\nMseca\t1,1385\nMorg\t1,053\nCorg\t0,61078885\nExtracto Húmico total\t1,053\nAcidos fulvicos\t1,053\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t1,053\nSum AA libres\t1,053\nAc aspartico\t0\nAc glutamico\t0,36\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0,3465\nFenilalanina\t0\nMetionina\t0\nProlina\t0,3465\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "11/07/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -2045,7 +2045,7 @@
           "caracteristicas_quimicas": ""
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "04/12/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -2142,7 +2142,7 @@
           "caracteristicas_quimicas": "Ntotal\t2,355\nNorg\t2,255\nNnitr\t0\nNure\t0\nNamo\t0,1\nK2O\t0,17\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t1,1531\nZn\t0,5075\nMn\t0,315\nFe\t0\nCu\t0,0575\nB\t0,055\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t1,485\nMorg\t4,554\nCorg\t9,641435\nExtracto Húmico total\t3,564\nAcidos fulvicos\t6,314\nAcidos húmicos\t0\nExtracto de Algas\t0,99\nPolisacaridos\t0\nSum AA totales\t9,564\nSum AA libres\t6,314\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t2,079\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t1,485\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "28/08/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -2239,7 +2239,7 @@
           "caracteristicas_quimicas": "Ntotal\t3,87774\nNorg\t1,53254\nNnitr\t1,1084\nNure\t0\nNamo\t1,2368\nK2O\t3,02\nP2O5\t4,16\nCaO\t0\nMgO\t0\nSO3\t1,484050136\nZn\t0,1169\nMn\t0,1146\nFe\t0,6432\nCu\t0,0189\nB\t0,102\nMo\t0,0117\nCo\t0\nSiO2\t0\nMseca\t1,485\nMorg\t4,28\nCorg\t2,4825995\nExtracto Húmico total\t4,28\nAcidos fulvicos\t4,28\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t3,08\nSum AA totales\t6,96\nSum AA libres\t6,96\nAc aspartico\t0,264\nAc glutamico\t2,04\nAlanina\t0,48\nGlicina\t1,992\nHistidina\t0\nIsoleucina\t0,024\nLeucina\t0,096\nLisina\t0,72\nSerina\t0,168\nTirosina\t0,048\nTreonina\t0,072\nValina\t0,048\nArginina\t0,216\nFenilalanina\t0,072\nMetionina\t0,024\nProlina\t0,48\nHidroxiprolina\t0,312\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "30/08/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -2322,7 +2322,7 @@
           "caracteristicas_quimicas": "Ntotal\t2,285\nNorg\t2,285\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t17,776\nP2O5\t0,00475\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0,22\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t7,26\nMorg\t17,353\nCorg\t10,0655415\nExtracto Húmico total\t16,352\nAcidos fulvicos\t15,508\nAcidos húmicos\t0,844\nExtracto de Algas\t0\nPolisacaridos\t14,557\nSum AA totales\t3,18\nSum AA libres\t3,18\nAc aspartico\t0\nAc glutamico\t1,2\nAlanina\t0\nGlicina\t0,99\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0,99\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "23/11/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -2419,7 +2419,7 @@
           "caracteristicas_quimicas": ""
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "27/07/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -2502,7 +2502,7 @@
           "caracteristicas_quimicas": "Ntotal\t15,29175\nNorg\t0,40425\nNnitr\t4,5675\nNure\t10,005\nNamo\t0,315\nK2O\t0\nP2O5\t0\nCaO\t8,19\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0,2035\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t1,0395\nCorg\t0,60291\nExtracto Húmico total\t1,0395\nAcidos fulvicos\t1,0395\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t1,0395\nSum AA libres\t1,0395\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t1,0395\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "20/12/2025",
           "filas": [
             {
               "area": "I+D+i",
@@ -2585,7 +2585,7 @@
           "caracteristicas_quimicas": "Ntotal\t13,8\nNorg\t0\nNnitr\t0\nNure\t13,8\nNamo\t0\nK2O\t7,056\nP2O5\t0\nCaO\t0\nMgO\t0,096\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0,119\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t29,7\nCorg\t17,22738\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0\nSum AA libres\t0\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
-          "fecha_validacion": "",
+          "fecha_validacion": "17/08/2025",
           "filas": [
             {
               "area": "I+D+i",

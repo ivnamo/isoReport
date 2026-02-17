@@ -11,21 +11,10 @@ from pathlib import Path
 
 import streamlit as st
 
-# #region agent log
-DEBUG_LOG_PATH = r"c:\Users\IVANNAVARRO\OneDrive - ATLANTICA AGRICOLA\Escritorio\Repos\.cursor\debug.log"
-def _log(msg: str, data: dict | None = None, hypothesis_id: str = ""):
-    try:
-        import time
-        line = json.dumps({"timestamp": int(time.time() * 1000), "location": "app.py", "message": msg, "data": data or {}, "hypothesisId": hypothesis_id}) + "\n"
-        with open(DEBUG_LOG_PATH, "a", encoding="utf-8") as f:
-            f.write(line)
-    except Exception:
-        pass
-# #endregion
-
 from iso_reports.data_loading import load_table
 from iso_reports.editor_data import (
     DEFAULT_JSON_PATH,
+    autorellenar_verificacion_desde_paso2_liberado,
     enriquecer_verificacion_diseno_desde_csv,
     load_solicitudes_json,
     raw_to_solicitudes,
@@ -38,6 +27,7 @@ from iso_reports.editor_ui import (
     render_panel_ensayo,
     render_tabla_ensayos_flat,
     render_vista_pendientes_formula,
+    render_vista_validacion_producto,
     render_vista_verificacion_diseno,
 )
 from iso_reports.paso1 import Paso1Error, build_all_paso1_from_master
@@ -149,7 +139,9 @@ def _run_generar() -> None:
             mime="application/json",
         )
         if st.button("Abrir en editor"):
-            st.session_state["solicitudes_data"] = raw_to_solicitudes(resultado)
+            solicitudes = raw_to_solicitudes(resultado)
+            autorellenar_verificacion_desde_paso2_liberado(solicitudes)
+            st.session_state["solicitudes_data"] = solicitudes
             st.session_state["editor_mode"] = "editar"
             st.session_state["editor_solicitud_idx"] = None
             st.session_state["editor_ensayo_idx"] = None
@@ -157,20 +149,12 @@ def _run_generar() -> None:
 
 
 def _run_editar() -> None:
-    # #region agent log
-    _run_count = st.session_state.get("_debug_run_count", 0) + 1
-    st.session_state["_debug_run_count"] = _run_count
-    _log("_run_editar entry", {"run_count": _run_count, "has_solicitudes_data": st.session_state.get("solicitudes_data") is not None, "solicitudes_len": len(st.session_state.get("solicitudes_data") or [])}, "H4")
-    # #endregion
     st.title("Editar solicitudes ISO")
     path = Path(st.session_state.get("editor_json_path", DEFAULT_JSON_PATH))
 
     # Importar / Exportar
     with st.sidebar.expander("Importar / Exportar"):
         import_file = st.file_uploader("Importar JSON", type=["json"], key="editor_import")
-        # #region agent log
-        _log("after file_uploader", {"import_file_is_none": import_file is None}, "H1")
-        # #endregion
         if import_file is not None:
             # Evitar bucle: tras st.rerun() el file_uploader sigue con el mismo archivo; no reprocesar.
             _file_key = (import_file.name, getattr(import_file, "size", 0))
@@ -178,23 +162,15 @@ def _run_editar() -> None:
                 # Ya importamos este archivo en el run anterior; no volver a cargar ni rerun.
                 pass
             else:
-                # #region agent log
-                _log("import block entered", {"run_count": _run_count}, "H1")
-                # #endregion
                 try:
                     raw = json.load(import_file)
                     solicitudes = raw_to_solicitudes(raw)
+                    autorellenar_verificacion_desde_paso2_liberado(solicitudes)
                     st.session_state["solicitudes_data"] = solicitudes
                     st.session_state["_last_import_file_key"] = _file_key
-                    # #region agent log
-                    _log("import success, about to rerun", {"solicitudes_len": len(solicitudes)}, "H1")
-                    # #endregion
                     st.success("JSON importado.")
                     st.rerun()
                 except Exception as e:
-                    # #region agent log
-                    _log("import exception", {"error": str(e), "type": type(e).__name__}, "H2")
-                    # #endregion
                     st.error(f"Error al importar: {e}")
 
     # Cargar datos: sesión o disco
@@ -208,27 +184,26 @@ def _run_editar() -> None:
             return
 
     if not solicitudes:
-        # #region agent log
-        _log("no solicitudes, returning", {"solicitudes": solicitudes}, "H4")
-        # #endregion
         st.info("No hay solicitudes cargadas. Importa un JSON (sidebar) o genera primero en el modo «Generar JSON».")
         return
 
-    # #region agent log
-    _log("have solicitudes, rendering list", {"len": len(solicitudes)}, "H4")
-    # #endregion
-
-    # Selector de vista: Pendientes de fórmula | Por solicitud | Rellenar verificación (Diseño)
+    # Selector de vista: Pendientes de fórmula | Por solicitud | Rellenar verificación | Validación producto
     _subview_map = {
         "Rellenar fórmulas (pendientes)": "pendientes",
         "Por solicitud": "solicitud",
         "Rellenar verificación (Diseño)": "verificacion",
+        "Validación producto (ANEXO F10-03)": "validacion_producto",
     }
     _current = st.session_state.get("editor_subview", "pendientes")
-    _index = {"pendientes": 0, "solicitud": 1, "verificacion": 2}.get(_current, 0)
+    _index = {"pendientes": 0, "solicitud": 1, "verificacion": 2, "validacion_producto": 3}.get(_current, 0)
     subview = st.radio(
         "Vista del editor",
-        ("Rellenar fórmulas (pendientes)", "Por solicitud", "Rellenar verificación (Diseño)"),
+        (
+            "Rellenar fórmulas (pendientes)",
+            "Por solicitud",
+            "Rellenar verificación (Diseño)",
+            "Validación producto (ANEXO F10-03)",
+        ),
         index=_index,
         key="editor_subview_radio",
         horizontal=True,
@@ -313,6 +288,43 @@ def _run_editar() -> None:
             on_switch_to_solicitud=_on_switch_to_solicitud,
             on_switch_to_pendientes=_on_switch_to_pendientes,
             on_apply_id_ensayo=_on_apply_id_ensayo,
+        )
+        return
+
+    if st.session_state["editor_subview"] == "validacion_producto":
+        def _get_on_save_anexo_f10_03(sol_idx: int):
+            def _save(payload: dict) -> None:
+                p1 = solicitudes[sol_idx].get("paso_1") or {}
+                p1["anexo_f10_03"] = payload
+                st.session_state["solicitudes_data"] = solicitudes
+                try:
+                    save_solicitudes_json(path, solicitudes)
+                    st.success("ANEXO F10-03 guardado en disco.")
+                except Exception as e:
+                    st.error(f"Error al guardar: {e}")
+                st.rerun()
+            return _save
+
+        def _on_switch_to_solicitud() -> None:
+            st.session_state["editor_subview"] = "solicitud"
+            st.rerun()
+
+        def _on_switch_to_verificacion() -> None:
+            st.session_state["editor_subview"] = "verificacion"
+            st.rerun()
+
+        st.download_button(
+            "Exportar JSON",
+            data=json.dumps(solicitudes_to_raw(solicitudes), ensure_ascii=False, indent=2),
+            file_name="solicitudes_iso.json",
+            mime="application/json",
+            key="editor_export_validacion_producto",
+        )
+        render_vista_validacion_producto(
+            solicitudes,
+            get_on_save_anexo_f10_03=_get_on_save_anexo_f10_03,
+            on_switch_to_solicitud=_on_switch_to_solicitud,
+            on_switch_to_verificacion=_on_switch_to_verificacion,
         )
         return
 
