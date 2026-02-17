@@ -62,7 +62,8 @@ def build_tabla_ensayos_flat(solicitudes: List[Dict[str, Any]]) -> List[Dict[str
     """
     Construye una lista plana de filas (una por ensayo) con columnas para vista general.
     Cada dict incluye solicitud_idx, ensayo_idx y campos para mostrar (numero_solicitud,
-    producto, id_ensayo, resumen, formula_status, motivo_status).
+    producto, id_ensayo, resumen, resultado, formula_status, motivo_status, verificacion_status).
+    verificacion_status es por solicitud: Sí si tiene los tres campos de verificacion_diseno rellenados.
     """
     rows: List[Dict[str, Any]] = []
     for sol_idx, s in enumerate(solicitudes):
@@ -71,11 +72,18 @@ def build_tabla_ensayos_flat(solicitudes: List[Dict[str, Any]]) -> List[Dict[str
         ensayos = p2.get("ensayos") or []
         num_sol = p1.get("numero_solicitud", "?")
         producto = (p1.get("producto_base_linea") or "")[:40]
+        v = p1.get("verificacion_diseno") or {}
+        pf = (v.get("producto_final") or "").strip()
+        fo = (v.get("formula_ok") or "").strip()
+        riq = (v.get("riquezas") or "").strip()
+        verificacion_ok = bool(pf and fo and riq)
+        verificacion_status = "Sí" if verificacion_ok else "No"
         for ens_idx, e in enumerate(ensayos):
             formula, motivo = _get_ensayo_safe(e)
             formula_status = f"Sí ({len(formula)} líneas)" if formula else "No"
             motivo_status = "Sí" if (motivo or "").strip() else "No"
             resumen = (e.get("ensayo") or "")[:50]
+            resultado = str(e.get("resultado", "") or "").strip()
             rows.append({
                 "solicitud_idx": sol_idx,
                 "ensayo_idx": ens_idx,
@@ -83,8 +91,10 @@ def build_tabla_ensayos_flat(solicitudes: List[Dict[str, Any]]) -> List[Dict[str
                 "producto": producto,
                 "id_ensayo": e.get("id", ""),
                 "resumen": resumen,
+                "resultado": resultado,
                 "formula_status": formula_status,
                 "motivo_status": motivo_status,
+                "verificacion_status": verificacion_status,
             })
     return rows
 
@@ -106,9 +116,11 @@ def render_tabla_ensayos_flat(
             "Nº Solicitud": str(r["numero_solicitud"]),
             "Producto": r["producto"],
             "ID ensayo": r["id_ensayo"],
+            "Resultado": r["resultado"],
             "Resumen": r["resumen"],
             "Fórmula": r["formula_status"],
             "Motivo": r["motivo_status"],
+            "Verificación": r["verificacion_status"],
         }
         for r in flat
     ])
@@ -358,11 +370,20 @@ def build_solicitudes_pendientes_verificacion(
 ) -> List[Dict[str, Any]]:
     """
     Devuelve la lista de solicitudes pendientes de verificación (Diseño).
-    Pendiente = verificacion_diseno no existe o los tres campos (producto_final, formula_ok, riquezas) están vacíos.
+    Solo aplica a solicitudes que tienen al menos un ensayo con resultado LIBERADO.
+    Pendiente = tiene liberados Y (verificacion_diseno no existe o los tres campos vacíos).
     Cada elemento: solicitud_idx, paso_1 (para cabecera y guardado).
     """
     result: List[Dict[str, Any]] = []
     for sol_idx, s in enumerate(solicitudes):
+        p2 = s.get("paso_2") or {}
+        ensayos = p2.get("ensayos") or []
+        tiene_liberado = any(
+            str(e.get("resultado", "") or "").strip().upper() == "LIBERADO"
+            for e in ensayos
+        )
+        if not tiene_liberado:
+            continue
         p1 = s.get("paso_1") or {}
         v = p1.get("verificacion_diseno")
         if not isinstance(v, dict):
