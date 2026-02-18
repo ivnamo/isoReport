@@ -1,478 +1,175 @@
 """
-App ISO Report — Paso 1 (cabecera) + Paso 2.1 (ensayos) + Paso 2.2 (fórmula/motivo) + Editor.
-
-Modos: Generar JSON (desde Jira + BBDD) y Editar solicitudes (persistencia en disco).
+App F10: gestión de F10-01 (lectura Excel), F10-02 y F10-03 (edición JSON, exportación).
 """
 
 from __future__ import annotations
 
-import json
+import copy
 from pathlib import Path
 
 import streamlit as st
 
-from iso_reports.data_loading import load_table
-from iso_reports.editor_data import (
-    DEFAULT_JSON_PATH,
-    autorellenar_verificacion_desde_paso2_liberado,
-    enriquecer_verificacion_diseno_desde_csv,
-    load_solicitudes_json,
-    raw_to_solicitudes,
-    save_solicitudes_json,
-    solicitudes_to_raw,
+import config
+from exporters import build_f10_02_bytes, build_f10_03_bytes
+from models.solicitud import Solicitud
+from services import (
+    build_unified_list,
+    load_f10_01_sheet,
+    load_raw,
+    save_raw,
+    unified_list_to_raw,
 )
-from iso_reports.editor_ui import (
-    render_detalle_solicitud,
-    render_listado_solicitudes,
-    render_panel_ensayo,
-    render_tabla_ensayos_flat,
-    render_vista_pendientes_formula,
-    render_vista_validacion_producto,
-    render_vista_verificacion_diseno,
+from services.f10_01_loader import get_available_years
+from ui import (
+    render_sidebar_filters_and_list,
+    render_tab_exportar,
+    render_tab_f10_01,
+    render_tab_f10_02,
+    render_tab_f10_03,
 )
-from iso_reports.paso1 import Paso1Error, build_all_paso1_from_master
-from iso_reports.paso2 import Paso2Error, build_all_paso2_1, enrich_paso2_2
+from utils.solicitud_data import ensure_anexo_f10_03
 
 
 def _init_session_state() -> None:
     defaults = {
-        "editor_mode": "generar",
-        "solicitudes_data": None,
-        "editor_solicitud_idx": None,
-        "editor_ensayo_idx": None,
-        "editor_json_path": DEFAULT_JSON_PATH,
-        "editor_subview": "pendientes",
+        "unified_list": None,
+        "year": 2025,
+        "selected_filtered_idx": None,
+        "editing_solicitud": None,
+        "unsaved_changes": False,
     }
     for k, v in defaults.items():
         if k not in st.session_state:
             st.session_state[k] = v
 
 
-def _run_generar() -> None:
-    st.title("Paso 1 + Paso 2.1 + Paso 2.2 — Cabecera, Ensayos y Fórmulas")
-    st.markdown(
-        "Sube los **tres** archivos para generar **Paso 1** (cabecera desde listado maestro), **Paso 2.1** (ensayos por producto) y **Paso 2.2** (fórmula y motivo/comentario desde BBDD). "
-        "No se generan Excel ni documentos finales."
-    )
-    col1, col2 = st.columns(2)
-    with col1:
-        solicitudes2025_file = st.file_uploader(
-            "1) Solicitudes 2025 (listado maestro)",
-            type=["xlsx", "xls"],
-            key="solicitudes_2025",
-            help="Excel con columnas Nº Solicitud, SOLICITANTE y NOMBRE (listado maestro de solicitudes)",
-        )
-        jira_file = st.file_uploader(
-            "2) Listado Jira ISO",
-            type=["csv", "xlsx", "xls"],
-            key="listado_jira",
-            help="Tabla con columnas: Persona asignada, ProyectoID, Clave de incidencia",
-        )
-    with col2:
-        bbdd_file = st.file_uploader(
-            "3) BBDD_Sesion-PT-INAVARRO",
-            type=["csv", "xlsx", "xls"],
-            key="bbdd_sesion",
-            help="Tabla con columna 'Descripción diseño' y referencia a ID ensayo",
-        )
-
-    if not solicitudes2025_file or not jira_file or not bbdd_file:
-        st.info("Sube los tres archivos para continuar.")
-        return
-
-    try:
-        df_solicitudes2025 = load_table(solicitudes2025_file)
-        df_jira = load_table(jira_file)
-        df_bbdd = load_table(bbdd_file)
-    except Exception as exc:
-        st.error(f"Error al cargar archivos: {exc}")
-        return
-
-    if st.button("Generar Paso 1 + Paso 2.1 + Paso 2.2", type="primary"):
-        try:
-            resultado = build_all_paso1_from_master(df_solicitudes2025, df_jira, df_bbdd)
-            paso_1_lista = resultado["paso_1"]
-            paso2_lista = build_all_paso2_1(df_jira, paso_1_lista)
-            paso2_lista = enrich_paso2_2(paso2_lista, df_bbdd)
-            resultado["paso_2"] = [
-                {
-                    "numero_solicitud": b["numero_solicitud"],
-                    "producto_base_linea": b["producto_base_linea"],
-                    "clave_incidencia_jira": b["clave_incidencia_jira"],
-                    "ensayos": b["ensayos"],
-                }
-                for b in paso2_lista
-            ]
-        except Paso1Error as e:
-            st.error(str(e))
-            return
-        except Paso2Error as e:
-            st.error(str(e))
-            return
-        except Exception as exc:
-            st.error(f"Error inesperado: {exc}")
-            return
-
-        n = len(resultado["paso_1"])
-        st.success(f"Generado correctamente: {n} solicitud(es) con Paso 1, Paso 2.1 y Paso 2.2.")
-        for i, b in enumerate(paso2_lista):
-            if b.get("advertencia_sin_ensayos"):
-                p = paso_1_lista[i]
-                st.warning(
-                    f"No se encontraron incidencias en Jira para esta solicitud "
-                    f"(nº {p.get('numero_solicitud', i+1)!s}, NOMBRE = «{p.get('producto_base_linea', '')}»)."
-                )
-        count_sin_bbdd = sum(
-            1 for b in paso2_lista for e in b.get("ensayos", []) if e.get("sin_documentar_bbdd")
-        )
-        if count_sin_bbdd > 0:
-            st.warning(
-                f"{count_sin_bbdd} ensayo(s) sin documentar en BBDD (pueden requerir revisión manual)."
-            )
-        st.subheader("Salida (JSON)")
-        st.json(resultado)
-        json_str = json.dumps(resultado, ensure_ascii=False, indent=2)
-        st.download_button(
-            "Descargar JSON",
-            data=json_str,
-            file_name="paso_1_paso_2_1_paso_2_2.json",
-            mime="application/json",
-        )
-        if st.button("Abrir en editor"):
-            solicitudes = raw_to_solicitudes(resultado)
-            autorellenar_verificacion_desde_paso2_liberado(solicitudes)
-            st.session_state["solicitudes_data"] = solicitudes
-            st.session_state["editor_mode"] = "editar"
-            st.session_state["editor_solicitud_idx"] = None
-            st.session_state["editor_ensayo_idx"] = None
-            st.rerun()
-
-
-def _run_editar() -> None:
-    st.title("Editar solicitudes ISO")
-    path = Path(st.session_state.get("editor_json_path", DEFAULT_JSON_PATH))
-
-    # Importar / Exportar
-    with st.sidebar.expander("Importar / Exportar"):
-        import_file = st.file_uploader("Importar JSON", type=["json"], key="editor_import")
-        if import_file is not None:
-            # Evitar bucle: tras st.rerun() el file_uploader sigue con el mismo archivo; no reprocesar.
-            _file_key = (import_file.name, getattr(import_file, "size", 0))
-            if st.session_state.get("_last_import_file_key") == _file_key:
-                # Ya importamos este archivo en el run anterior; no volver a cargar ni rerun.
-                pass
-            else:
-                try:
-                    raw = json.load(import_file)
-                    solicitudes = raw_to_solicitudes(raw)
-                    autorellenar_verificacion_desde_paso2_liberado(solicitudes)
-                    st.session_state["solicitudes_data"] = solicitudes
-                    st.session_state["_last_import_file_key"] = _file_key
-                    st.success("JSON importado.")
-                    st.rerun()
-                except Exception as e:
-                    st.error(f"Error al importar: {e}")
-
-    # Cargar datos: sesión o disco
-    solicitudes = st.session_state.get("solicitudes_data")
-    if solicitudes is None and path.exists():
-        try:
-            solicitudes = load_solicitudes_json(path)
-            st.session_state["solicitudes_data"] = solicitudes
-        except Exception as e:
-            st.error(f"Error al cargar {path}: {e}")
-            return
-
-    if not solicitudes:
-        st.info("No hay solicitudes cargadas. Importa un JSON (sidebar) o genera primero en el modo «Generar JSON».")
-        return
-
-    # Selector de vista: Pendientes de fórmula | Por solicitud | Rellenar verificación | Validación producto
-    _subview_map = {
-        "Rellenar fórmulas (pendientes)": "pendientes",
-        "Por solicitud": "solicitud",
-        "Rellenar verificación (Diseño)": "verificacion",
-        "Validación producto (ANEXO F10-03)": "validacion_producto",
-    }
-    _current = st.session_state.get("editor_subview", "pendientes")
-    _index = {"pendientes": 0, "solicitud": 1, "verificacion": 2, "validacion_producto": 3}.get(_current, 0)
-    subview = st.radio(
-        "Vista del editor",
-        (
-            "Rellenar fórmulas (pendientes)",
-            "Por solicitud",
-            "Rellenar verificación (Diseño)",
-            "Validación producto (ANEXO F10-03)",
-        ),
-        index=_index,
-        key="editor_subview_radio",
-        horizontal=True,
-    )
-    st.session_state["editor_subview"] = _subview_map.get(subview, "pendientes")
-
-    def _on_apply_id_ensayo(sol_idx: int, selected_id: str) -> None:
-        p1 = solicitudes[sol_idx].get("paso_1") or {}
-        if "mapeo" not in p1 or not isinstance(p1["mapeo"], dict):
-            prev_mapeo = p1.get("mapeo") or {}
-            p1["mapeo"] = {
-                "id_ensayo_detectado": "",
-                "clave_incidencia_jira": prev_mapeo.get("clave_incidencia_jira", "") or p1.get("mapeo_clave_incidencia_jira", ""),
-            }
-        p1["mapeo"]["id_ensayo_detectado"] = (selected_id or "").strip()
-        p1["mapeo_id_ensayo_detectado"] = (selected_id or "").strip()
-        st.session_state["solicitudes_data"] = solicitudes
-        try:
-            save_solicitudes_json(path, solicitudes)
-            st.success("ID ensayo actualizado y guardado en disco.")
-        except Exception as e:
-            st.error(f"Error al guardar: {e}")
-        st.rerun()
-
-    if st.session_state["editor_subview"] == "verificacion":
-        # Enriquecer desde CSV (opcional)
-        csv_verif = st.file_uploader(
-            "Enriquecer verificación desde CSV (BBDD_Sesion-PT-INAVARRO)",
-            type=["csv", "xlsx", "xls"],
-            key="editor_verif_csv",
-            help="Opcional: sube el CSV/Excel para rellenar Producto final, Fórmula OK y Riquezas por ID ensayo.",
-        )
-        if csv_verif is not None:
-            _file_key = (csv_verif.name, getattr(csv_verif, "size", 0))
-            if st.session_state.get("_last_verif_csv_key") != _file_key:
-                try:
-                    df_bbdd = load_table(csv_verif)
-                    enriquecer_verificacion_diseno_desde_csv(solicitudes, df_bbdd)
-                    st.session_state["solicitudes_data"] = solicitudes
-                    st.session_state["_last_verif_csv_key"] = _file_key
-                    save_solicitudes_json(path, solicitudes)
-                    st.success("Verificación (Diseño) enriquecida desde CSV. Cambios guardados.")
-                    st.rerun()
-                except Exception as e:
-                    st.error(f"Error al enriquecer desde CSV: {e}")
-
-        def _get_on_save_verificacion(sol_idx: int):
-            def _save(pf: str, fo: str, riq: str) -> None:
-                p1 = solicitudes[sol_idx].get("paso_1") or {}
-                if "verificacion_diseno" not in p1 or not isinstance(p1["verificacion_diseno"], dict):
-                    p1["verificacion_diseno"] = {"producto_final": "", "formula_ok": "", "riquezas": ""}
-                p1["verificacion_diseno"]["producto_final"] = (pf or "").strip()
-                p1["verificacion_diseno"]["formula_ok"] = (fo or "").strip()
-                p1["verificacion_diseno"]["riquezas"] = (riq or "").strip()
-                st.session_state["solicitudes_data"] = solicitudes
-                try:
-                    save_solicitudes_json(path, solicitudes)
-                    st.success("Cambios guardados en disco.")
-                except Exception as e:
-                    st.error(f"Error al guardar: {e}")
-                st.rerun()
-            return _save
-
-        def _on_switch_to_solicitud() -> None:
-            st.session_state["editor_subview"] = "solicitud"
-            st.rerun()
-
-        def _on_switch_to_pendientes() -> None:
-            st.session_state["editor_subview"] = "pendientes"
-            st.rerun()
-
-        st.download_button(
-            "Exportar JSON",
-            data=json.dumps(solicitudes_to_raw(solicitudes), ensure_ascii=False, indent=2),
-            file_name="solicitudes_iso.json",
-            mime="application/json",
-            key="editor_export_verificacion",
-        )
-        render_vista_verificacion_diseno(
-            solicitudes,
-            get_on_save_verificacion=_get_on_save_verificacion,
-            on_switch_to_solicitud=_on_switch_to_solicitud,
-            on_switch_to_pendientes=_on_switch_to_pendientes,
-            on_apply_id_ensayo=_on_apply_id_ensayo,
-        )
-        return
-
-    if st.session_state["editor_subview"] == "validacion_producto":
-        def _get_on_save_anexo_f10_03(sol_idx: int):
-            def _save(payload: dict) -> None:
-                p1 = solicitudes[sol_idx].get("paso_1") or {}
-                p1["anexo_f10_03"] = payload
-                st.session_state["solicitudes_data"] = solicitudes
-                try:
-                    save_solicitudes_json(path, solicitudes)
-                    st.success("ANEXO F10-03 guardado en disco.")
-                except Exception as e:
-                    st.error(f"Error al guardar: {e}")
-                st.rerun()
-            return _save
-
-        def _on_switch_to_solicitud() -> None:
-            st.session_state["editor_subview"] = "solicitud"
-            st.rerun()
-
-        def _on_switch_to_verificacion() -> None:
-            st.session_state["editor_subview"] = "verificacion"
-            st.rerun()
-
-        st.download_button(
-            "Exportar JSON",
-            data=json.dumps(solicitudes_to_raw(solicitudes), ensure_ascii=False, indent=2),
-            file_name="solicitudes_iso.json",
-            mime="application/json",
-            key="editor_export_validacion_producto",
-        )
-        render_vista_validacion_producto(
-            solicitudes,
-            get_on_save_anexo_f10_03=_get_on_save_anexo_f10_03,
-            on_switch_to_solicitud=_on_switch_to_solicitud,
-            on_switch_to_verificacion=_on_switch_to_verificacion,
-        )
-        return
-
-    if st.session_state["editor_subview"] == "pendientes":
-        def _get_on_save(sol_idx: int, ens_idx: int):
-            def _save(ensayo_updated: dict) -> None:
-                solicitudes[sol_idx]["paso_2"]["ensayos"][ens_idx] = ensayo_updated
-                st.session_state["solicitudes_data"] = solicitudes
-                try:
-                    save_solicitudes_json(path, solicitudes)
-                    st.success("Cambios guardados en disco.")
-                except Exception as e:
-                    st.error(f"Error al guardar: {e}")
-                st.rerun()
-            return _save
-
-        def _get_on_apply_paste(sol_idx: int, ens_idx: int):
-            def _apply(formula_list: list) -> None:
-                solicitudes[sol_idx]["paso_2"]["ensayos"][ens_idx]["formula"] = formula_list
-                st.session_state["solicitudes_data"] = solicitudes
-                st.rerun()
-            return _apply
-
-        def _on_revert() -> None:
-            if path.exists():
-                try:
-                    loaded = load_solicitudes_json(path)
-                    st.session_state["solicitudes_data"] = loaded
-                    st.info("Cambios revertidos; recargado desde disco.")
-                except Exception as e:
-                    st.error(f"Error al recargar: {e}")
-            st.rerun()
-
-        def _on_switch_to_solicitud() -> None:
-            st.session_state["editor_subview"] = "solicitud"
-            st.rerun()
-
-        st.download_button(
-            "Exportar JSON",
-            data=json.dumps(solicitudes_to_raw(solicitudes), ensure_ascii=False, indent=2),
-            file_name="solicitudes_iso.json",
-            mime="application/json",
-            key="editor_export_pendientes",
-        )
-        render_vista_pendientes_formula(
-            solicitudes,
-            get_on_save=_get_on_save,
-            get_on_apply_paste=_get_on_apply_paste,
-            on_revert=_on_revert,
-            on_switch_to_solicitud=_on_switch_to_solicitud,
-        )
-        return
-
-    # Vista "Por solicitud": flujo actual
-    raw_export = solicitudes_to_raw(solicitudes)
-    export_str = json.dumps(raw_export, ensure_ascii=False, indent=2)
-    st.download_button(
-        "Exportar JSON",
-        data=export_str,
-        file_name="solicitudes_iso.json",
-        mime="application/json",
-        key="editor_export",
-    )
-
-    with st.expander("Vista general (todos los ensayos)", expanded=True):
-        def _on_ir_a_editar(sol_idx: int, ens_idx: int) -> None:
-            st.session_state["editor_solicitud_idx"] = sol_idx
-            st.session_state["editor_ensayo_idx"] = ens_idx
-            st.rerun()
-        render_tabla_ensayos_flat(solicitudes, on_ir_a_editar=_on_ir_a_editar)
-
-    search = st.text_input("Buscar (Nº solicitud, producto, responsable)", key="editor_search")
-    preselected_sol = st.session_state.get("editor_solicitud_idx")
-    preselected_ens = st.session_state.get("editor_ensayo_idx")
-    sel_idx = render_listado_solicitudes(solicitudes, search or "", preselected_idx=preselected_sol)
-    if sel_idx is None:
-        return
-
-    st.session_state["editor_solicitud_idx"] = sel_idx
-    solicitud = solicitudes[sel_idx]
-    ensayo_idx = render_detalle_solicitud(
-        solicitud, sel_idx,
-        preselected_ensayo_idx=preselected_ens,
-        on_apply_id_ensayo=_on_apply_id_ensayo,
-    )
-    if ensayo_idx is None:
-        return
-
-    st.session_state["editor_ensayo_idx"] = ensayo_idx
-    ensayos = (solicitud.get("paso_2") or {}).get("ensayos") or []
-    ensayo = ensayos[ensayo_idx]
-
-    def on_save(ensayo_updated: dict) -> None:
-        solicitudes[sel_idx]["paso_2"]["ensayos"][ensayo_idx] = ensayo_updated
-        st.session_state["solicitudes_data"] = solicitudes
-        try:
-            save_solicitudes_json(path, solicitudes)
-            st.success("Cambios guardados en disco.")
-        except Exception as e:
-            st.error(f"Error al guardar: {e}")
-        st.rerun()
-
-    def on_revert() -> None:
-        if path.exists():
-            try:
-                loaded = load_solicitudes_json(path)
-                st.session_state["solicitudes_data"] = loaded
-                st.info("Cambios revertidos; recargado desde disco.")
-            except Exception as e:
-                st.error(f"Error al recargar: {e}")
-        st.rerun()
-
-    def on_apply_paste(formula_list: list) -> None:
-        solicitudes[sel_idx]["paso_2"]["ensayos"][ensayo_idx]["formula"] = formula_list
-        st.session_state["solicitudes_data"] = solicitudes
-
-    formula_list, _ = (ensayo.get("formula") or [], ensayo.get("motivo_comentario") or "")
-    paste_expanded = not (formula_list and len(formula_list) > 0)
-    render_panel_ensayo(
-        ensayo,
-        sel_idx,
-        ensayo_idx,
-        on_save=on_save,
-        on_revert=on_revert,
-        on_apply_paste=on_apply_paste,
-        paste_expanded=paste_expanded,
-    )
+def _ensure_verificacion(p1: dict) -> None:
+    if "verificacion_diseno" not in p1 or not isinstance(p1["verificacion_diseno"], dict):
+        p1["verificacion_diseno"] = {"producto_final": "", "formula_ok": "", "riquezas": ""}
+    for k in ("producto_final", "formula_ok", "riquezas"):
+        if k not in p1["verificacion_diseno"]:
+            p1["verificacion_diseno"][k] = ""
 
 
 def main() -> None:
-    st.set_page_config(page_title="ISO Report", layout="wide")
+    st.set_page_config(page_title="F10 Gestión", layout="wide")
     _init_session_state()
 
-    mode = st.sidebar.radio(
-        "Modo",
-        ("Generar JSON", "Editar solicitudes"),
-        index=1 if st.session_state.get("editor_mode") == "editar" else 0,
-        key="editor_mode_radio",
-    )
-    if mode == "Editar solicitudes":
-        st.session_state["editor_mode"] = "editar"
-    else:
-        st.session_state["editor_mode"] = "generar"
+    json_path = config.DEFAULT_JSON_PATH
+    f10_01_path = config.DEFAULT_F10_01_PATH
 
-    if st.session_state["editor_mode"] == "editar":
-        _run_editar()
-    else:
-        _run_generar()
+    if not f10_01_path.exists():
+        st.warning(f"No se encuentra el Excel F10-01 en {f10_01_path}. Usa solo datos de la bbdd.")
+    if not json_path.exists():
+        st.warning(f"No se encuentra el JSON en {json_path}. Carga un JSON o crea solicitudes desde F10-01.")
+
+    years = get_available_years(f10_01_path)
+    year = st.sidebar.selectbox("Año", options=years, index=0, key="app_year")
+    st.session_state["year"] = year
+
+    df_f10_01 = load_f10_01_sheet(str(f10_01_path), year)
+    try:
+        raw = load_raw(json_path)
+    except Exception as e:
+        st.error(f"Error al cargar JSON: {e}")
+        raw = {"paso_1": [], "paso_2": []}
+
+    unified_list = build_unified_list(df_f10_01, raw, year)
+    st.session_state["unified_list"] = unified_list
+
+    current: Solicitud | None = render_sidebar_filters_and_list(unified_list, year)
+
+    if current is None:
+        st.info("Selecciona una solicitud en la barra lateral.")
+        return
+
+    idx_in_unified = next(
+        (i for i, s in enumerate(unified_list) if
+         s.numero_solicitud_canonico == current.numero_solicitud_canonico
+         and s.year == current.year
+         and (s.paso_1.get("producto_base_linea") or "") == (current.paso_1.get("producto_base_linea") or "")),
+        None,
+    )
+    if idx_in_unified is None:
+        idx_in_unified = 0
+        current = unified_list[0]
+
+    if st.session_state.get("editing_solicitud") is None or st.session_state.get("editing_solicitud_key") != (current.numero_solicitud_canonico, current.year):
+        st.session_state["editing_solicitud"] = copy.deepcopy(current)
+        st.session_state["editing_solicitud_key"] = (current.numero_solicitud_canonico, current.year)
+        st.session_state["unsaved_changes"] = False
+
+    editing: Solicitud = st.session_state["editing_solicitud"]
+
+    if st.session_state.get("unsaved_changes"):
+        st.warning("Tienes cambios sin guardar.")
+
+    st.title(f"Solicitud {editing.numero_solicitud_canonico} — {(editing.f10_01_row or {}).get('Nombre proyecto') or editing.paso_1.get('producto_base_linea') or '—'}")
+
+    if editing.origen == "solo_f10_01" and not editing.has_json_data():
+        if st.button("Inicializar en bbdd", type="primary", key="init_bbdd"):
+            p1 = dict(editing.paso_1)
+            p2 = dict(editing.paso_2)
+            _ensure_verificacion(p1)
+            editing.paso_1 = p1
+            editing.paso_2 = p2
+            unified_list[idx_in_unified] = editing
+            raw_new = unified_list_to_raw(unified_list)
+            try:
+                save_raw(json_path, raw_new)
+                st.success("Solicitud inicializada en la bbdd.")
+                st.session_state["unsaved_changes"] = False
+                st.session_state["editing_solicitud"] = copy.deepcopy(editing)
+                st.rerun()
+            except Exception as e:
+                st.error(f"Error al guardar: {e}")
+
+    tab1, tab2, tab3, tab4 = st.tabs(["F10-01", "F10-02", "F10-03", "Exportar"])
+
+    with tab1:
+        render_tab_f10_01(editing)
+
+    def _on_save_f10_02(p1: dict, p2: dict) -> None:
+        _ensure_verificacion(p1)
+        editing.paso_1 = p1
+        editing.paso_2 = p2
+        unified_list[idx_in_unified] = editing
+        raw_new = unified_list_to_raw(unified_list)
+        try:
+            save_raw(json_path, raw_new)
+            st.session_state["unsaved_changes"] = False
+            st.session_state["editing_solicitud"] = copy.deepcopy(editing)
+            st.success("Cambios guardados.")
+            st.rerun()
+        except Exception as e:
+            st.error(f"Error al guardar: {e}")
+
+    def _on_save_f10_03(p1: dict, p2: dict) -> None:
+        ensure_anexo_f10_03(p1)
+        editing.paso_1 = p1
+        editing.paso_2 = p2
+        unified_list[idx_in_unified] = editing
+        raw_new = unified_list_to_raw(unified_list)
+        try:
+            save_raw(json_path, raw_new)
+            st.session_state["unsaved_changes"] = False
+            st.session_state["editing_solicitud"] = copy.deepcopy(editing)
+            st.success("Cambios guardados.")
+            st.rerun()
+        except Exception as e:
+            st.error(f"Error al guardar: {e}")
+
+    def _mark_unsaved() -> None:
+        st.session_state["unsaved_changes"] = True
+
+    with tab2:
+        render_tab_f10_02(editing, _on_save_f10_02, _mark_unsaved)
+
+    with tab3:
+        render_tab_f10_03(editing, _on_save_f10_03, _mark_unsaved)
+
+    with tab4:
+        render_tab_exportar(editing, build_f10_02_bytes, build_f10_03_bytes)
 
 
 if __name__ == "__main__":

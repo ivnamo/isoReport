@@ -17,9 +17,7 @@
         "especificacion_final": {
           "descripcion": "Es una solución nutricional basada en microelementos y compuestos fisiológicos, creada específicamente para el cultivo de soja y otros cultivos extensivos. Destinado a maximizar el crecimiento y el potencial productivo desde aplicaciones realizadas en periodo vegetativo.",
           "aspecto": "Líquido",
-          "densidad": "1,28",
           "color": "Oscuro",
-          "ph": "3",
           "caracteristicas_quimicas": "Ntotal\t1,159\nNorg\t0,882\nNnitr\t0,000\nNure\t0,000\nNamo\t0,325\nK2O\t0,000\nP2O5\t0,000\nCaO\t0,000\nMgO\t1,560\nSO3\t0,185\nZn\t1,995\nMn\t3,959\nFe\t0,000\nCu\t0,244\nB\t0,238\nMo\t1,250\nCo\t0,075\nSiO2\t0,000\nMseca\t1,139\nMorg\t1,053\nCorg\t0,611\nExtracto Húmico total\t1,053\nAcidos fulvicos\t1,053\nAcidos húmicos\t0,000\nExtracto de Algas\t0,000\nPolisacaridos\t0,000\nSum AA totales\t1,053\nSum AA libres\t1,053\nAc aspartico\t0,000\nAc glutamico\t0,360\nAlanina\t0,000\nGlicina\t0,000\nHistidina\t0,000\nIsoleucina\t0,000\nLeucina\t0,000\nLisina\t0,000\nSerina\t0,000\nTirosina\t0,000\nTreonina\t0,000\nValina\t0,000\nArginina\t0,347\nFenilalanina\t0,000\nMetionina\t0,000\nProlina\t0,347\nHidroxiprolina\t0,000\nTriptofano\t0,000\nAs\t0,000\nHg\t0,000\nPb\t0,000\nCd\t0,000\nCr\t0,000\nNi\t0,000"
         },
         "validacion": {
@@ -100,9 +98,7 @@
         "especificacion_final": {
           "descripcion": "Es una solución de aminoácidos libres, enriquecida con micronutrientes. Mejora el desarrollo del sistema radicular y al mismo tiempo favorece el desarrollo de la planta por ser una fuente equilibrada de nutrientes. En los cultivos, aumenta la concentración de clorofila, favorece la formación de órganos reproductivos y polinización. En plantas oleaginosas activa la fijación simbiótica del nitrógeno, aumentando la productividad.",
           "aspecto": "Líquido",
-          "densidad": "1,35 - 1,45",
           "color": "Blanquecino",
-          "ph": "7 - 8",
           "caracteristicas_quimicas": "Ntotal\t2,198\nNorg\t1,600\nNnitr\t0,000\nNure\t0,000\nNamo\t0,766\nK2O\t0,000\nP2O5\t0,000\nCaO\t0,000\nMgO\t0,000\nSO3\t0,205\nZn\t15,200\nMn\t0,000\nFe\t0,000\nCu\t0,000\nB\t0,000\nMo\t4,400\nCo\t0,241\nSiO2\t0,000\nMseca\t6,336\nMorg\t8,384\nCorg\t4,863\nExtracto Húmico total\t8,344\nAcidos fulvicos\t8,344\nAcidos húmicos\t0,000\nExtracto de Algas\t0,000\nPolisacaridos\t2,464\nSum AA totales\t5,880\nSum AA libres\t5,880\nAc aspartico\t0,000\nAc glutamico\t1,920\nAlanina\t0,000\nGlicina\t0,000\nHistidina\t0,000\nIsoleucina\t0,000\nLeucina\t0,000\nLisina\t0,000\nSerina\t0,000\nTirosina\t0,000\nTreonina\t0,000\nValina\t0,000\nArginina\t1,980\nFenilalanina\t0,000\nMetionina\t0,000\nProlina\t1,980\nHidroxiprolina\t0,000\nTriptofano\t0,000\nAs\t0,000\nHg\t0,000\nPb\t0,000\nCd\t0,000\nCr\t0,000\nNi\t0,840"
         },
         "validacion": {
@@ -211,9 +207,7 @@
         "especificacion_final": {
           "descripcion": "Es una formulación bioestimulante a base de aminoácidos libres diseñada para optimizar la respuesta fisiológica del cultivo en condiciones de estrés y adaptada a los requisitos regulatorios del mercado de Marruecos.\n\nFavorece la activación metabólica, mejora la síntesis proteica y estimula el desarrollo radicular y vegetativo, contribuyendo a una recuperación más rápida tras situaciones adversas.\n\nSu equilibrio entre nitrógeno orgánico y fracción aminoacídica garantiza una alta asimilación y compatibilidad, asegurando estabilidad físico-química y eficacia agronómica en aplicación foliar y radicular.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t3,1695\nNorg\t1,5175\nNnitr\t0,847\nNure\t0\nNamo\t0,805\nK2O\t0,993\nP2O5\t1,02\nCaO\t0\nMgO\t0\nSO3\t0,055\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0,64\nMorg\t17,86\nCorg\t9,5926\nExtracto Húmico total\t3,09\nAcidos fulvicos\t3,09\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t3,15\nSum AA libres\t10,59\nAc aspartico\t0,54\nAc glutamico\t1,865\nAlanina\t0,402\nGlicina\t3,423\nHistidina\t0,225\nIsoleucina\t0,0385\nLeucina\t0,527\nLisina\t1,801\nSerina\t0,1885\nTirosina\t0,04225\nTreonina\t0,976\nValina\t0,305\nArginina\t0,1875\nFenilalanina\t0,2255\nMetionina\t0,045\nProlina\t0,1885\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -294,9 +288,7 @@
         "especificacion_final": {
           "descripcion": "Es una formulación nutricional a base de calcio, zinc y manganeso diseñada para reforzar la estructura vegetal y proteger al cultivo frente a situaciones de alta radiación y estrés lumínico.\n\nEl equilibrio mineral favorece la función estructural del calcio y la activación enzimática asociada a los micronutrientes, mejorando la resistencia fisiológica del cultivo.\n\nSu sistema estabilizante garantiza solubilidad, compatibilidad en mezcla y estabilidad físico-química durante el almacenamiento y la aplicación.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Blanquecino",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t0\nNorg\t0\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t0\nP2O5\t0\nCaO\t32,9187\nMgO\t0,1182\nSO3\t0\nZn\t1,52\nMn\t0,4972\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0,1773\nMseca\t0\nMorg\t0\nCorg\t0\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0\nSum AA libres\t0\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -377,9 +369,7 @@
         "especificacion_final": {
           "descripcion": "Es una formulación mineral estabilizada desarrollada para optimizar la compatibilidad entre cargas minerales y componentes orgánicos en suspensión.\n\nAporta calcio junto con zinc y manganeso, contribuyendo al fortalecimiento estructural y al correcto funcionamiento metabólico del cultivo.\n\nSu control reológico y equilibrio iónico aseguran homogeneidad, estabilidad físico-química y eficacia agronómica.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Blanquecino",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t0,00695\nNorg\t0,00604\nNnitr\t0\nNure\t0\nNamo\t0,00081\nK2O\t0,0049\nP2O5\t0,00527\nCaO\t32,9187\nMgO\t0,1182\nSO3\t0\nZn\t1,52\nMn\t0,4972\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0,1773\nMseca\t0,0823\nMorg\t0,0728\nCorg\t0,0422\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0,038\nSum AA libres\t0,0084\nAc aspartico\t0,0024\nAc glutamico\t0,0071\nAlanina\t0,0038\nGlicina\t0,0016\nHistidina\t0,0012\nIsoleucina\t0,00135\nLeucina\t0,0042\nLisina\t0,0014\nSerina\t0,0019\nTirosina\t0,0014\nTreonina\t0,0014\nValina\t0,002\nArginina\t0,0017\nFenilalanina\t0,0017\nMetionina\t0,0008\nProlina\t0,0039\nHidroxiprolina\t0,0001\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -488,9 +478,7 @@
         "especificacion_final": {
           "descripcion": "Es una formulación mineral especializada diseñada para reforzar la estructura vegetal y optimizar el equilibrio nutricional del cultivo.\n\nSu combinación de macro y micronutrientes favorece la actividad enzimática, mejora la firmeza de los tejidos y contribuye a una mayor resistencia frente a condiciones ambientales adversas.\n\nLa formulación presenta elevada estabilidad físico-química y compatibilidad en mezcla, asegurando una correcta disponibilidad de los elementos nutritivos y una respuesta agronómica eficaz tanto en aplicación foliar como vía suelo.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t1,278\nNorg\t1,208\nNnitr\t0\nNure\t0\nNamo\t0,07\nK2O\t0\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0,6\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0,5\nCo\t0,065\nSiO2\t0\nMseca\t4,95\nMorg\t6,36\nCorg\t3,829003\nExtracto Húmico total\t6,36\nAcidos fulvicos\t6,415\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t6,48\nSum AA libres\t6,415\nAc aspartico\t0\nAc glutamico\t2,4\nAlanina\t0\nGlicina\t1,98\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t1,98\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -599,9 +587,7 @@
         "especificacion_final": {
           "descripcion": "Es una formulación a base de extracto de canela en base aceite desarrollada para su uso en estrategias de biocontrol.\n\nLa matriz oleosa favorece la persistencia y la eficacia del extracto botánico sobre la superficie vegetal, mejorando su acción frente a agentes externos que afectan a la sanidad del cultivo.\n\nContribuye a reforzar los mecanismos naturales de defensa de la planta y a mantener el equilibrio fisiológico, presentando buena estabilidad y compatibilidad para su aplicación en distintos sistemas de cultivo.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Amarillento",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t0\nNorg\t0\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t0\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t99\nCorg\t0\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0\nSum AA libres\t0\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -682,9 +668,7 @@
         "especificacion_final": {
           "descripcion": "Es una formulación a base de extracto de canela desarrollada para su uso en estrategias de biocontrol, orientada al cumplimiento de los requisitos de registro europeo.\n\nActúa como herramienta de origen natural frente a patógenos y situaciones que comprometen la sanidad vegetal, contribuyendo a reforzar los mecanismos de defensa del cultivo y a mejorar su equilibrio fisiológico.\n\nLa formulación ha sido optimizada para garantizar estabilidad, compatibilidad y adecuación normativa dentro del marco regulatorio europeo, manteniendo la eficacia del extracto botánico en aplicación.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Amarillento",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t0\nNorg\t0\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t0\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t99\nCorg\t0\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0\nSum AA libres\t0\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -779,9 +763,7 @@
         "especificacion_final": {
           "descripcion": "Es una formulación de origen marino desarrollada para estimular el crecimiento y mejorar la respuesta fisiológica del cultivo en momentos de alta demanda metabólica.\n\nSu composición rica en compuestos bioactivos de origen natural favorece el desarrollo radicular, la actividad fotosintética y la recuperación frente a situaciones de estrés abiótico.\n\nContribuye a mejorar la absorción y el aprovechamiento de nutrientes, promoviendo un crecimiento equilibrado y una mayor uniformidad del cultivo, con adecuada estabilidad y compatibilidad en aplicación.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t7,3549\nNorg\t2,2729\nNnitr\t2,244\nNure\t0\nNamo\t2,838\nK2O\t3,85812\nP2O5\t2,979476\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0,352\nMo\t0,2028\nCo\t0\nSiO2\t0\nMseca\t12,17972\nMorg\t7,2394\nCorg\t4,0907542\nExtracto Húmico total\t4,41488\nAcidos fulvicos\t2,57212\nAcidos húmicos\t1,84276\nExtracto de Algas\t0\nPolisacaridos\t0,3506\nSum AA totales\t0,975\nSum AA libres\t2,035\nAc aspartico\t0\nAc glutamico\t0,48\nAlanina\t0\nGlicina\t0,495\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -904,9 +886,7 @@
         "especificacion_final": {
           "descripcion": "Es un corrector de carencias en formato sólido en polvo que aporta boro, molibdeno y cobre de forma equilibrada y altamente disponible para la planta.\n\nEstá especialmente indicado para prevenir y corregir deficiencias múltiples que afectan a procesos clave como la floración, el cuajado, la actividad enzimática y el metabolismo del nitrógeno.\n\nSu formulación en polvo facilita la dosificación y disolución previa a la aplicación, garantizando buena solubilidad, estabilidad y eficacia tanto en tratamientos foliares como vía suelo.",
           "aspecto": "Sólido",
-          "densidad": "",
           "color": "Blanquecino",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t0\nNorg\t0\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t13,25\nP2O5\t10,25\nCaO\t0\nMgO\t0\nSO3\t2,61\nZn\t0\nMn\t0\nFe\t0\nCu\t2,07\nB\t7,089\nMo\t8,931\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t0\nCorg\t0\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0\nSum AA libres\t0\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -987,9 +967,7 @@
         "especificacion_final": {
           "descripcion": "Es un corrector de carencias de zinc, molibdeno y manganeso formulado en solución líquida estable con sistema quelante que maximiza la disponibilidad de los micronutrientes.\n\nAporta nitrógeno y azufre en equilibrio con aminoácidos, favoreciendo la asimilación y el metabolismo vegetal.\n\nEstá indicado para aplicaciones foliares y vía suelo donde se requiera una corrección rápida y eficaz de deficiencias múltiples, garantizando estabilidad y compatibilidad.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t5,273\nNorg\t1,941\nNnitr\t0\nNure\t0,92\nNamo\t2,412\nK2O\t0\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t13,065\nZn\t1,96\nMn\t0,468\nFe\t0\nCu\t0\nB\t0\nMo\t1,521\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t5,544\nCorg\t3,215612\nExtracto Húmico total\t3,564\nAcidos fulvicos\t3,564\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t3,564\nSum AA libres\t3,564\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t3,564\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -1070,9 +1048,7 @@
         "especificacion_final": {
           "descripcion": "Es una formulación nutricional desarrollada para optimizar el llenado y la calidad del grano en cultivos extensivos, favoreciendo un adecuado equilibrio metabólico durante fases clave del ciclo productivo.\n\nSu composición contribuye a mejorar la asimilación de nutrientes implicados en la formación y desarrollo del grano, promoviendo mayor uniformidad, peso específico y rendimiento final.\n\nLa formulación ha sido ajustada para garantizar estabilidad, compatibilidad en aplicación y cumplimiento de los estándares de calidad establecidos.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t6,035574\nNorg\t3,101574\nNnitr\t0\nNure\t0\nNamo\t2,934\nK2O\t0,09\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0,1876\nMn\t0,0924\nFe\t0,0912\nCu\t0,0462\nB\t0,0969\nMo\t0,0195\nCo\t0,01001\nSiO2\t0\nMseca\t0\nMorg\t0\nCorg\t0\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0\nSum AA libres\t8,802\nAc aspartico\t0,22005\nAc glutamico\t2,4939\nAlanina\t0,5868\nGlicina\t0,01467\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t5,5746\nSerina\t0\nTirosina\t0,183375\nTreonina\t0\nValina\t0,110025\nArginina\t0,01467\nFenilalanina\t0\nMetionina\t0\nProlina\t0,07335\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -1181,9 +1157,7 @@
         "especificacion_final": {
           "descripcion": "Es un producto experimental a base de microalgas desarrollado para cultivos de hoja verde, orientado a potenciar el crecimiento vegetativo y mejorar la calidad final del producto cosechado.\n\nSu riqueza en compuestos bioactivos de origen natural favorece la actividad fotosintética, la síntesis de clorofila y el desarrollo foliar, promoviendo mayor vigor y uniformidad del cultivo.\n\nActúa estimulando los procesos metabólicos asociados al crecimiento rápido y equilibrado, con buena compatibilidad y estabilidad en aplicación, especialmente en sistemas intensivos de producción de hojas verdes.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t2,461\nNorg\t2,461\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t0,396\nP2O5\t0,0019\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t3,399\nMorg\t8,1992\nCorg\t4,7557015\nExtracto Húmico total\t6,7988\nAcidos fulvicos\t6,4612\nAcidos húmicos\t0,3376\nExtracto de Algas\t0\nPolisacaridos\t0,0148\nSum AA totales\t6,15\nSum AA libres\t6,15\nAc aspartico\t0\nAc glutamico\t1,2\nAlanina\t0\nGlicina\t4,95\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -1264,9 +1238,7 @@
         "especificacion_final": {
           "descripcion": "Es una formulación potásica enriquecida con aminoácidos libres diseñada para mejorar la eficiencia nutricional y la respuesta fisiológica del cultivo.\n\nEl potasio favorece la regulación osmótica y el desarrollo de fruto, mientras que los aminoácidos potencian la absorción y la actividad metabólica.\n\nSu equilibrio entre nutrientes minerales y componentes orgánicos garantiza estabilidad, homogeneidad y adaptación a requisitos de registro internacional.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Amarillento",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t0,36\nNorg\t0,36\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t6,3\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t1,98\nCorg\t1,1484\nExtracto Húmico total\t1,98\nAcidos fulvicos\t1,98\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t1,98\nSum AA libres\t1,98\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t1,98\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -1347,9 +1319,7 @@
         "especificacion_final": {
           "descripcion": "Es un mitigador de estrés formulado a base de glicina betaína, diseñado para ayudar al cultivo a mantener su equilibrio fisiológico frente a condiciones adversas como estrés hídrico, salino o térmico.\n\nLa glicina betaína actúa como osmoprotector natural, favoreciendo la estabilidad de membranas celulares y proteínas, y contribuyendo a preservar la actividad metabólica en situaciones de desequilibrio ambiental.\n\nSu aplicación mejora la capacidad de recuperación del cultivo, mantiene la actividad fotosintética y contribuye a sostener el rendimiento productivo bajo condiciones de estrés abiótico.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t3,929002521\nNorg\t3,929002521\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t0,525\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t4,257\nMorg\t7,817\nCorg\t4,534075\nExtracto Húmico total\t6,817\nAcidos fulvicos\t6,817\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t6,817\nSum AA libres\t6,817\nAc aspartico\t0\nAc glutamico\t2,56\nAlanina\t0\nGlicina\t3,168\nHistidina\t0\nIsoleucina\t0\nLeucina\t0,099\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0,99\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -1430,9 +1400,7 @@
         "especificacion_final": {
           "descripcion": "Es un mitigador de estrés formulado a base de glicina betaína, desarrollado para ayudar al cultivo a mantener su equilibrio fisiológico frente a condiciones adversas como estrés hídrico, térmico o salino.\n\nSu composición, sin polisacáridos añadidos, favorece una absorción rápida y una respuesta inmediata de la planta ante situaciones de desequilibrio ambiental.\n\nActúa como osmoprotector natural, estabilizando membranas y proteínas celulares, mejorando la resiliencia del cultivo y contribuyendo a mantener la actividad fotosintética y el rendimiento productivo en condiciones exigentes.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t3,929001217\nNorg\t3,929001217\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t0,525\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t4,257\nMorg\t15,517\nCorg\t9,000435\nExtracto Húmico total\t14,517\nAcidos fulvicos\t14,517\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t7,7\nSum AA totales\t6,817\nSum AA libres\t6,817\nAc aspartico\t0\nAc glutamico\t2,56\nAlanina\t0\nGlicina\t3,168\nHistidina\t0\nIsoleucina\t0\nLeucina\t0,099\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0,99\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -1513,9 +1481,7 @@
         "especificacion_final": {
           "descripcion": "Es un mitigador de estrés que combina la acción osmoprotectora de la glicina betaína con el aporte bioestimulante de microalgas, diseñado para reforzar la respuesta fisiológica del cultivo frente a condiciones adversas.\n\nLa glicina betaína contribuye a la estabilización de membranas y proteínas celulares en situaciones de estrés hídrico, térmico o salino, mientras que los compuestos bioactivos de las microalgas estimulan la actividad metabólica y favorecen la recuperación del cultivo.\n\nSu formulación mejora la resiliencia de la planta, mantiene la actividad fotosintética y contribuye a sostener el crecimiento y la productividad en condiciones ambientales exigentes.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t4,3805\nNorg\t4,3805\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t1,065\nP2O5\t0,00475\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t8,547\nMorg\t6,777\nCorg\t3,931012\nExtracto Húmico total\t4,776\nAcidos fulvicos\t3,932\nAcidos húmicos\t0,844\nExtracto de Algas\t0\nPolisacaridos\t0,037\nSum AA totales\t3,154\nSum AA libres\t3,154\nAc aspartico\t0\nAc glutamico\t2,56\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0,099\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0,495\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -1610,9 +1576,7 @@
         "especificacion_final": {
           "descripcion": "Es una formulación bioestimulante basada en la tecnología RAZORMIN, adaptada específicamente para la empresa Plant Defender, manteniendo su eficacia agronómica y adecuándose a los requisitos técnicos y comerciales del cliente.\n\nAporta aminoácidos libres, NPK y micronutrientes que favorecen el desarrollo radicular, estimulan la actividad metabólica y promueven un crecimiento equilibrado del cultivo.\n\nContribuye a mejorar la tolerancia frente a situaciones de estrés abiótico, optimizando la absorción y aprovechamiento de nutrientes, con elevada estabilidad y compatibilidad en aplicación.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t3,62846\nNorg\t0,80326\nNnitr\t1,1084\nNure\t0\nNamo\t1,7168\nK2O\t3,065\nP2O5\t4,16\nCaO\t0\nMgO\t0\nSO3\t2,185415418\nZn\t0,1169\nMn\t0,1146\nFe\t0,6432\nCu\t0,0189\nB\t0,102\nMo\t0,0117\nCo\t0\nSiO2\t0\nMseca\t11,085\nMorg\t11,61\nCorg\t6,71589334\nExtracto Húmico total\t3,77\nAcidos fulvicos\t3,77\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0,77\nSum AA totales\t3,9\nSum AA libres\t3,15\nAc aspartico\t0,225\nAc glutamico\t2,31\nAlanina\t0,315\nGlicina\t0,015\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0,015\nTirosina\t0\nTreonina\t0\nValina\t0,015\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0,405\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -1693,9 +1657,7 @@
         "especificacion_final": {
           "descripcion": "Es una solución bioestimulante rica en aminoácidos libres y extractos bioactivos, complementada con NPK equilibrado.\n\nMejora la respuesta del cultivo frente a estrés abiótico, favorece el desarrollo radicular y optimiza procesos metabólicos como floración y cuajado.\n\nLa formulación ha sido adaptada a requisitos específicos del mercado de Marruecos, asegurando estabilidad, compatibilidad y cumplimiento normativo.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t9,28\nNorg\t1,71\nNnitr\t3,895\nNure\t0\nNamo\t3,57\nK2O\t3,165\nP2O5\t3,12\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t2,97\nMorg\t12,9\nCorg\t7,342111\nExtracto Húmico total\t2,4\nAcidos fulvicos\t11,5\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t28,65\nSum AA libres\t11,5\nAc aspartico\t0,84\nAc glutamico\t3,1\nAlanina\t0,7\nGlicina\t1,05\nHistidina\t0,056\nIsoleucina\t0,105\nLeucina\t0,056\nLisina\t0,35\nSerina\t1,4\nTirosina\t0,105\nTreonina\t0,875\nValina\t0,525\nArginina\t0,945\nFenilalanina\t0,07\nMetionina\t0,105\nProlina\t1,33\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -1790,9 +1752,7 @@
         "especificacion_final": {
           "descripcion": "Es un enraizador basado en la tecnología Raykat, formulado sin hormonas de síntesis y orientado a estimular el desarrollo radicular de forma natural.\n\nSu composición rica en aminoácidos y nutrientes esenciales favorece la emisión de raíces secundarias y pelos absorbentes, mejorando la implantación del cultivo y la eficiencia en la absorción de agua y nutrientes.\n\nContribuye a un establecimiento más rápido y uniforme del cultivo, especialmente en trasplante o fases iniciales, manteniendo estabilidad y compatibilidad en aplicación tanto foliar como vía suelo.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t2,61204\nNorg\t1,92724\nNnitr\t0,2941\nNure\t0\nNamo\t0,2941\nK2O\t7,854\nP2O5\t6,864\nCaO\t0\nMgO\t0\nSO3\t0,4974\nZn\t0,0196\nMn\t0\nFe\t0,102\nCu\t0\nB\t0,0308\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0,693\nMorg\t11,673\nCorg\t6,7708854\nExtracto Húmico total\t11,473\nAcidos fulvicos\t11,473\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t10,78\nSum AA totales\t4,005\nSum AA libres\t4,005\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0,495\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0,198\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -1873,9 +1833,7 @@
         "especificacion_final": {
           "descripcion": "Es una formulación basada en la tecnología Raykat Brix, adaptada específicamente a los requisitos regulatorios de la legislación china, manteniendo su eficacia agronómica y equilibrio nutricional.\n\nSu composición favorece la acumulación de azúcares, mejora el contenido en ºBrix y contribuye a la coloración y calidad organoléptica de los frutos.\n\nEstimula la actividad metabólica y el transporte de fotoasimilados hacia los órganos de reserva, optimizando el rendimiento y la calidad final del cultivo, con estabilidad y compatibilidad garantizadas en aplicación.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t1,645\nNorg\t1,645\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t11,91\nP2O5\t0,00475\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0,33\nMo\t0,195\nCo\t0\nSiO2\t0\nMseca\t4,785\nMorg\t2,623\nCorg\t1,5215\nExtracto Húmico total\t1,622\nAcidos fulvicos\t0,778\nAcidos húmicos\t0,844\nExtracto de Algas\t0\nPolisacaridos\t0,037\nSum AA totales\t0\nSum AA libres\t0\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -1956,9 +1914,7 @@
         "especificacion_final": {
           "descripcion": "Es una formulación basada en la tecnología Raykat Gold Supreme, adaptada al mercado brasileño con un mayor contenido en molibdeno para responder a las necesidades nutricionales específicas de los cultivos en esta región.\n\nSu composición rica en aminoácidos y micronutrientes favorece la actividad metabólica, mejora la asimilación del nitrógeno y optimiza los procesos fisiológicos relacionados con el crecimiento y la productividad.\n\nEl refuerzo en molibdeno contribuye a una mayor eficiencia en el metabolismo del nitrógeno y en la actividad enzimática, asegurando un desarrollo equilibrado del cultivo y manteniendo estabilidad y compatibilidad en aplicación.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t1,380747199\nNorg\t0,9332086\nNnitr\t0\nNure\t0\nNamo\t0,4475386\nK2O\t0\nP2O5\t0\nCaO\t0\nMgO\t1,677\nSO3\t0,4845\nZn\t1,995\nMn\t3,9585\nFe\t0\nCu\t0,2439\nB\t0,2376\nMo\t2,5\nCo\t0,07475\nSiO2\t0\nMseca\t1,1385\nMorg\t1,053\nCorg\t0,61078885\nExtracto Húmico total\t1,053\nAcidos fulvicos\t1,053\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t1,053\nSum AA libres\t1,053\nAc aspartico\t0\nAc glutamico\t0,36\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0,3465\nFenilalanina\t0\nMetionina\t0\nProlina\t0,3465\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -2039,9 +1995,7 @@
         "especificacion_final": {
           "descripcion": "Es un enraizante basado en la tecnología Raykat Root ECO, reforzado con tecnología de microalgas para potenciar el desarrollo radicular y la activación metabólica del cultivo.\n\nLa combinación de aminoácidos, nutrientes esenciales y compuestos bioactivos procedentes de microalgas favorece la emisión de raíces secundarias, mejora la implantación y optimiza la absorción de agua y nutrientes.\n\nContribuye a un establecimiento más rápido y uniforme del cultivo, aumentando su resiliencia frente a situaciones de estrés y manteniendo estabilidad y compatibilidad en aplicación tanto en fases iniciales como durante el desarrollo vegetativo.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": ""
         },
         "validacion": {
@@ -2136,9 +2090,7 @@
         "especificacion_final": {
           "descripcion": "Es una versión mejorada de la tecnología Raykat Root ECO, formulada con incorporación de sulfatos para optimizar el equilibrio nutricional y la disponibilidad de nutrientes en el entorno radicular.\n\nFavorece el desarrollo de raíces secundarias y pelos absorbentes, mejorando la implantación del cultivo y la eficiencia en la absorción de agua y elementos minerales.\n\nLa inclusión de sulfatos contribuye a reforzar la actividad metabólica y el equilibrio iónico del suelo o sustrato, manteniendo estabilidad, compatibilidad y eficacia agronómica en distintas condiciones de aplicación.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t2,355\nNorg\t2,255\nNnitr\t0\nNure\t0\nNamo\t0,1\nK2O\t0,17\nP2O5\t0\nCaO\t0\nMgO\t0\nSO3\t1,1531\nZn\t0,5075\nMn\t0,315\nFe\t0\nCu\t0,0575\nB\t0,055\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t1,485\nMorg\t4,554\nCorg\t9,641435\nExtracto Húmico total\t3,564\nAcidos fulvicos\t6,314\nAcidos húmicos\t0\nExtracto de Algas\t0,99\nPolisacaridos\t0\nSum AA totales\t9,564\nSum AA libres\t6,314\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t2,079\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t1,485\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -2233,9 +2185,7 @@
         "especificacion_final": {
           "descripcion": "Es un bioestimulante a base de aminoácidos libres, NPK y microelementos que potencia el desarrollo radicular y el equilibrio fisiológico de la planta.\n\nFavorece la formación de órganos reproductivos, mejora la actividad enzimática y estimula el crecimiento vegetativo.\n\nPresenta elevada estabilidad y compatibilidad, garantizando eficacia agronómica y cumplimiento regulatorio.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t3,87774\nNorg\t1,53254\nNnitr\t1,1084\nNure\t0\nNamo\t1,2368\nK2O\t3,02\nP2O5\t4,16\nCaO\t0\nMgO\t0\nSO3\t1,484050136\nZn\t0,1169\nMn\t0,1146\nFe\t0,6432\nCu\t0,0189\nB\t0,102\nMo\t0,0117\nCo\t0\nSiO2\t0\nMseca\t1,485\nMorg\t4,28\nCorg\t2,4825995\nExtracto Húmico total\t4,28\nAcidos fulvicos\t4,28\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t3,08\nSum AA totales\t6,96\nSum AA libres\t6,96\nAc aspartico\t0,264\nAc glutamico\t2,04\nAlanina\t0,48\nGlicina\t1,992\nHistidina\t0\nIsoleucina\t0,024\nLeucina\t0,096\nLisina\t0,72\nSerina\t0,168\nTirosina\t0,048\nTreonina\t0,072\nValina\t0,048\nArginina\t0,216\nFenilalanina\t0,072\nMetionina\t0,024\nProlina\t0,48\nHidroxiprolina\t0,312\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -2316,9 +2266,7 @@
         "especificacion_final": {
           "descripcion": "Es una versión optimizada de la formulación RBRIX, desarrollada para mejorar su estabilidad físico-química y evitar la formación de cristales durante el almacenamiento prolongado.\n\nMantiene su función orientada a favorecer la acumulación de azúcares, mejorar el contenido en ºBrix y potenciar la calidad final de frutos, contribuyendo a un mejor equilibrio metabólico del cultivo en fases de maduración.\n\nLa mejora en el sistema estabilizante y el ajuste del equilibrio iónico garantizan mayor homogeneidad, estabilidad en frío y conservación de las propiedades agronómicas a lo largo del tiempo.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t2,285\nNorg\t2,285\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t17,776\nP2O5\t0,00475\nCaO\t0\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0,22\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t7,26\nMorg\t17,353\nCorg\t10,0655415\nExtracto Húmico total\t16,352\nAcidos fulvicos\t15,508\nAcidos húmicos\t0,844\nExtracto de Algas\t0\nPolisacaridos\t14,557\nSum AA totales\t3,18\nSum AA libres\t3,18\nAc aspartico\t0\nAc glutamico\t1,2\nAlanina\t0\nGlicina\t0,99\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0,99\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -2413,9 +2361,7 @@
         "especificacion_final": {
           "descripcion": "Es una formulación diseñada para mitigar los efectos de la salinidad del suelo, desarrollada sin aporte de nitratos y orientada a mejorar el equilibrio iónico en condiciones de alta conductividad.\n\nActúa favoreciendo la regulación osmótica y contribuyendo a reducir el impacto del exceso de sales sobre la absorción de agua y nutrientes por parte del cultivo.\n\nSu composición permite mejorar la estructura del entorno radicular y optimizar la eficiencia nutricional en suelos salinos, manteniendo estabilidad y compatibilidad en distintas condiciones de aplicación.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Oscuro",
-          "ph": "",
           "caracteristicas_quimicas": ""
         },
         "validacion": {
@@ -2496,9 +2442,7 @@
         "especificacion_final": {
           "descripcion": "Es una solución líquida concentrada de nitrógeno y calcio diseñada para mejorar la estructura celular y prevenir fisiopatías asociadas a deficiencias cálcicas.\n\nFavorece el desarrollo vegetativo equilibrado y refuerza la firmeza de frutos, mejorando calidad y conservación postcosecha.\n\nSu formulación estabilizada garantiza compatibilidad y ausencia de precipitaciones.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Amarillento",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t15,29175\nNorg\t0,40425\nNnitr\t4,5675\nNure\t10,005\nNamo\t0,315\nK2O\t0\nP2O5\t0\nCaO\t8,19\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0,2035\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t1,0395\nCorg\t0,60291\nExtracto Húmico total\t1,0395\nAcidos fulvicos\t1,0395\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t1,0395\nSum AA libres\t1,0395\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t1,0395\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {
@@ -2579,9 +2523,7 @@
         "especificacion_final": {
           "descripcion": "Es una solución concentrada de nitrógeno y potasio formulada con sistema estabilizante basado en ácido glucónico que mejora la estabilidad iónica.\n\nOptimiza la absorción del nitrógeno en sus distintas formas y potencia el desarrollo vegetativo y el llenado de frutos.\n\nEspecialmente indicada en fases de crecimiento activo y engorde, evitando precipitaciones y garantizando estabilidad en almacenamiento.",
           "aspecto": "Líquido",
-          "densidad": "",
           "color": "Amarillento",
-          "ph": "",
           "caracteristicas_quimicas": "Ntotal\t13,8\nNorg\t0\nNnitr\t0\nNure\t13,8\nNamo\t0\nK2O\t7,056\nP2O5\t0\nCaO\t0\nMgO\t0,096\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0,119\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t29,7\nCorg\t17,22738\nExtracto Húmico total\t0\nAcidos fulvicos\t0\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t0\nSum AA libres\t0\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t0\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
         },
         "validacion": {

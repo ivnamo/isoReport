@@ -1,0 +1,628 @@
+"""
+Componentes Streamlit para el editor de solicitudes ISO.
+
+Listado de solicitudes con buscador, detalle de solicitud (Paso 1 + ensayos),
+panel de detalle de ensayo (resumen, fórmula editable, motivo, botones).
+"""
+
+from __future__ import annotations
+
+from typing import Any, Callable, Dict, List
+
+import pandas as pd
+import streamlit as st
+
+from .editor_data import (
+    ANEXO_F10_03_FILAS_VALIDACION,
+    _ensure_anexo_f10_03,
+    build_solicitudes_listas_validacion_producto,
+    filter_empty_formula_rows,
+    formula_to_tsv,
+    get_id_ensayo_from_paso1_item,
+    get_id_ensayos_liberados_from_paso1_item,
+    get_id_formula_ok_from_paso1_item,
+    parse_pasted_formula,
+    validate_peso,
+)
+
+
+def _get_ensayo_safe(ensayo: Dict[str, Any]) -> tuple[List[Dict[str, Any]], str]:
+    """Devuelve (formula, motivo_comentario) con valores por defecto si no existen."""
+    formula = ensayo.get("formula")
+    if formula is None:
+        formula = []
+    if not isinstance(formula, list):
+        formula = []
+    motivo = ensayo.get("motivo_comentario")
+    if motivo is None:
+        motivo = ""
+    return formula, str(motivo)
+
+
+def build_ensayos_sin_formula(solicitudes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    Devuelve lista de ensayos que no tienen fórmula (o está vacía), para la vista "Pendientes de fórmula".
+    Cada elemento: solicitud_idx, ensayo_idx, ensayo, numero_solicitud (para cabecera).
+    """
+    result: List[Dict[str, Any]] = []
+    for sol_idx, s in enumerate(solicitudes):
+        p1 = s.get("paso_1") or {}
+        p2 = s.get("paso_2") or {}
+        ensayos = p2.get("ensayos") or []
+        num_sol = p1.get("numero_solicitud", "?")
+        for ens_idx, e in enumerate(ensayos):
+            formula, _ = _get_ensayo_safe(e)
+            if not (formula and len(formula) > 0):
+                result.append({
+                    "solicitud_idx": sol_idx,
+                    "ensayo_idx": ens_idx,
+                    "ensayo": e,
+                    "numero_solicitud": num_sol,
+                })
+    return result
+
+
+def build_tabla_ensayos_flat(solicitudes: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    Construye una lista plana de filas (una por ensayo) con columnas para vista general.
+    Cada dict incluye solicitud_idx, ensayo_idx y campos para mostrar (numero_solicitud,
+    producto, id_ensayo, resumen, resultado, formula_status, motivo_status, verificacion_status).
+    verificacion_status es por solicitud: Sí si tiene los tres campos de verificacion_diseno rellenados.
+    """
+    rows: List[Dict[str, Any]] = []
+    for sol_idx, s in enumerate(solicitudes):
+        p1 = s.get("paso_1") or {}
+        p2 = s.get("paso_2") or {}
+        ensayos = p2.get("ensayos") or []
+        num_sol = p1.get("numero_solicitud", "?")
+        producto = (p1.get("producto_base_linea") or "")[:40]
+        v = p1.get("verificacion_diseno") or {}
+        pf = (v.get("producto_final") or "").strip()
+        fo = (v.get("formula_ok") or "").strip()
+        riq = (v.get("riquezas") or "").strip()
+        verificacion_ok = bool(pf and fo and riq)
+        verificacion_status = "Sí" if verificacion_ok else "No"
+        for ens_idx, e in enumerate(ensayos):
+            formula, motivo = _get_ensayo_safe(e)
+            formula_status = f"Sí ({len(formula)} líneas)" if formula else "No"
+            motivo_status = "Sí" if (motivo or "").strip() else "No"
+            resumen = (e.get("ensayo") or "")[:50]
+            resultado = str(e.get("resultado", "") or "").strip()
+            row = {
+                "solicitud_idx": sol_idx,
+                "ensayo_idx": ens_idx,
+                "numero_solicitud": num_sol,
+                "producto": producto,
+                "id_ensayo": e.get("id", ""),
+                "resumen": resumen,
+                "resultado": resultado,
+                "formula_status": formula_status,
+                "motivo_status": motivo_status,
+                "verificacion_status": verificacion_status,
+            }
+            rows.append(row)
+    return rows
+
+
+def render_tabla_ensayos_flat(
+    solicitudes: List[Dict[str, Any]],
+    on_ir_a_editar: Callable[[int, int], None],
+) -> None:
+    """
+    Muestra tabla plana de todos los ensayos y un selectbox + botón "Ir a editar"
+    para abrir el panel de un ensayo concreto.
+    """
+    flat = build_tabla_ensayos_flat(solicitudes)
+    if not flat:
+        st.info("No hay ensayos para mostrar.")
+        return
+    df = pd.DataFrame([
+        {
+            "Nº Solicitud": str(r["numero_solicitud"]),
+            "Producto (solicitud)": r["producto"],
+            "ID ensayo": r["id_ensayo"],
+            "Resultado": r["resultado"],
+            "Resumen (ensayo)": r["resumen"],
+            "Fórmula": r["formula_status"],
+            "Motivo": r["motivo_status"],
+            "Verificación": r["verificacion_status"],
+        }
+        for r in flat
+    ])
+    st.dataframe(df, use_container_width=True)
+    st.caption("Producto (solicitud) = producto base de la solicitud; Resumen (ensayo) = descripción del ensayo/incidencia (puede citar otra formulación).")
+    options = [
+        f"Solicitud {str(r['numero_solicitud'])} · {r['id_ensayo']} — {r['resumen']}"
+        for r in flat
+    ]
+    sel = st.selectbox(
+        "Ir a editar este ensayo",
+        range(len(flat)),
+        format_func=lambda i: options[i],
+        key="editor_flat_goto_select",
+    )
+    if st.button("Ir a editar", key="editor_flat_goto_btn"):
+        row = flat[sel]
+        on_ir_a_editar(row["solicitud_idx"], row["ensayo_idx"])
+
+
+def render_listado_solicitudes(
+    solicitudes: List[Dict[str, Any]],
+    search_query: str,
+    preselected_idx: int | None = None,
+) -> int | None:
+    """
+    Renderiza la tabla/lista de solicitudes con buscador.
+    Devuelve el índice de la fila seleccionada (si se usa selectbox/click) o None.
+    preselected_idx: si se informa, el selectbox mostrará esa solicitud como seleccionada.
+    """
+    if not solicitudes:
+        st.info("No hay solicitudes. Importa un JSON o genera primero.")
+        return None
+
+    filtered = solicitudes
+    if search_query:
+        q = search_query.strip().lower()
+        filtered = []
+        for s in solicitudes:
+            p1 = s.get("paso_1") or {}
+            num = str(p1.get("numero_solicitud", "")).lower()
+            prod = str(p1.get("producto_base_linea", "")).lower()
+            resp = str(p1.get("responsable", "")).lower()
+            if q in num or q in prod or q in resp:
+                filtered.append(s)
+
+    if not filtered:
+        st.warning("Ninguna solicitud coincide con la búsqueda.")
+        return None
+
+    options = []
+    for i, s in enumerate(filtered):
+        p1 = s.get("paso_1") or {}
+        num = str(p1.get("numero_solicitud", "?"))
+        prod = (p1.get("producto_base_linea") or "")[:40]
+        resp = p1.get("responsable", "")
+        tipo = p1.get("tipo", "")
+        options.append(f"{num} · {prod} · {resp} · {tipo}")
+
+    index_default = 0
+    if preselected_idx is not None and 0 <= preselected_idx < len(solicitudes):
+        try:
+            sel_sol = solicitudes[preselected_idx]
+            index_default = filtered.index(sel_sol)
+        except ValueError:
+            pass
+
+    idx_in_filtered = st.selectbox(
+        "Selecciona una solicitud",
+        range(len(filtered)),
+        format_func=lambda i: options[i],
+        index=index_default,
+        key="editor_listado_select",
+    )
+    if idx_in_filtered is None:
+        return None
+    # Mapear índice en filtered de vuelta al índice en solicitudes
+    selected_solicitud = filtered[idx_in_filtered]
+    try:
+        return solicitudes.index(selected_solicitud)
+    except ValueError:
+        return 0
+
+
+def render_detalle_solicitud(
+    solicitud: Dict[str, Any],
+    solicitud_idx: int,
+    preselected_ensayo_idx: int | None = None,
+    on_apply_id_ensayo: Callable[[int, str], None] | None = None,
+) -> int | None:
+    """
+    Renderiza el detalle de una solicitud: Paso 1 (solo lectura) y lista de ensayos.
+    Devuelve el índice del ensayo seleccionado o None.
+    preselected_ensayo_idx: si se informa, el selectbox mostrará ese ensayo como seleccionado.
+    on_apply_id_ensayo: si hay varios id_ensayos_liberados, permite elegir ID ensayo a usar.
+    """
+    p1 = solicitud.get("paso_1") or {}
+    p2 = solicitud.get("paso_2") or {}
+    ensayos = p2.get("ensayos") or []
+
+    st.subheader("Paso 1 (solo lectura)")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write("**Responsable:**", p1.get("responsable", ""))
+        st.write("**Nº Solicitud:**", str(p1.get("numero_solicitud", "")))
+        st.write("**Tipo:**", p1.get("tipo", ""))
+    with col2:
+        st.write("**Producto base / línea:**", p1.get("producto_base_linea", ""))
+    st.write("**Descripción partida diseño:**", p1.get("descripcion_partida_diseno", ""))
+
+    id_ensayo = get_id_ensayo_from_paso1_item(p1)
+    ids_liberados = get_id_ensayos_liberados_from_paso1_item(p1)
+    if len(ids_liberados) > 1 and on_apply_id_ensayo:
+        default_idx = 0
+        if id_ensayo:
+            try:
+                default_idx = ids_liberados.index(id_ensayo)
+            except ValueError:
+                pass
+        sel_id = st.selectbox(
+            "ID ensayo a usar para esta solicitud",
+            options=ids_liberados,
+            index=default_idx,
+            key=f"editor_detalle_{solicitud_idx}_id_ensayo_select",
+        )
+        if st.button("Aplicar ID ensayo", key=f"editor_detalle_{solicitud_idx}_aplicar_id"):
+            on_apply_id_ensayo(solicitud_idx, sel_id)
+
+    st.subheader("Ensayos")
+    if not ensayos:
+        st.info("No hay ensayos en esta solicitud.")
+        return None
+
+    options = [f"{e.get('id', '')} — {str(e.get('ensayo', ''))[:50]}" for e in ensayos]
+    index_default = 0
+    if preselected_ensayo_idx is not None and 0 <= preselected_ensayo_idx < len(ensayos):
+        index_default = preselected_ensayo_idx
+    ensayo_idx = st.selectbox(
+        "Selecciona un ensayo",
+        range(len(ensayos)),
+        format_func=lambda i: options[i],
+        index=index_default,
+        key=f"editor_ensayo_select_{solicitud_idx}",
+    )
+    return ensayo_idx
+
+
+def render_panel_ensayo(
+    ensayo: Dict[str, Any],
+    solicitud_idx: int,
+    ensayo_idx: int,
+    on_save: Callable[[Dict[str, Any]], None],
+    on_revert: Callable[[], None],
+    on_apply_paste: Callable[[List[Dict[str, Any]]], None] | None = None,
+    paste_expanded: bool = False,
+) -> None:
+    """
+    Renderiza el panel de detalle del ensayo: resumen (solo lectura), tabla fórmula,
+    textarea motivo, botones Guardar / Revertir / Pegar fórmula / Copiar fórmula.
+    on_save(ensayo_updated) y on_revert() son llamados al pulsar los botones.
+    paste_expanded: si True, el expander "Pegar fórmula" va abierto por defecto.
+    """
+    st.subheader("Resumen del ensayo (solo lectura)")
+    st.write("**ID:**", ensayo.get("id", ""))
+    st.write("**Ensayo / Resumen:**", ensayo.get("ensayo", ""))
+    st.write("**Fecha:**", ensayo.get("fecha", ""))
+    st.write("**Resultado:**", ensayo.get("resultado", ""))
+
+    formula, motivo = _get_ensayo_safe(ensayo)
+    key_prefix = f"editor_ensayo_{solicitud_idx}_{ensayo_idx}"
+
+    # Bloque fórmula
+    st.subheader("Fórmula")
+    with st.expander("Pegar fórmula", expanded=paste_expanded):
+        paste_area = st.text_area(
+            "Pega líneas con Materia prima y % peso (separados por TAB o ;)",
+            height=120,
+            key=f"{key_prefix}_paste",
+        )
+        if st.button("Aplicar pegado", key=f"{key_prefix}_apply_paste"):
+            parsed = parse_pasted_formula(paste_area)
+            if parsed and on_apply_paste:
+                on_apply_paste(parsed)
+                st.rerun()
+
+    if not formula:
+        formula = [{"materia_prima": "", "porcentaje_peso": ""}]
+    df = pd.DataFrame(formula)
+    edited_df = st.data_editor(
+        df,
+        column_config={
+            "materia_prima": st.column_config.TextColumn("Materia prima"),
+            "porcentaje_peso": st.column_config.TextColumn("% peso"),
+        },
+        num_rows="dynamic",
+        key=f"{key_prefix}_formula_editor",
+    )
+    st.caption("Usa el botón '+' al final de la tabla para añadir filas.")
+
+    motivo_value = st.text_area(
+        "Motivo / comentario",
+        value=motivo,
+        height=100,
+        key=f"{key_prefix}_motivo",
+    )
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        if st.button("Guardar cambios", type="primary", key=f"{key_prefix}_save"):
+            # Normalizar filas a materia_prima / porcentaje_peso y filtrar vacías
+            raw_rows = edited_df.to_dict("records")
+            rows = []
+            for r in raw_rows:
+                mp = str(r.get("materia_prima") or "").strip()
+                pct = str(r.get("porcentaje_peso") or "").strip()
+                rows.append({"materia_prima": mp, "porcentaje_peso": pct})
+            rows = filter_empty_formula_rows(rows)
+            invalid_peso = []
+            for i, r in enumerate(rows):
+                pct = (r.get("porcentaje_peso") or "").strip()
+                if pct:
+                    ok, _ = validate_peso(pct)
+                    if not ok:
+                        invalid_peso.append(i + 1)
+            if invalid_peso:
+                st.error(f"% peso no válido en fila(s): {invalid_peso}. Use número con coma o punto.")
+            else:
+                ensayo_updated = dict(ensayo)
+                ensayo_updated["formula"] = rows
+                motivo_str = (motivo_value or "").strip()
+                if motivo_str:
+                    ensayo_updated["motivo_comentario"] = motivo_str
+                else:
+                    ensayo_updated.pop("motivo_comentario", None)
+                on_save(ensayo_updated)
+    with col2:
+        if st.button("Revertir", key=f"{key_prefix}_revert"):
+            on_revert()
+    with col3:
+        tsv = formula_to_tsv(edited_df.to_dict("records"))
+        if tsv:
+            st.code(tsv, language=None)
+            st.caption("Copia el contenido anterior al portapapeles (Ctrl+C) para pegarlo en Excel.")
+
+
+def build_solicitudes_pendientes_verificacion(
+    solicitudes: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    """
+    Devuelve la lista de solicitudes pendientes de verificación (Diseño).
+    Solo aplica a solicitudes que tienen al menos un ensayo con resultado LIBERADO.
+    Pendiente = tiene liberados Y verificación incompleta (al menos uno de producto_final, formula_ok, riquezas vacío).
+    Cada elemento: solicitud_idx, paso_1 (para cabecera y guardado).
+    """
+    result: List[Dict[str, Any]] = []
+    for sol_idx, s in enumerate(solicitudes):
+        p2 = s.get("paso_2") or {}
+        ensayos = p2.get("ensayos") or []
+        tiene_liberado = any(
+            str(e.get("resultado", "") or "").strip().upper() == "LIBERADO"
+            for e in ensayos
+        )
+        if not tiene_liberado:
+            continue
+        p1 = s.get("paso_1") or {}
+        v = p1.get("verificacion_diseno")
+        if not isinstance(v, dict):
+            result.append({"solicitud_idx": sol_idx, "paso_1": p1})
+            continue
+        pf = (v.get("producto_final") or "").strip()
+        fo = (v.get("formula_ok") or "").strip()
+        riq = (v.get("riquezas") or "").strip()
+        if not pf or not fo or not riq:
+            result.append({"solicitud_idx": sol_idx, "paso_1": p1})
+    return result
+
+
+def render_vista_verificacion_diseno(
+    solicitudes: List[Dict[str, Any]],
+    get_on_save_verificacion: Callable[[int], Callable[[str, str, str], None]],
+    on_switch_to_solicitud: Callable[[], None] | None = None,
+    on_switch_to_pendientes: Callable[[], None] | None = None,
+    on_apply_id_ensayo: Callable[[int, str], None] | None = None,
+) -> None:
+    """
+    Muestra solicitudes pendientes de verificación (Diseño): cabecera solo lectura y
+    tres campos editables (Producto final, Fórmula OK, Riquezas) con botón Guardar.
+    Si hay varios id_ensayos_liberados, muestra selector para elegir ID ensayo a usar.
+    """
+    pendientes = build_solicitudes_pendientes_verificacion(solicitudes)
+    if not pendientes:
+        st.info("No hay solicitudes pendientes de verificación (Diseño).")
+        col1, col2 = st.columns(2)
+        with col1:
+            if on_switch_to_solicitud and st.button(
+                "Ir a vista por solicitud", key="editor_verif_switch_solicitud"
+            ):
+                on_switch_to_solicitud()
+        with col2:
+            if on_switch_to_pendientes and st.button(
+                "Ir a Rellenar fórmulas (pendientes)", key="editor_verif_switch_pendientes"
+            ):
+                on_switch_to_pendientes()
+        return
+
+    st.caption(f"Solicitudes pendientes de verificación (Diseño): {len(pendientes)}. Rellena y guarda cada una.")
+    for item in pendientes:
+        sol_idx = item["solicitud_idx"]
+        p1 = item["paso_1"]
+        num_sol = p1.get("numero_solicitud", "?")
+        id_ensayo = get_id_ensayo_from_paso1_item(p1)
+        producto = (p1.get("producto_base_linea") or "")[:60]
+        v = p1.get("verificacion_diseno") or {}
+        pf = (v.get("producto_final") or "").strip()
+        fo = (v.get("formula_ok") or "").strip()
+        riq = (v.get("riquezas") or "").strip()
+
+        st.divider()
+        st.subheader(f"Nº Solicitud {num_sol} · ID ensayo: {id_ensayo or '—'}")
+        st.caption(f"Producto base / línea: {producto}")
+
+        ids_liberados = get_id_ensayos_liberados_from_paso1_item(p1)
+        if len(ids_liberados) > 1 and on_apply_id_ensayo:
+            default_idx = 0
+            if id_ensayo:
+                try:
+                    default_idx = ids_liberados.index(id_ensayo)
+                except ValueError:
+                    pass
+            sel_id = st.selectbox(
+                "ID ensayo a usar para esta solicitud",
+                options=ids_liberados,
+                index=default_idx,
+                key=f"verificacion_{sol_idx}_id_ensayo_select",
+            )
+            if st.button("Aplicar ID ensayo", key=f"verificacion_{sol_idx}_aplicar_id"):
+                on_apply_id_ensayo(sol_idx, sel_id)
+
+        key_pf = f"verificacion_{sol_idx}_producto_final"
+        key_fo = f"verificacion_{sol_idx}_formula_ok"
+        key_riq = f"verificacion_{sol_idx}_riquezas"
+        key_btn = f"verificacion_{sol_idx}_guardar"
+
+        producto_final_val = st.text_input("Producto final", value=pf, key=key_pf)
+        formula_ok_val = st.text_input("Fórmula OK", value=fo, key=key_fo)
+        riquezas_val = st.text_area("Riquezas", value=riq, height=100, key=key_riq)
+
+        if st.button("Guardar", type="primary", key=key_btn):
+            on_save = get_on_save_verificacion(sol_idx)
+            on_save(producto_final_val or "", formula_ok_val or "", riquezas_val or "")
+
+
+def render_vista_validacion_producto(
+    solicitudes: List[Dict[str, Any]],
+    get_on_save_anexo_f10_03: Callable[[int], Callable[[Dict[str, Any]], None]],
+    on_switch_to_solicitud: Callable[[], None] | None = None,
+    on_switch_to_verificacion: Callable[[], None] | None = None,
+) -> None:
+    """
+    Muestra el formulario ANEXO F10-03 (Validación de producto) para solicitudes con
+    LIBERADO y verificación de diseño completa. Incluye especificación final (descripción,
+    físicas, características químicas) y tabla de validación de 9 filas (VALIDAR por defecto OK).
+    """
+    listas = build_solicitudes_listas_validacion_producto(solicitudes)
+    if not listas:
+        st.info("No hay solicitudes listas para Validación de producto (ANEXO F10-03). Completa antes la verificación de diseño (Producto final, Fórmula OK, Riquezas) en solicitudes con ensayo LIBERADO.")
+        col1, col2 = st.columns(2)
+        with col1:
+            if on_switch_to_solicitud and st.button(
+                "Ir a vista por solicitud", key="editor_validprod_switch_solicitud"
+            ):
+                on_switch_to_solicitud()
+        with col2:
+            if on_switch_to_verificacion and st.button(
+                "Ir a Rellenar verificación (Diseño)", key="editor_validprod_switch_verificacion"
+            ):
+                on_switch_to_verificacion()
+        return
+
+    st.caption(f"Solicitudes listas para Validación de producto (ANEXO F10-03): {len(listas)}. Rellena y guarda cada una.")
+    for item in listas:
+        sol_idx = item["solicitud_idx"]
+        p1 = item["paso_1"]
+        _ensure_anexo_f10_03(p1)
+        anexo = p1.get("anexo_f10_03") or {}
+        esp = anexo.get("especificacion_final") or {}
+        val = anexo.get("validacion") or {}
+        filas = val.get("filas") or []
+
+        num_sol = p1.get("numero_solicitud", "?")
+        id_formula_ok = get_id_formula_ok_from_paso1_item(p1)
+        if not id_formula_ok:
+            id_formula_ok = get_id_ensayo_from_paso1_item(p1)
+        producto = (p1.get("producto_base_linea") or "")[:60]
+
+        st.divider()
+        st.subheader(f"Nº Solicitud {num_sol} · ID fórmula liberada: {id_formula_ok or '—'}")
+        st.caption(f"Producto base / línea: {producto}")
+
+        prefix = f"anexo_f10_03_{sol_idx}"
+        desc = st.text_area("DESCRIPCIÓN (Especificación final)", value=(esp.get("descripcion") or "").strip(), height=80, key=f"{prefix}_desc")
+        st.caption("Características físicas")
+        c1, c2 = st.columns(2)
+        with c1:
+            aspecto_val = st.text_input("Aspecto", value=(esp.get("aspecto") or "").strip(), key=f"{prefix}_aspecto")
+            densidad_val = st.text_input("Densidad", value=(esp.get("densidad") or "").strip(), key=f"{prefix}_densidad")
+        with c2:
+            color_val = st.text_input("Color", value=(esp.get("color") or "").strip(), key=f"{prefix}_color")
+            ph_val = st.text_input("pH", value=(esp.get("ph") or "").strip(), key=f"{prefix}_ph")
+        quimicas_val = st.text_area(
+            "Características químicas (pegar tabla Excel)",
+            value=(esp.get("caracteristicas_quimicas") or "").strip(),
+            height=120,
+            key=f"{prefix}_quimicas",
+            help="Pega aquí la tabla (ej. Ntotal	1,159 por línea).",
+        )
+
+        st.caption("2. VALIDACIÓN (El producto satisface los requisitos)")
+        fecha_val = st.text_input("Fecha de validación", value=(val.get("fecha_validacion") or "").strip(), key=f"{prefix}_fecha")
+
+        filas_out: List[Dict[str, Any]] = []
+        for i in range(9):
+            default_row = ANEXO_F10_03_FILAS_VALIDACION[i]
+            area = default_row["area"]
+            aspecto_f = default_row["aspecto_a_validar"]
+            f = filas[i] if i < len(filas) else {}
+            ok_nok = (f.get("validar_ok_nok") or "OK").strip().upper()
+            if ok_nok not in ("OK", "NOK"):
+                ok_nok = "OK"
+            coment = (f.get("comentarios") or "").strip()
+            st.markdown(f"**{area}** — {aspecto_f}")
+            col_v, col_c = st.columns([1, 3])
+            with col_v:
+                ok_nok_new = st.selectbox(
+                    "VALIDAR (OK/NOK)",
+                    options=["OK", "NOK"],
+                    index=0 if ok_nok == "OK" else 1,
+                    key=f"{prefix}_oknok_{i}",
+                )
+            with col_c:
+                coment_new = st.text_input("Comentarios", value=coment, key=f"{prefix}_coment_{i}")
+            filas_out.append({"area": area, "aspecto_a_validar": aspecto_f, "validar_ok_nok": ok_nok_new, "comentarios": coment_new})
+
+        if st.button("Guardar ANEXO F10-03", type="primary", key=f"{prefix}_guardar"):
+            payload = {
+                "especificacion_final": {
+                    "descripcion": (desc or "").strip(),
+                    "aspecto": (aspecto_val or "").strip(),
+                    "densidad": (densidad_val or "").strip(),
+                    "color": (color_val or "").strip(),
+                    "ph": (ph_val or "").strip(),
+                    "caracteristicas_quimicas": (quimicas_val or "").strip(),
+                },
+                "validacion": {
+                    "fecha_validacion": (fecha_val or "").strip(),
+                    "filas": filas_out,
+                },
+            }
+            on_save = get_on_save_anexo_f10_03(sol_idx)
+            on_save(payload)
+
+
+def render_vista_pendientes_formula(
+    solicitudes: List[Dict[str, Any]],
+    get_on_save: Callable[[int, int], Callable[[Dict[str, Any]], None]],
+    get_on_apply_paste: Callable[[int, int], Callable[[List[Dict[str, Any]]], None]],
+    on_revert: Callable[[], None],
+    on_switch_to_solicitud: Callable[[], None] | None = None,
+) -> None:
+    """
+    Muestra de golpe todos los ensayos sin fórmula, cada uno con su bloque completo
+    (resumen, Pegar fórmula desplegado, motivo, Guardar). Para cada card se usan
+    get_on_save(sol_idx, ens_idx) y get_on_apply_paste(sol_idx, ens_idx) para obtener los callbacks.
+    """
+    pendientes = build_ensayos_sin_formula(solicitudes)
+    if not pendientes:
+        st.info("No hay ensayos pendientes de fórmula.")
+        if on_switch_to_solicitud and st.button("Ir a vista por solicitud", key="editor_switch_to_solicitud"):
+            on_switch_to_solicitud()
+        return
+
+    st.caption(f"Ensayos sin fórmula: {len(pendientes)}. Rellena y guarda cada uno.")
+    for i, item in enumerate(pendientes):
+        sol_idx = item["solicitud_idx"]
+        ens_idx = item["ensayo_idx"]
+        ensayo = item["ensayo"]
+        num_sol = item["numero_solicitud"]
+        id_ensayo = ensayo.get("id", "")
+        if i > 0:
+            st.divider()
+        st.subheader(f"Solicitud {num_sol} · {id_ensayo}")
+        render_panel_ensayo(
+            ensayo,
+            sol_idx,
+            ens_idx,
+            on_save=get_on_save(sol_idx, ens_idx),
+            on_revert=on_revert,
+            on_apply_paste=get_on_apply_paste(sol_idx, ens_idx),
+            paste_expanded=True,
+        )

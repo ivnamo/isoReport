@@ -1,0 +1,163 @@
+"""
+Filtros y listado de solicitudes en el sidebar.
+"""
+
+from __future__ import annotations
+
+from typing import List, Optional
+
+import pandas as pd
+import streamlit as st
+
+from models.solicitud import Solicitud
+
+
+def _normalize_estado(val: any) -> str:
+    """Normaliza Aceptado/Finalizado a mayúsculas para comparar Sí/No."""
+    if val is None or (isinstance(val, float) and pd.isna(val)):
+        return ""
+    return str(val).strip().upper()
+
+
+def _filter_solicitudes(
+    solicitudes: List[Solicitud],
+    year: int,
+    estado_aceptado: Optional[str],
+    estado_finalizado: Optional[str],
+    pais: Optional[str],
+    solicitante: Optional[str],
+    nombre: Optional[str],
+    search_text: Optional[str],
+) -> List[Solicitud]:
+    """Filtra la lista por año (ya aplicado), estado, país, solicitante, nombre y búsqueda libre."""
+    out = solicitudes
+    if estado_aceptado:
+        filt = []
+        for s in out:
+            row = s.f10_01_row or {}
+            val = _normalize_estado(row.get("Aceptado"))
+            if estado_aceptado == "Sí" and (val == "SÍ" or val == "SI"):
+                filt.append(s)
+            elif estado_aceptado == "No" and (val == "NO" or val == ""):
+                filt.append(s)
+            elif estado_aceptado == "Todos":
+                filt.append(s)
+        if estado_aceptado != "Todos":
+            out = filt
+    if estado_finalizado:
+        if estado_finalizado != "Todos":
+            filt = []
+            for s in out:
+                row = s.f10_01_row or {}
+                val = _normalize_estado(row.get("Finalizado"))
+                if estado_finalizado == "Sí" and (val == "SÍ" or val == "SI"):
+                    filt.append(s)
+                elif estado_finalizado == "No" and (val == "NO" or val == ""):
+                    filt.append(s)
+            out = filt
+    if pais:
+        filt = [s for s in out if (s.f10_01_row or {}).get("País destino") == pais]
+        if filt or pais != "Todos":
+            out = filt if filt else out
+    if solicitante:
+        if solicitante != "Todos":
+            out = [s for s in out if (s.f10_01_row or {}).get("Solicitante") == solicitante]
+    if nombre:
+        if nombre != "Todos":
+            out = [s for s in out if (s.f10_01_row or {}).get("Nombre proyecto") == nombre]
+    if search_text and search_text.strip():
+        q = search_text.strip().lower()
+        filt = []
+        for s in out:
+            row = s.f10_01_row or {}
+            p1 = s.paso_1 or {}
+            text_parts = [
+                str(s.numero_solicitud_canonico),
+                str(row.get("Solicitante", "")),
+                str(row.get("Nombre proyecto", "")),
+                str(row.get("País destino", "")),
+                str(p1.get("producto_base_linea", "")),
+                str(p1.get("responsable", "")),
+            ]
+            if any(q in p.lower() for p in text_parts if p):
+                filt.append(s)
+        out = filt
+    return out
+
+
+def render_sidebar_filters_and_list(
+    solicitudes: List[Solicitud],
+    year: int,
+) -> Optional[Solicitud]:
+    """
+    Renderiza en el sidebar los filtros y el listado de solicitudes.
+    Devuelve la Solicitud seleccionada (de la lista filtrada) o None.
+    """
+    st.sidebar.header("Filtros")
+    # Valores únicos para filtros (desde f10_01_row)
+    aceptado_vals = ["Todos", "Sí", "No"]
+    finalizado_vals = ["Todos", "Sí", "No"]
+    paises = ["Todos"] + sorted(
+        set(
+            (s.f10_01_row or {}).get("País destino")
+            for s in solicitudes
+            if (s.f10_01_row or {}).get("País destino")
+        )
+    )
+    solicitantes = ["Todos"] + sorted(
+        set(
+            (s.f10_01_row or {}).get("Solicitante")
+            for s in solicitudes
+            if (s.f10_01_row or {}).get("Solicitante")
+        )
+    )
+    nombres = ["Todos"] + sorted(
+        set(
+            (s.f10_01_row or {}).get("Nombre proyecto")
+            for s in solicitudes
+            if (s.f10_01_row or {}).get("Nombre proyecto")
+        )
+    )
+
+    estado_aceptado = st.sidebar.selectbox("Aceptado", aceptado_vals, key="filtro_aceptado")
+    estado_finalizado = st.sidebar.selectbox("Finalizado", finalizado_vals, key="filtro_finalizado")
+    pais = st.sidebar.selectbox("País destino", paises, key="filtro_pais")
+    solicitante = st.sidebar.selectbox("Solicitante", solicitantes, key="filtro_solicitante")
+    nombre = st.sidebar.selectbox("Nombre proyecto", nombres, key="filtro_nombre")
+    search_text = st.sidebar.text_input("Buscar (texto libre)", key="filtro_busqueda")
+
+    filtered = _filter_solicitudes(
+        solicitudes,
+        year,
+        estado_aceptado,
+        estado_finalizado,
+        pais,
+        solicitante,
+        nombre,
+        search_text,
+    )
+
+    st.sidebar.markdown("---")
+    st.sidebar.subheader("Solicitudes")
+
+    if not filtered:
+        st.sidebar.info("No hay solicitudes que coincidan con los filtros.")
+        return None
+
+    options = []
+    for i, s in enumerate(filtered):
+        label = f"{s.numero_solicitud_canonico}"
+        row = s.f10_01_row or {}
+        nom = row.get("Nombre proyecto") or s.paso_1.get("producto_base_linea") or "—"
+        label += f" — {str(nom)[:40]}"
+        if s.origen == "solo_json":
+            label += " [solo bbdd]"
+        options.append(label)
+
+    selected_idx = st.sidebar.selectbox(
+        "Selecciona una solicitud",
+        range(len(filtered)),
+        format_func=lambda i: options[i],
+        key="sidebar_select_solicitud",
+    )
+    return filtered[selected_idx]

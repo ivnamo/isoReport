@@ -1,16 +1,14 @@
-## Generador de Informes ISO (F10-02 / F10-03)
+# App F10 — Gestión F10-01 / F10-02 / F10-03
 
-Aplicación Streamlit para:
+Aplicación Streamlit para gestionar:
 
-- Registrar diseños y ensayos (F10-02 / F10-03) a partir de recetas pegadas.
-- Combinar **Solicitudes 2025**, **BBDD F10-02** y **exportación Jira**.
-- Generar informes ISO en:
-  - CSV maquetado (compatible con tu flujo actual).
-  - Excel (`.xlsx`) con un layout similar a tu plantilla `Informe_ISO_todas_solicitudes`.
+- **F10-01** (Viabilidad y planificación de diseños): solo lectura desde Excel; una hoja por año.
+- **F10-02** (Diseño producto) y **F10-03** (Validación producto): lectura y edición desde JSON; exportación a XLSX.
 
-### Requisitos
+## Requisitos
 
-Se usa un entorno virtual en `venv/`. La primera vez (o si no existe el venv):
+- Python 3.10+
+- Dependencias: `streamlit`, `pandas`, `openpyxl`
 
 ```powershell
 cd isoReport
@@ -19,41 +17,55 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-### Ejecución
+## Ejecución
 
-**Opción rápida (doble clic):** ejecutar `run_streamlit.bat`. Usa el venv si existe.
-
-**Desde terminal** (con el venv activado):
+Desde la raíz del proyecto `isoReport`:
 
 ```powershell
 cd isoReport
-.\venv\Scripts\Activate.ps1   # activar entorno
+.\venv\Scripts\Activate.ps1
 streamlit run app.py
 ```
 
-Sin venv (Python global):
+O con doble clic en `scripts/run_streamlit.bat` si existe.
 
-```powershell
-streamlit run app.py
-# o: & "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe" -m streamlit run app.py
-```
+## Estructura del proyecto
 
-### Flujo básico
+- **app.py** — Punto de entrada: sidebar (filtros, listado de solicitudes), área principal con pestañas.
+- **config.py** — Rutas por defecto: JSON en `docs/bbdd 18.02.26.json` (o `docs/bbdd_18.02.26.json`), Excel F10-01 y plantillas en `docs/`.
+- **services/** — Carga Excel F10-01 por hoja, carga/guardado atómico del JSON, construcción de la lista unificada.
+- **models/** — Modelo `Solicitud` (vista unificada) y mapeo con paso_1/paso_2.
+- **ui/** — Tabs F10-01 (solo lectura), F10-02 y F10-03 (edición + guardar), Exportar (generar XLSX).
+- **exporters/** — Generación de XLSX F10-02 y F10-03 (modo provisional: workbook generado por código).
+- **utils/** — Normalización de número de solicitud, parseo de fórmula pegada, datos compartidos (ANEXO F10-03).
+- **legacy/** — Código anterior (generador JSON, editor antiguo) sin uso en la nueva interfaz.
 
-1. **Registro F10-02/F10-03**
-   - Opcionalmente carga una BBDD existente (CSV).
-   - Selecciona un `Nº Solicitud` desde `Solicitudes 2025.xlsx`.
-   - Registra nuevos ensayos pegando la receta (`Materia prima` + `% peso`).
-   - Descarga la BBDD consolidada.
+## Estructura de datos
 
-2. **Generación de informes ISO**
-   - Sube:
-     - `Solicitudes 2025.xlsx`.
-     - BBDD F10-02 (CSV).
-     - Exportación `Jira.csv`.
-   - Elige un `Nº Solicitud`.
-   - Selecciona, si es necesario, la issue Jira **LIBERADA** que actuará como fórmula OK.
-   - Descarga el informe en:
-     - CSV maquetado.
-     - Excel (`.xlsx`) listo para revisión/auditoría.
+### JSON (fuente de verdad para F10-02 y F10-03)
 
+- Raíz: `{"paso_1": [...], "paso_2": [...]}`.
+- **paso_1**: por solicitud: `numero_solicitud`, `responsable`, `tipo`, `producto_base_linea`, `descripcion_partida_diseno`, `verificacion_diseno` (producto_final, formula_ok, riquezas), `anexo_f10_03` (especificacion_final, validacion con filas).
+- **paso_2**: por solicitud: `numero_solicitud`, `producto_base_linea`, `ensayos[]` (id, ensayo, fecha, resultado, motivo_comentario, formula[{materia_prima, porcentaje_peso}]).
+- Enlace: por `numero_solicitud` (canónico) y opcionalmente `producto_base_linea`.
+
+### Excel F10-01
+
+- Una hoja por año (nombre de hoja = "2025", "2024", etc.).
+- Primera fila = cabecera. Columnas esperadas: Nº Solicitud, Solicitante, Nombre proyecto, Necesidad, País destino, Aceptado, Finalizado, etc.
+- Enlace con JSON: número canónico (ej. "24/2025" → 24; "1" → 1).
+
+### Mapeo lógico
+
+- **F10-02** ↔ JSON: datos de partida → `paso_1.descripcion_partida_diseno`; ensayos → `paso_2.ensayos`; verificación → `paso_1.verificacion_diseno`.
+- **F10-03** ↔ JSON: especificación final → `paso_1.anexo_f10_03.especificacion_final`; validación → `paso_1.anexo_f10_03.validacion` (fecha_validacion, filas).
+
+## Añadir nuevos años en F10-01
+
+Añade una nueva hoja en el Excel "F10-01 Viabilidad y planificación de diseños.xlsx" con el nombre del año (ej. "2026"). La app detecta las hojas numéricas (2000–2100) y las muestra en el selector de año en el sidebar.
+
+## Notas
+
+- Guardado del JSON: atómico (escritura en `.tmp` y renombrado).
+- Exportación F10-02 y F10-03: por ahora se genera un XLSX con la misma estructura lógica desde código; en el futuro se puede sustituir por relleno de plantillas .xlsx cuando exista un mapa de celdas.
+- Si una solicitud existe en F10-01 pero no en el JSON, se puede usar **Inicializar en bbdd** para crear el registro mínimo y guardarlo.
