@@ -4250,7 +4250,7 @@
           "descripcion": "Es una formulación diseñada para mitigar los efectos de la salinidad del suelo, desarrollada sin aporte de nitratos y orientada a mejorar el equilibrio iónico en condiciones de alta conductividad.\n\nActúa favoreciendo la regulación osmótica y contribuyendo a reducir el impacto del exceso de sales sobre la absorción de agua y nutrientes por parte del cultivo.\n\nSu composición permite mejorar la estructura del entorno radicular y optimizar la eficiencia nutricional en suelos salinos, manteniendo estabilidad y compatibilidad en distintas condiciones de aplicación.",
           "aspecto": "Líquido",
           "color": "Oscuro",
-          "caracteristicas_quimicas": "Ntotal\t0,378\nNorg\t0,378\nNnitr\t0\nNure\t0\nNamo\t0\nK2O\t0\nP2O5\t0\nCaO\t5,78\nMgO\t0\nSO3\t0\nZn\t0\nMn\t0\nFe\t0\nCu\t0\nB\t0\nMo\t0\nCo\t0\nSiO2\t0\nMseca\t0\nMorg\t2,079\nCorg\t1,20582\nExtracto Húmico total\t2,079\nAcidos fulvicos\t2,079\nAcidos húmicos\t0\nExtracto de Algas\t0\nPolisacaridos\t0\nSum AA totales\t2,079\nSum AA libres\t2,079\nAc aspartico\t0\nAc glutamico\t0\nAlanina\t0\nGlicina\t2,079\nHistidina\t0\nIsoleucina\t0\nLeucina\t0\nLisina\t0\nSerina\t0\nTirosina\t0\nTreonina\t0\nValina\t0\nArginina\t0\nFenilalanina\t0\nMetionina\t0\nProlina\t0\nHidroxiprolina\t0\nTriptofano\t0\nAs\t0\nHg\t0\nPb\t0\nCd\t0\nCr\t0\nNi\t0"
+          "caracteristicas_quimicas": ""
         },
         "validacion": {
           "fecha_validacion": "27/07/2025",
