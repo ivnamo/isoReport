@@ -1,0 +1,885 @@
+﻿ID,Nº Solicitud,SOLICITANTE,NOMBRE,NOM_COMERCIAL,NECESIDAD,VOLUMEN COMPETENCIA,PRECIO COMPETENCIA,VOLUMEN PROPUESTO,ENVASE,PAIS DESTINO,ACEPTADO,FINALIZADO,MOTIVO DENEGADO,FECHA DE APROBACIÓN SOL.,TIEMPO ESTIMADO (días laborables),FECHA FINALIZACION ESTIMADA,FECHA DE FINALIZACION REAL,HORAS EMPLEADAS I+D,HORAS EMPLEADAS EN CALIDAD,PROBLEMAS,COMENTARIOS
+1,2/2025,interno,FOLICAT ZNMO - MN,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Paraguay y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Paraguay,Sí,Sí,,2025-03-11,244,13/02/2026,10/02/2026,964,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Formulación nutricional con microelementos (Zn-Mo-Mn) quelados, diseñada para estabilidad y compatibilidad en suspensión.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+EDTA Zn mínimo; incompatibilidades al mezclar EDTA y sulfato con formación de precipitado blanco, no liberado.
+
+Primera aproximación con xantana; persisten incompatibilidades y se observan grumos y ligera separación de fases.
+
+Ensayo con xantana; incompatibilidades EDTA + sales que generan gelificación parcial y precipitado fino, no estable.
+
+Repetición industrial solicitada por cliente; resultado no conforme por formación de poso y turbidez en volumen grande.
+
+Se acuerda que el zinc 2% procede de EDTA; se garantiza forma quelatada para evitar cristalización y posos.
+
+Se ajusta urea por exceso de N debido al EDTA añadido; versión estable sin olor amoniacal ni reacciones ácido-base marcadas.",
+2,3/2025,interno,AMINO ACTIVE MATRISOJA,,"Se solicita el desarrollo de un corrector de micronutrientes complejados que constituye un proyecto de adaptación a requisitos de mercado exterior con adecuación a especificaciones regulatorias y técnicas del país destino incorporando como materias primas destacadas molibdeno en forma de heptamolibdato amónico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Brasil y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Brasil,Sí,Sí,,2025-03-20,237,13/02/2026,10/02/2026,936,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **AMINO ACTIVE MATRISOJA**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con ensayos liberados según resultados registrados. Referencia: ID-14.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo está **LIBERADO**.
+Componentes principales: AGUA (37,45), ACIDO GLUCONICO LIQUIDO (20), CLORURO DE MANGANESO (14,5), CLORURO DE MAGNESIO (8), CLORURO DE ZINC (4,2).
+Notas técnicas:
+- Fórmula con elementos sensibles (pH/sales/reología); mantener control de proceso y pruebas de estabilidad.",
+3,4/2025,interno,ARCHER ECLIPSE ACTIRON,,"Se solicita el desarrollo de un suspensión mineral concentrada que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico incorporando como materias primas destacadas carbonato cálcico micronizado. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-03-31,230,13/02/2026,10/02/2026,908,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 09/jun/25 1:52 PM;712020:ee213c39-fa77-4db1-a980-c37a19aac53b;CUAJADO Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Formulación con Ca-Zn-Mn orientada a uso nutricional y protección frente a alta radiación, adaptada a variante ACTIRON.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Ensayo inicial ACTIRON; problemas de compatibilidad y fases por saturación de carbonatos.
+
+Ajustada para compatibilidad; evita precipitación de micronutrientes por pH controlado.",
+4,5/2025,interno,KABON DOGRACID-70,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-03-31,47,03/06/2025,29/05/2025,176,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **KABON DOGRACID-70**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-41.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: DOGRACID-70 (41,4), MONOPROPILENGLICOL (34,6), AGUA (13,9), HIDROXIDO POTASICO (9,2), DF-152 (0,9).
+Posibles causas (según la composición):
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.",
+5,1/2025,externa,NITRO DELTA CA,,"Se solicita el desarrollo de un bioestimulante basado en extractos vegetales que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado España y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,España,Sí,Sí,,2025-03-31,230,13/02/2026,10/02/2026,908,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 03/feb/26 12:44 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;a 35ºC hace un poso blanco precipitado como cristalitos 19/nov/25 10:40 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Hacemos producto para calidad porque hay un pedido de 200 L y el prototipo tiene buena pinta a día de hoy. {{2025-03-31}} 22/abr/25 2:03 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;NOK se forma una capa blanca que puede ser carbonato de calcio porque es insoluble en agua y burbujea con acido fosforico Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Formulación N-K con urea, nitratos y aditivos de estabilidad adaptada a variantes GLUC.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: CLORURO DE CALCIO 50% (43,00), N-20 (25,00), UREA BIG BAG (21,74), AGUA INICIAL (10,06), BIOPOL KF78 (0,20).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: CLORURO DE CALCIO 50% (30,00), UREA BIG BAG (21,74), AGUA INICIAL (20,06), N-20 (18,00), NITRATO DE CALCIO CRISTAL (10,00).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: NITRATO CALCICO CRISTAL (FERTIBERIA) (34,00), AGUA INICIAL (33,44), UREA BIG BAG (21,74), GLUCONATO SODICO (4,00), AGUA (3,40).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: NITRATO CALCICO CRISTAL (FERTIBERIA) (34,00), AGUA INICIAL (33,44), UREA BIG BAG (21,74), GLUCONATO SODICO (4,00), AGUA (2,40).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: NITRATO CALCICO CRISTAL (FERTIBERIA) (31,00), UREA BIG BAG (21,74), AGUA INICIAL (17,70), LIGNOSULFONATO DE CALCIO LIQUIDO (13,00), HEPTAGLUCONATO DE SODIO (10,00).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: UREA FOMALDEHIDO SC 28% N (36,00), NITRATO CALCICO CRISTAL FERTIBERIA (31,50), AGUA INICIAL (26,16), ACIDO GLUCONICO (3,00), KELIK BORO (2,00).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo es **OK pero no liberado** (pendiente de criterios internos/validación adicional).
+Componentes principales: UREA FOMALDEHIDO SC 28% N (36,00), NITRATO CALCICO CRISTAL FERTIBERIA (31,50), AGUA INICIAL (24,16), ACIDO GLUCONICO (5,00), KELIK BORO (2,00).
+Notas técnicas: sin incidencias destacables en los datos disponibles.
+
+El ensayo resulta **NOK**.
+Componentes principales: UREA FOMALDEHIDO SC 28% N (36,00), NITRATO CALCICO CRISTAL FERTIBERIA (31,50), AGUA INICIAL (23,16), ACIDO GLUCONICO (6,00), KELIK BORO (2,00).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (38,55), NITRATO DE CALCIO BIG BAG (31,50), UREA BIG BAG (21,75), ACIDO GLUCONICO (4,00), KELIK BORO (1,85).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo está **LIBERADO**.
+Componentes principales: AGUA INICIAL (38,95), NITRATO DE CALCIO BIG BAG (31,50), UREA BIG BAG (21,75), GLUCONATO SODICO (4,00), KELIK B GRANEL (1,85).
+Notas técnicas: sin incidencias destacables en los datos disponibles.
+
+Ensayo inicial; versiones no conformes por tendencia a cristalizar y perder claridad con el tiempo.
+
+Inestable; aparecen nubecitas y ligera formación de poso tras reposo y ensayo térmico.
+
+No conforme; precipitación visible de sales que limita la solubilidad y la homogeneidad del producto.
+
+No cumple estabilidad; separación de fases y ligera turbidez que apuntan a desajuste de solubilidades.
+
+Versión estable pero pendiente de validación final; no muestra cristalizaciones, posos ni olor amoniacal.
+
+No cumple estabilidad ni análisis; mezcla altamente reactiva.
+
+Inestable; persistencia de precipitados; probable sobresaturación iónica.
+
+Ajuste GLUC: versión estable; mejora quelación y evita depósitos salinos.
+
+Inestable. No cumple pH ni claridad; indica reacciones ácido–base internas.",
+6,6/2025,interno,AMINO SUPER COMO - NI,,"Se solicita el desarrollo de un corrector de micronutrientes complejados que constituye un proyecto de adaptación a requisitos de mercado exterior con adecuación a especificaciones regulatorias y técnicas del país destino incorporando como materias primas destacadas molibdeno en forma de heptamolibdato amónico, níquel complejado (EDTA). El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Paraguay y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Paraguay,Sí,Sí,,2025-04-02,228,13/02/2026,10/02/2026,900,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Formulación con aminoácidos y Co-Mo-Ni orientada a mejorar estabilidad, compatibilidad y comportamiento reológico en variantes con xantana.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Versión F5.1 con xantana; ensayo conforme, buena estabilidad coloidal sin posos ni fases.
+
+Versión F5.3 con xantana; ensayo conforme, pendiente de liberación, con buena resistencia a estrés térmico.
+
+Versión F5.2 con xantana; estable y pendiente de liberación, muestra viscosidad controlada y ausencia de cristalizaciones.",
+7,7/2025,interno,MITIGADOR,,"Se solicita el desarrollo de un bioestimulante basado en extractos vegetales que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Paraguay y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Paraguay,Sí,Sí,,2025-04-02,228,13/02/2026,10/02/2026,900,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 24/jul/25 2:20 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;le salen bolitas de la goma xantana Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Formulación con aminoácidos, extractos y polisacáridos orientada a mitigar estrés térmico/UV/salino, adaptada a variantes 23% GB.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Ensayo F1; estable y conforme, mantiene claridad y comportamiento reológico en frío y calor.
+
+Inestable; diferencias en viscosidad y color, probablemente por oxidación ligera y reacciones secundarias de melaza.
+
+No conforme; incompatibilidades persistentes con poso oscuro y cambios de textura tras ciclos térmicos.
+
+Inestable; precipitados y variación de viscosidad que indican desajuste entre sales, aminoácidos y polisacáridos.
+
+Versión estable pendiente de liberación; reología mejorada y sin cristalización en ensayos de estufa y frío.",
+8,8/2025,interno,AMINOCAT - HIDROLIZADOS SICIT,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-04-08,59,27/06/2025,24/06/2025,224,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 29/abr/25 1:21 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;MIX 8-20 hace polvillo Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **AMINOCAT - HIDROLIZADOS SICIT**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-52.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: SICIT MIX 8-20 (50,00), AGUA INICIAL (44,35), NITRATO DE POTASIO (2,00), ACIDO CITRICO (1,80), FOSFATO MONOAMONICO PARA LIQUIDOS (1,65).
+Posibles causas (según la composición):
+- coexistencia nitratos/fosfatos con otros iones: riesgo de cristalización si hay alta carga salina.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.",
+9,9/2025,interno,GRAINMAX RECLAMACION,,"Se solicita el desarrollo de un bioestimulante basado en extractos vegetales que constituye un proyecto de resolución de incidencia técnica con corrección de desviaciones detectadas en condiciones reales de uso. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-04-08,224,13/02/2026,10/02/2026,884,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Formulación nutritiva con aminoácidos, microelementos EDTA y extractos, orientada a mejorar compatibilidad y estabilidad en reclamaciones de producto.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Se eliminan algas y se añade manitol para evaluar compatibilidad; resultado inestable por deshidratación de coloides y descentralización de cargas.
+
+Se retiran algas y se añade manitol para mejorar compatibilidad. F3 no queda bien; mezcla muestra separación por interacción polisacáridos–sales.",
+10,1/2025,externa,NITRO DELTA K,,"Se solicita el desarrollo de un bioestimulante basado en extractos vegetales que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado España y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,España,Sí,Sí,,2025-04-14,220,13/02/2026,10/02/2026,868,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 16/abr/25 11:36 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;BEAPAC OP30C porque es acido 17/abr/25 9:07 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Cristalizan ambos exageradamente y ya se nota que con el etanol algo raro precipita Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Formulación N-K con urea, nitratos y aditivos de estabilidad adaptada a variantes GLUC.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: CLORURO DE CALCIO 50% (43,00), N-20 (25,00), UREA BIG BAG (21,74), AGUA INICIAL (10,06), BIOPOL KF78 (0,20).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: CLORURO DE CALCIO 50% (30,00), UREA BIG BAG (21,74), AGUA INICIAL (20,06), N-20 (18,00), NITRATO DE CALCIO CRISTAL (10,00).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: NITRATO CALCICO CRISTAL (FERTIBERIA) (34,00), AGUA INICIAL (33,44), UREA BIG BAG (21,74), GLUCONATO SODICO (4,00), AGUA (3,40).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: NITRATO CALCICO CRISTAL (FERTIBERIA) (34,00), AGUA INICIAL (33,44), UREA BIG BAG (21,74), GLUCONATO SODICO (4,00), AGUA (2,40).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: NITRATO CALCICO CRISTAL (FERTIBERIA) (31,00), UREA BIG BAG (21,74), AGUA INICIAL (17,70), LIGNOSULFONATO DE CALCIO LIQUIDO (13,00), HEPTAGLUCONATO DE SODIO (10,00).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: UREA FOMALDEHIDO SC 28% N (36,00), NITRATO CALCICO CRISTAL FERTIBERIA (31,50), AGUA INICIAL (26,16), ACIDO GLUCONICO (3,00), KELIK BORO (2,00).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo es **OK pero no liberado** (pendiente de criterios internos/validación adicional).
+Componentes principales: UREA FOMALDEHIDO SC 28% N (36,00), NITRATO CALCICO CRISTAL FERTIBERIA (31,50), AGUA INICIAL (24,16), ACIDO GLUCONICO (5,00), KELIK BORO (2,00).
+Notas técnicas: sin incidencias destacables en los datos disponibles.
+
+El ensayo resulta **NOK**.
+Componentes principales: UREA FOMALDEHIDO SC 28% N (36,00), NITRATO CALCICO CRISTAL FERTIBERIA (31,50), AGUA INICIAL (23,16), ACIDO GLUCONICO (6,00), KELIK BORO (2,00).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (38,55), NITRATO DE CALCIO BIG BAG (31,50), UREA BIG BAG (21,75), ACIDO GLUCONICO (4,00), KELIK BORO (1,85).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo está **LIBERADO**.
+Componentes principales: AGUA INICIAL (38,95), NITRATO DE CALCIO BIG BAG (31,50), UREA BIG BAG (21,75), GLUCONATO SODICO (4,00), KELIK B GRANEL (1,85).
+Notas técnicas: sin incidencias destacables en los datos disponibles.
+
+Ensayo inicial; versiones no conformes por tendencia a cristalizar y perder claridad con el tiempo.
+
+Inestable; aparecen nubecitas y ligera formación de poso tras reposo y ensayo térmico.
+
+No conforme; precipitación visible de sales que limita la solubilidad y la homogeneidad del producto.
+
+No cumple estabilidad; separación de fases y ligera turbidez que apuntan a desajuste de solubilidades.
+
+Versión estable pero pendiente de validación final; no muestra cristalizaciones, posos ni olor amoniacal.
+
+No cumple estabilidad ni análisis; mezcla altamente reactiva.
+
+Inestable; persistencia de precipitados; probable sobresaturación iónica.
+
+Ajuste GLUC: versión estable; mejora quelación y evita depósitos salinos.
+
+Inestable. No cumple pH ni claridad; indica reacciones ácido–base internas.",
+11,10/2025,interno,RAYKAT BRIX CN,,"Se solicita el desarrollo de un bioestimulante basado en extractos vegetales que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico incorporando como materias primas destacadas carbonato cálcico micronizado, extractos de algas de alta concentración. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado China y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,China,Sí,Sí,,2025-05-05,205,13/02/2026,10/02/2026,808,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 24/oct/25 8:38 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;se le ven puntitos en la estufa asi que repetimos pasando turrax 25/sep/25 8:21 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;NOK, en frío cristaliza un poco 03/jul/25 12:38 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;le aparecen pintitas al añadir las algas Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Formulación potásica con B-Mo y algas, orientada a mejorar color, ºBrix y estabilidad en frío para adaptaciones China/Bioatlantis.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Ensayo inicial adaptación China; sin problemas críticos.
+
+Adaptación China; puntitos visibles; pruebas con xantana y CMC para romper agregados.
+
+Puntitos al añadir algas; cambio a CMC por reacción polisacárido–cationes.
+
+Puntitos por algas; cambio de xantana a CMC. Coagulación parcial de extractos proteicos.
+
+Adaptación con MI100. Cumple requisitos; sistema estable sin gelificaciones ni posos.
+
+Modificaciones según registro. Cristaliza en frío por límites de solubilidad.
+
+Ajustada según registro. Estable sin reacciones secundarias detectadas.
+
+Modificaciones según registro. Cristalización leve en frío típica de sistemas con potasio elevado.
+
+Puntitos visibles; se repite con turrax. Inestable en frío por cristalización de sales.
+
+Modificaciones según registro. Presenta precipitados en estufa por inestabilidad térmica del sistema.
+
+Repetido con turrax para eliminar puntitos; microprecipitados típicos de algas deshidratadas.",
+12,11/2025,interno,SALSALT ARABIA,,"Se solicita el desarrollo de un bioestimulante aminoacídico que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico incorporando como materias primas destacadas hidrolizado vegetal rico en aminoácidos libres. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Arabia Saudí y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Arabia Saudí,Sí,Sí,,2025-05-26,190,13/02/2026,10/02/2026,748,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **SALSALT ARABIA**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con ensayos liberados según resultados registrados. Referencia: ID-104.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (64,25), FORMIATO DE CALCIO (11), HEPTAGLUCONATO SODICO LIQUIDO (10), AAV-20 BIOIBERICA (5), CLORURO DE CALCIO LIQUIDO 50% (3).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (75,65), FORMIATO DE CALCIO (10,5), HEPTAGLUCONATO SODICO LIQUIDO (5), CLORURO DE CALCIO LIQUIDO 50% (3), GLICINA (2,1).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo es **OK pero no liberado** (pendiente de criterios internos/validación adicional).
+Componentes principales: AGUA INICIAL (65,65), FORMIATO DE CALCIO (10,5), MELAZA (10), HEPTAGLUCONATO SODICO LIQUIDO (5), CLORURO DE CALCIO LIQUIDO 50% (3).
+Notas técnicas: sin incidencias destacables en los datos disponibles.
+
+El ensayo está **LIBERADO**.
+Componentes principales: AGUA INICIAL (65,65), FORMIATO DE CALCIO (10,5), LIGNOSULFONATO DE CALCIO LIQUIDO (10), HEPTAGLUCONATO SODICO LIQUIDO (5), CLORURO DE CALCIO LIQUIDO 50% (3).
+Notas técnicas: sin incidencias destacables en los datos disponibles.",
+13,12/2025,interno,FLORONE KINETINA,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado México y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,México,Sí,Sí,,2025-06-02,84,25/09/2025,22/09/2025,324,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 25/ago/25 1:08 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Hace unos grumos que nos dice Alejandro que en produccion quitan con mas hidratacion de la goma y turrax asi que lo repetimos Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **FLORONE KINETINA**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-118.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (48,5080), FOSFATO MONOPOTASICO (19,7500), NORLAN 24/6 (15,0000), AGUA (2,5000), HIDROXIDO POTASICO (2,2000).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- ajustes ácido/base presentes: cambios de pH pueden inducir precipitación si hay sales/metal.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (49,1080), FOSFATO MONOPOTASICO (19,7500), NORLAN 24/6 (15,0000), AGUA (2,5000), HIDROXIDO POTASICO (2,2800).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- ajustes ácido/base presentes: cambios de pH pueden inducir precipitación si hay sales/metal.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (49,1080), FOSFATO MONOPOTASICO (19,7500), NORLAN 24/6 (15,0000), AGUA (2,5000), HIDROXIDO POTASICO (2,2800).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- ajustes ácido/base presentes: cambios de pH pueden inducir precipitación si hay sales/metal.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.",
+14,13/2025,interno,PD - RAZORMIN,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-06-09,180,13/02/2026,10/02/2026,708,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Formulación bioestimulante con aminoácidos y micronutrientes orientada a mejorar estabilidad y comportamiento en variantes PD.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Versión F2 conforme; ajustada para estabilidad y análisis, sin fases ni cambios de color en ensayo acelerado.
+
+Versión F2 conforme; ajustada para estabilidad y análisis, sin fases ni cambios de color en ensayo acelerado.
+
+No estable; incompatibilidades persistentes con aumento de turbidez y posos a medida que madura la muestra.",
+15,14/2025,interno,"RAYKAT GOLD SUPREME 2,5% BRASIL",,"Se solicita el desarrollo de un corrector de micronutrientes complejados que constituye un proyecto de adaptación a requisitos de mercado exterior con adecuación a especificaciones regulatorias y técnicas del país destino incorporando como materias primas destacadas molibdeno en forma de heptamolibdato amónico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Brasil y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Brasil,Sí,Sí,,2025-06-09,180,13/02/2026,10/02/2026,708,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Formulación con microelementos y aminoácidos orientada a adaptación Brasil, mejorando estabilidad y compatibilidad.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Versión Brasil conforme; ajustada a requisitos locales y estable frente a temperatura y dureza de aguas.",
+16,15/2025,interno,RAYKAT ROOT ECO MEJORA,,"Se solicita el desarrollo de un bioestimulante basado en extractos vegetales que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-06-09,180,13/02/2026,10/02/2026,708,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 05/sep/25 6:18 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Se revisa en calidad y hay dudas por si es demasiado espeso 20/oct/25 10:08 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Se plantea una prueba industrial para terminar de valorar el producto y dar Ok definitivo Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Formulación con aminoácidos, microelementos y CMC orientada a mejorar viscosidad, estabilidad y comportamiento en frío.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Ensayo inicial; inestable, con separación lenta y posible floculación de la fase coloidal.
+
+Versión mejorada F1.3 con CMC; ajustada para viscosidad y estabilidad, evitando sedimentación y gelificaciones.
+
+Viscosidad no conforme; estabilidad insuficiente con formación de hilos y pequeñas zonas con poso.",
+17,16/2025,interno,BALSA,,"Se solicita el desarrollo de un formulación agronómica especializada que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-06-25,108,21/11/2025,18/11/2025,420,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 18/nov/25 4:14 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;en calor deja como 1 cm de poso, vamos a tratar de mejorarlo 29/jul/25 11:29 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;se queda muy viscosa tanto en calor como en frio, vamos a bajar el prox am Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **BALSA**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-150.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: RESIDUO BALSA HUMIC (60), AGUA INICIAL (25,2), GLICERINA (10), MASQUOL A150-40N (3), MONOPROPILENGLICOL (1).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (45,2), RESIDUO BALSA HUMICO (40), GLICERINA (10), MASQUOL A150-40N (3), MONOPROPILENGLICOL (1).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.",
+18,17/2025,interno,RAYKAT ROOT ECO COREA,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Corea y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Corea,Sí,Sí,,2025-07-03,162,13/02/2026,10/02/2026,636,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 26/ago/25 2:41 PM;712020:ee213c39-fa77-4db1-a980-c37a19aac53b;10/07/2025: ajusto agua al preparar la fórmula para que sea exacta la cantidad y este el 100% 10/jul/25 9:20 AM;712020:ee213c39-fa77-4db1-a980-c37a19aac53b;10/07/2025: ajusto agua al preparar la fórmula para que sea exacta la cantidad y este el 100% Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Formulación con microelementos y aminoácidos adaptada para mercado Corea, orientada a estabilidad, viscosidad y homogeneidad.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Ensayo inicial. Ajuste de agua para completar 100%. Formula simple, sin incompatibilidades aparentes, se corrige densidad final.
+
+Formó bolitas de goma. Se repite hidratación de la goma y se pasa por turrax. Fallo típico por hidratación incompleta que genera microaglomerados insolubles.
+
+En F1 hizo poso; se sube xantana, se baja monoeta y se añade urea. El poso sugiere floculación de fases por baja viscosidad; se corrige para evitar sedimentación y mejorar compatibilidad.",
+19,18/2025,interno,FITOMARE F1 - 19,,"Se solicita el desarrollo de un bioestimulante aminoacídico que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico incorporando como materias primas destacadas extractos de algas de alta concentración, hidrolizado vegetal rico en aminoácidos libres. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-07-09,158,13/02/2026,10/02/2026,620,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Formulación con aminoácidos y extractos de algas orientada a estabilidad, color y compatibilidad para variantes XT95, MI-100 y Bioatlantis.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Ensayo con MI100 y norlan FFV19; presenta precipitados por incompatibilidad polisacáridos–sales metálicas.
+
+Fitomare F1-19 con AAV20 y algas MI-100. Ensayo conforme; sin cristalizaciones ni olores anómalos.
+
+Fitomare F1-19 con AAV20 y algas XT95. Estable y apto para calidad; no presenta precipitados ni gelificaciones.
+
+Ensayo con KF78, XT95 y norlan FFV19. Presenta fases en estufa; inestabilidad térmica por rupturas de emulsión.",
+20,19/2025,interno,ARCHER ECLIPSE METOLATS,,"Se solicita el desarrollo de un suspensión mineral concentrada que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico incorporando como materias primas destacadas carbonato cálcico micronizado. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-07-21,39,11/09/2025,08/09/2025,144,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **ARCHER ECLIPSE METOLATS**: optimizar compatibilidad y estabilidad en formulaciones con cargas/minerales. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-179.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: CARBONATO CALCICO BRENNTAG MICRAJE FINO (59,1), AGUA INICIAL (29,869), METOLAT 514 (3), OXIDO ZINC (1,9), METOLAT 368 (1,75).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- alto contenido en carbonatos: posible saturación y aparición de fases/posos.
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.
+- bajar carga de carbonato o incorporar dispersante/anti-sedimento; revisar tamaño de partícula y viscosidad.",
+21,20/2025,interno,PROTIUM MARRUECOS,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Marruecos y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Marruecos,Sí,Sí,,2025-07-22,149,13/02/2026,10/02/2026,584,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Formulación con aminoácidos y extractos diseñada para mejorar estabilidad y respuesta en condiciones de estrés, adaptada a requisitos Marruecos.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Repetición del Protium AA Dadelos NPK (9-3-3); resultado inestable por saturación de sales que favorece cristalización en frío.
+
+Igual que F1 pero con goma xantana para mejorar estabilidad y comportamiento reológico; previene precipitación de sólidos coloidales.",
+22,21/2025,interno,R. ENRAIZADOR SUST. H,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de adaptación a requisitos de mercado exterior con adecuación a especificaciones regulatorias y técnicas del país destino. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-07-28,145,13/02/2026,10/02/2026,568,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Formulación enraizante con aminoácidos y microelementos orientada a sustituir versiones Honduras, mejorando estabilidad y compatibilidad. Cambio Hormonas
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Versión H F1 ajustada; ensayo conforme, hormonas y microelementos estables sin degradaciones visibles.",
+23,22/2025,interno,RAZORMIN SUST. H,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de adaptación a requisitos de mercado exterior con adecuación a especificaciones regulatorias y técnicas del país destino. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-07-28,145,13/02/2026,10/02/2026,568,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Formulación bioestimulante con aminoácidos y microelementos orientada a sustituir la versión Honduras, mejorando estabilidad y compatibilidad.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Versión H F1 ajustada; ensayo conforme, sin reacciones anómalas ni cambios de color en almacenamiento.",
+24,23/2025,interno,RBRIX MEJORADA,,"Se solicita el desarrollo de un bioestimulante basado en extractos vegetales que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico incorporando como materias primas destacadas extractos de algas de alta concentración. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-07-28,145,13/02/2026,10/02/2026,568,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 04/dic/25 12:22 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;la alantoina no es soluble en % mayor a 0,5% en agua y por eso puede dar problemas 01/dic/25 10:18 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;muy pastoso en calor en el fondo, hay mucho poso blando…seguramente la monoetanolamina 24/oct/25 1:45 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;la alantoina no es soluble en % mayor a 0,5% en agua y por eso puede dar problemas Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Formulación potásica con B-Mo y algas orientada a mejorar ºBrix, color y estabilidad (versión mejorada Bioatlantis).
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Versión F5.1 mejorada; estable y conforme, sin precipitados pese a la alta carga potásica y de algas.
+
+Ensayo F5.2 conforme; ajustada para registro, controlando solubilidad de alantoína y evitando posos.
+
+Ensayo F5.3 conforme; ajustada para registro, mantiene ºBrix y estabilidad físico-química.
+
+Versión F5.1 mejorada; estable y conforme, sin precipitados pese a la alta carga potásica y de algas.",
+25,24/2025,interno,MITM01,,"Se solicita el desarrollo de un bioestimulante basado en extractos vegetales que constituye un proyecto de adaptación a requisitos de mercado exterior con adecuación a especificaciones regulatorias y técnicas del país destino incorporando como materias primas destacadas extractos de algas de alta concentración. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-08-27,123,13/02/2026,10/02/2026,480,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Formulación con microalgas y aminoácidos orientada a mejorar estabilidad, compatibilidad y comportamiento reológico en variantes MIT M01.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Versión F3 ajustada; estabilidad mejorada evitando floculación a largo plazo.",
+26,25/2025,interno,M01 GL,,"Se solicita el desarrollo de un bioestimulante basado en extractos vegetales que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico incorporando como materias primas destacadas extractos de algas de alta concentración. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-09-01,120,13/02/2026,10/02/2026,468,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 25/sep/25 8:20 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;NOK, hay fases Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Formulación con microalgas y aminoácidos orientada a mejorar estabilidad, compatibilidad y comportamiento reológico en versiones XNT.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Incompatibilidad, aparecen fases. Ensayo sin goma no mantiene estabilidad; separación por falta de estructura reológica.
+
+Ensayo F5.2 conforme; ajustada para registro, controlando solubilidad de alantoína y evitando posos.",
+27,26/2025,interno,AMINOCAT MARRUECOS,,"Se solicita el desarrollo de un bioestimulante aminoacídico que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico incorporando como materias primas destacadas hidrolizado vegetal rico en aminoácidos libres. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Marruecos y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Marruecos,Sí,Sí,,2025-09-17,108,13/02/2026,10/02/2026,420,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 28/oct/25 7:40 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;el primer intento no sale porque la alantoina solo es soluble en ph basico, añadimos potasa 18/nov/25 5:40 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;ha cristalizado Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Formulación con aminoácidos y microelementos adaptada a requisitos Marruecos, orientada a estabilidad y sustitución de hidrolizado animal.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+0,5 kg para análisis. Sustitución de hidrolizado animal por vegetal; riesgo de olor amoniacal disminuido.
+
+Ajuste de nitrógenos; incompatibilidades persistentes. Sustitución de hidrolizado animal por vegetal/síntesis. Exceso de sales que inducen cristalización.
+
+Ajuste de nitrógenos; precipitación observada. Sustitución de hidrolizado animal por vegetal/síntesis.  Precipitación observada por saturación y cambio brusco de pH.",
+28,27/2025,interno,KELIK CAB AGNIQUE,,"Se solicita el desarrollo de un formulación agronómica especializada que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-09-22,64,18/12/2025,15/12/2025,244,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 15/dic/25 12:53 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Falla igual que el que se hizo con tensioactivo de AZELIS 12/nov/25 10:23 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;vamos a verificar con un control porque aunque el producto sea NOK, hay que ver si es por el cambio de tensioactivo o porque es una formula vieja que no se habia verificado en calidad nunca. Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **KELIK CAB AGNIQUE**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-246.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (33,95), POLISACARIDOS (26,5), CLORURO DE CALCIO SOLIDO (20,8), AGNIQUE PG 8107 (10,5), ACIDO BORICO (5,75).
+Posibles causas (según la composición):
+- polisacáridos/espesantes: posibles incompatibilidades con sales y variación reológica.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (33,95), POLISACARIDOS (26,5), CLORURO DE CALCIO SOLIDO (20,8), AL 2575 (10,5), ACIDO BORICO (5,75).
+Posibles causas (según la composición):
+- polisacáridos/espesantes: posibles incompatibilidades con sales y variación reológica.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.",
+29,28/2025,interno,RENRAIZADOR MARRUECOS,,"Se solicita el desarrollo de un bioestimulante aminoacídico que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico incorporando como materias primas destacadas hidrolizado vegetal rico en aminoácidos libres. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Marruecos y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Marruecos,Sí,Sí,,2025-09-30,28,06/11/2025,03/11/2025,100,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **RENRAIZADOR MARRUECOS**: adaptación a requisitos/registros de Marruecos. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-258.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: AGUA (44,9), POLISACARIDOS (14), FOSFATO MONOAMÓNICO (13,2), CITRATO DE POTASIO (7,2), MONOETANOLAMINA (5).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- coexistencia nitratos/fosfatos con otros iones: riesgo de cristalización si hay alta carga salina.
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- polisacáridos/espesantes: posibles incompatibilidades con sales y variación reológica.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.",
+30,29/2025,interno,FLORONE ALGAS,,"Se solicita el desarrollo de un bioestimulante basado en extractos vegetales que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico incorporando como materias primas destacadas extractos de algas de alta concentración. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado México y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,México,Sí,Sí,,2025-10-06,57,23/12/2025,18/12/2025,216,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 18/dic/25 11:08 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;precipitado mucoso al fondo 01/dic/25 10:19 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;en frio hace algunos puntitos, comentar en un GT para validar 24/oct/25 8:44 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;tiene un poso pegajoso abajo Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **FLORONE ALGAS**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-264.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (47,0400), FOSFATO MONOPOTASICO (19,7500), NORLAN 24/6 (15,0000), EXTRACTO DE ALGAS XT95 (5,0000), HIDROXIDO POTASICO (2,2800).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- ajustes ácido/base presentes: cambios de pH pueden inducir precipitación si hay sales/metal.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (47,0400), FOSFATO MONOPOTASICO (19,7500), NORLAN 24/6 (15,0000), ALGAS BIOATLANTIS MI-100 (5,0000), HIDROXIDO POTASICO (2,2800).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- ajustes ácido/base presentes: cambios de pH pueden inducir precipitación si hay sales/metal.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (47,8900), FOSFATO MONOPOTASICO (19,7500), NORLAN 24/6 (15,0000), ALGAS BIOATLANTIS MI-100 (2,5000), HIDROXIDO POTASICO (2,2800).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- ajustes ácido/base presentes: cambios de pH pueden inducir precipitación si hay sales/metal.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA (58,2400), FOSFATO MONOPOTASICO 25 KG (19,7500), GLUTAMATO MONOSODICO (2,5000), HIDROXIDO POTASICO (2,2800), HIDROXIDO POTASICO (2,2800).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- ajustes ácido/base presentes: cambios de pH pueden inducir precipitación si hay sales/metal.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA (49,2400), FOSFATO MONOPOTASICO 25 KG (19,7500), MELAZA (10,0000), GLUTAMATO MONOSODICO (2,5000), HIDROXIDO POTASICO (2,2800).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- ajustes ácido/base presentes: cambios de pH pueden inducir precipitación si hay sales/metal.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA (49,2400), FOSFATO MONOPOTASICO 25 KG (19,7500), PVL 14 (10,0000), GLUTAMATO MONOSODICO (2,5000), HIDROXIDO POTASICO (2,2800).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- ajustes ácido/base presentes: cambios de pH pueden inducir precipitación si hay sales/metal.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.",
+31,30/2025,interno,MITIGADOR MATRISOJA,,"Se solicita el desarrollo de un bioestimulante basado en extractos vegetales que constituye un proyecto de adaptación a requisitos de mercado exterior con adecuación a especificaciones regulatorias y técnicas del país destino. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Brasil y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Brasil,Sí,Sí,,2025-10-06,95,13/02/2026,10/02/2026,368,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Formulación con aminoácidos, extractos y polisacáridos orientada a mitigar estrés térmico/UV/salino, adaptada a variantes 23% GB.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Versión F2.4 conforme; ajustada para estabilidad, viscosidad y compatibilidad, evitando posos y fases lechosas.",
+32,31/2025,interno,FLORONE MARRUECOS,,"Se solicita el desarrollo de un bioestimulante aminoacídico que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico incorporando como materias primas destacadas hidrolizado vegetal rico en aminoácidos libres. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Marruecos y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Marruecos,Sí,Sí,,2025-10-07,34,21/11/2025,18/11/2025,124,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **FLORONE MARRUECOS**: adaptación a requisitos/registros de Marruecos. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-267.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (48,4080), FOSFATO MONOPOTASICO (19,7500), AMINOACIDOS AAV-20 (15,0000), MONOETANOLAMINA (2,5000), HIDROXIDO POTASICO (2,2800).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- ajustes ácido/base presentes: cambios de pH pueden inducir precipitación si hay sales/metal.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (60,8080), FOSFATO MONOPOTASICO (19,7500), GLUTAMATO SODICO (2,5000), HIDROXIDO POTASICO (2,2800), HIDROXIDO POTASICO (2,2800).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- ajustes ácido/base presentes: cambios de pH pueden inducir precipitación si hay sales/metal.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.",
+33,32/2025,interno,MICROCAT BON + AA,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de adaptación a requisitos de mercado exterior con adecuación a especificaciones regulatorias y técnicas del país destino. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-10-15,88,13/02/2026,10/02/2026,340,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Formulación potásica con aminoácidos orientada a mejorar compatibilidad, estabilidad y registro para Marruecos.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Formulación K + aminoácidos; propuesta para registro en Marruecos. Ajustada para cumplir requisitos de MO y analítica evitando reacciones ácido–base indeseadas.",
+34,33/2025,interno,FOLICAT B-MO-CU,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de adaptación a requisitos de mercado exterior con adecuación a especificaciones regulatorias y técnicas del país destino. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-10-16,87,13/02/2026,10/02/2026,336,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Formulación con B-Mo-Cu y aminoácidos orientada a mejorar compatibilidad, estabilidad y capacidad correctora de micronutrientes.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+Ensayo conforme; ajustada para estabilidad y compatibilidad, sin precipitados ni reacciones inesperadas de B-Mo-Cu.",
+35,34/2025,interno,AMINO SUPER COMO - NI + SALICILICO,,"Se solicita el desarrollo de un corrector de micronutrientes complejados que constituye un proyecto de adaptación a requisitos de mercado exterior con adecuación a especificaciones regulatorias y técnicas del país destino incorporando como materias primas destacadas molibdeno en forma de heptamolibdato amónico, níquel complejado (EDTA). El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Paraguay y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Paraguay,Sí,Sí,,2025-10-28,37,17/12/2025,12/12/2025,136,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 12/dic/25 9:47 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;CALIDAD: Producto sin grumos ni posos, es estable a las diferentes temperaturas excepto a altas T, donde cambia de color y se hacen dos fases. Haría prueba industrial de la fórmula que consideréis para seguir proceso de evaluación y habría que considerar si aprobamos las fórmulas con esta inconveniencia. Por otra parte, a este tipo de productos que son suspensiones y muy viscosos, no se si empezaría a darle una vida útil de dos años. [@IVAN NAVARRO|mailto:inavarro@atlanticaagricola.com] no se si esto tendríamos que verlo a nivel GT3 para ver si aceptamos fórmulas a pesar de los problemas, como se hizo en la formulación anterior. 12/dic/25 9:48 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;CALIDAD: Producto sin grumos ni posos, es estable a las diferentes temperaturas excepto a altas T, donde cambia de color y se hacen dos fases. Haría prueba industrial de la fórmula que consideréis para seguir proceso de evaluación y habría que considerar si aprobamos las fórmulas con esta inconveniencia. Por otra parte, a este tipo de productos que son suspensiones y muy viscosos, no se si empezaría a darle una vida útil de dos años. [@IVAN NAVARRO|mailto:inavarro@atlanticaagricola.com] no se si esto tendríamos que verlo a nivel GT3 para ver si aceptamos fórmulas a pesar de los problemas, como se hizo en la formulación anterior. Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **AMINO SUPER COMO - NI + SALICILICO**: incorporación de salicílico manteniendo estabilidad y compatibilidad. Estado: con ensayos liberados según resultados registrados. Referencia: ID-305.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo es **OK pero no liberado** (pendiente de criterios internos/validación adicional).
+Componentes principales: AGUA (41,865), OXIDO DE ZINC (19), HEPTAMOLIBDATO AMONICO 25 KG (8,8), EDTA DE NIQUEL POLVO (6), EDTA DE COBALTO LIQUIDO (3,7).
+Notas técnicas:
+- Fórmula con elementos sensibles (pH/sales/reología); mantener control de proceso y pruebas de estabilidad.
+
+El ensayo es **OK pero no liberado** (pendiente de criterios internos/validación adicional).
+Componentes principales: AGUA (41,765), OXIDO DE ZINC (19), HEPTAMOLIBDATO AMONICO 25 KG (8,8), EDTA DE NIQUEL POLVO (6), EDTA DE COBALTO LIQUIDO (3,7).
+Notas técnicas:
+- Fórmula con elementos sensibles (pH/sales/reología); mantener control de proceso y pruebas de estabilidad.
+
+El ensayo es **OK pero no liberado** (pendiente de criterios internos/validación adicional).
+Componentes principales: AGUA (41,665), OXIDO DE ZINC (19), HEPTAMOLIBDATO AMONICO 25 KG (8,8), EDTA DE NIQUEL POLVO (6), EDTA DE COBALTO LIQUIDO (3,7).
+Notas técnicas:
+- Fórmula con elementos sensibles (pH/sales/reología); mantener control de proceso y pruebas de estabilidad.",
+36,35/2025,interno,CUPRIK MEJORADO MATRISOJA,,"Se solicita el desarrollo de un formulación agronómica especializada que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Paraguay y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Paraguay,Sí,Sí,,2025-10-28,28,04/12/2025,01/12/2025,100,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 01/dic/25 10:21 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;en calor hace como un manchado rojo Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **CUPRIK MEJORADO MATRISOJA**: iteración de mejora (estabilidad/compatibilidad) sobre versión previa. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-306.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: CUPRIK L (99,35), SULFATO DE MANGANESO (0,35), SULFATO DE ZINC MONOHIDRATADO (0,30).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: CUPRIK L (98,35), GLICINA (1,00), SULFATO DE MANGANESO (0,35), SULFATO DE ZINC MONOHIDRATADO (0,30).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo resulta **NOK**.
+Componentes principales: GLICINA (1,00), BRENNTSOL V (1,00), SULFATO DE MANGANESO (0,35), SULFATO DE ZINC MONOHIDRATADO (0,30), ACIDO SALICILICO (0,10).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.",
+37,36/2025,interno,RAYKAT ROOT ECO + M01,,"Se solicita el desarrollo de un bioestimulante basado en extractos vegetales que constituye un proyecto de adaptación a requisitos de mercado exterior con adecuación a especificaciones regulatorias y técnicas del país destino. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-10-28,79,13/02/2026,10/02/2026,304,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 12/dic/25 9:49 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;Hay que ver la viscosidad con producción y hacer prueba industrial para terminar de validar Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **RAYKAT ROOT ECO + M01**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con ensayos liberados según resultados registrados. Referencia: ID-307.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo está **LIBERADO**.
+Componentes principales: CSLB (50), M01 (37,9), GLICINA (2,1), MONOETANOLAMINA (1,6), L-TRIPTOFANO (1,5).
+Notas técnicas:
+- Fórmula con elementos sensibles (pH/sales/reología); mantener control de proceso y pruebas de estabilidad.",
+38,37/2025,interno,ARCHER INET,,"Se solicita el desarrollo de un corrector de micronutrientes complejados que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico incorporando como materias primas destacadas molibdeno en forma de heptamolibdato amónico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-11-05,73,13/02/2026,10/02/2026,280,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 01/dic/25 10:22 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;tiene un posillo, no es muy grave pero no me gusta Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **ARCHER INET**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con ensayos liberados según resultados registrados. Referencia: ID-317.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo está **LIBERADO**.
+Componentes principales: M01 (86,40), GLUTAMATO MONOSODICO (3,00), GLICINA (2,00), L-PROLINA (2,00), CSLB (1,00).
+Notas técnicas: sin incidencias destacables en los datos disponibles.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (46,55), M01 (40,00), GLUTAMATO MONOSODICO (3,00), L-PROLINA (2,00), GLICINA (2,00).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.
+
+El ensayo está **LIBERADO**.
+Componentes principales: AGUA (42,31), M01 (40,00), MONOPROPILENGLICOL (4,00), GLUTAMATO MONOSODICO (3,00), L-PROLINA (2,00).
+Notas técnicas:
+- Fórmula con elementos sensibles (pH/sales/reología); mantener control de proceso y pruebas de estabilidad.",
+39,38/2025,interno,OLEORGAN GEOLIFE,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-11-12,52,22/01/2026,19/01/2026,196,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **OLEORGAN GEOLIFE**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-333.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: ACEITE DE NEEM GEOLIFE (38), BRENNTSOL V (24,7), AGUA (24,6), HIDROXIDO DE POTASIO (7), TWEEN 85 (5).
+Posibles causas (según la composición):
+- sistema emulsionado (aceites/emulgentes): riesgo de separación de fases si HLB o solvente no es adecuado.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- ajustar paquete de emulgentes (HLB) y solvente; test de estufa/ciclos térmicos.",
+40,39/2025,interno,RAZORMIN MARRUECOS,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Marruecos y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Marruecos,Sí,Sí,,2025-11-12,33,26/12/2025,23/12/2025,120,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **RAZORMIN MARRUECOS**: adaptación a requisitos/registros de Marruecos. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-331.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (40,9800), MELAZA (10,0000), FOSFATO MONOPOTASICO (8,0000), AGUA (6,3800), NITRATO AMONICO (5,7500).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- mezcla de quelantes (EDTA) con sales (sulfatos/cloruros): posible precipitación o incompatibilidad iónica.
+- coexistencia nitratos/fosfatos con otros iones: riesgo de cristalización si hay alta carga salina.
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.
+- evitar combinar EDTA con sulfatos/cloruros; cambiar a gluconatos/heptagluconatos o ajustar secuencia/pH.",
+41,40/2025,interno,CANELYS AF,,"Se solicita el desarrollo de un formulación líquida emulsionable que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico incorporando como materias primas destacadas aldehído cinámico como agente funcional. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-11-20,62,13/02/2026,10/02/2026,236,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **CANELYS AF**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con ensayos liberados según resultados registrados. Referencia: ID-354.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo está **LIBERADO**.
+Componentes principales: OLEINA VEGETAL (61,5), ALDEHIDO CINAMICO (20), EUCAROL TR-8-90 (6), EMULSON CO-40 (6), EMULSON SRL-OBL (SPAN 80) (4).
+Notas técnicas:
+- Fórmula con elementos sensibles (pH/sales/reología); mantener control de proceso y pruebas de estabilidad.
+
+El ensayo resulta **NOK**.
+Componentes principales: OLEINA VEGETAL (49), ALDEHIDO CINAMICO (20), BRENNTSOLV (15), EUCAROL TR-8-90 (6), EMULSON CO-40 (6).
+Posibles causas (según la composición):
+- sistema emulsionado (aceites/emulgentes): riesgo de separación de fases si HLB o solvente no es adecuado.
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+Siguiente iteración sugerida:
+- ajustar paquete de emulgentes (HLB) y solvente; test de estufa/ciclos térmicos.
+
+El ensayo resulta **NOK**.
+Componentes principales: OLEINA VEGETAL (49), ALDEHIDO CINAMICO (20), MONOPROPILENGLICOL (10), EUCAROL TR-8-90 (6), EMULSON CO-40 (6).
+Posibles causas (según la composición):
+- sistema emulsionado (aceites/emulgentes): riesgo de separación de fases si HLB o solvente no es adecuado.
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+Siguiente iteración sugerida:
+- ajustar paquete de emulgentes (HLB) y solvente; test de estufa/ciclos térmicos.
+
+El ensayo resulta **NOK**.
+Componentes principales: OLEINA VEGETAL (47,5), ALDEHIDO CINAMICO (20), MONOPROPILENGLICOL (10), EUCAROL TR-8-90 (6), EMULSON CO-40 (6).
+Posibles causas (según la composición):
+- sistema emulsionado (aceites/emulgentes): riesgo de separación de fases si HLB o solvente no es adecuado.
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+Siguiente iteración sugerida:
+- ajustar paquete de emulgentes (HLB) y solvente; test de estufa/ciclos térmicos.",
+42,41/2025,interno,ARCHER ECLIPSE AÑ,,"Se solicita el desarrollo de un suspensión mineral concentrada que constituye un proyecto de adaptación a requisitos de mercado exterior con adecuación a especificaciones regulatorias y técnicas del país destino incorporando como materias primas destacadas carbonato cálcico micronizado. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-11-25,59,13/02/2026,10/02/2026,224,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 26/nov/25 1:03 PM;712020:581e00d3-e32a-4afd-bf82-137ff213c4af;Al final de la fabricación, se pasa Ultra Turrax, 10 min, 15000-20000 rpm (se sube primero a 20000 rpm y se va bajando progresivamente hasta 15000 rpm para evitar la acumulación de demasiadas burbujas) Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **ARCHER ECLIPSE AÑ**: optimizar compatibilidad y estabilidad en formulaciones con cargas/minerales. Estado: con ensayos liberados según resultados registrados. Referencia: ID-361.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo está **LIBERADO**.
+Componentes principales: CARBONATO CALCICO BRENNTAG MICRAJE FINO (59,1), AGUA INICIAL (29,47), MASQUOL A150-40N (3), OXIDO ZINC (1,9), ACTIRON AT4 (1,75).
+Notas técnicas:
+- Fórmula con elementos sensibles (pH/sales/reología); mantener control de proceso y pruebas de estabilidad.",
+43,42/2025,interno,ARCHER FORCE AÑ,,"Se solicita el desarrollo de un formulación agronómica especializada que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-11-25,43,22/01/2026,19/01/2026,160,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 26/nov/25 11:27 AM;712020:ee213c39-fa77-4db1-a980-c37a19aac53b;26/11/2025- Se cambia la urea 46% por la urea foliar. 19/ene/26 10:08 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;neblina Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **ARCHER FORCE AÑ**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-360.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (57,7), GLICINA BETAINA ECO (25), L-LISINA 50% (6,2), ACIDO SALICILICO (4), GLICINA (3,3).
+No hay señales claras en la fórmula para atribuir una causa única; posibles causas generales: incompatibilidad, precipitación por pH/sales, o separación de fases.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.",
+44,43/2025,interno,ARCHER RUPTOR AÑ,,"Se solicita el desarrollo de un fertilizante mineral NPK que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-11-25,40,19/01/2026,14/01/2026,148,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 01/dic/25 10:23 AM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;se le ve alguna cosilla flotando que puede ser de los recubrimientos del nitrato de calcio o del antiespumante Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **ARCHER RUPTOR AÑ**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con incidencias pendientes de resolver según resultados registrados. Referencia: ID-362.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo resulta **NOK**.
+Componentes principales: N-20 (34,1), AGUA INICIAL (26,45), UREA FOLIAR (13,5), NITRATO DE CALCIO (12,5), POLISACARIDOS (10).
+Posibles causas (según la composición):
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- polisacáridos/espesantes: posibles incompatibilidades con sales y variación reológica.
+Siguiente iteración sugerida:
+- hacer screening de pH, conductividad y estabilidad térmica; probar pequeñas variaciones de co-solventes/espesantes.",
+45,44/2025,interno,CANELYS CEPBIO,,"Se solicita el desarrollo de un formulación líquida emulsionable que constituye un proyecto de adaptación a requisitos de mercado exterior con adecuación a especificaciones regulatorias y técnicas del país destino incorporando como materias primas destacadas aldehído cinámico como agente funcional. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Europa y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Europa,Sí,Sí,,2025-12-02,54,13/02/2026,10/02/2026,204,,"Problema reportado originalmente:
+Durante el desarrollo no se registraron incidencias relevantes que afectaran al avance del proyecto.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **CANELYS CEPBIO**: desarrollar/ajustar formulación para mejorar estabilidad, compatibilidad y rendimiento. Estado: con ensayos liberados según resultados registrados. Referencia: ID-375.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo está **LIBERADO**.
+Componentes principales: MONOPROPILENGLICOL (47), ALDEHIDO CINAMICO (22,5), TWEEN 80 (20), ECOSURF SA-9 (10), BIOPOL KF78 (0,5).
+Notas técnicas:
+- Fórmula con elementos sensibles (pH/sales/reología); mantener control de proceso y pruebas de estabilidad.",
+46,45/2025,interno,R. DESARROLLO MEJORA,,"Se solicita el desarrollo de un bioestimulante basado en extractos vegetales que constituye un proyecto de mejora de formulación existente con optimización de estabilidad, compatibilidad y comportamiento físico-químico. El objetivo es asegurar estabilidad físico-química, compatibilidad en mezcla y eficacia agronómica, garantizando cumplimiento normativo en el mercado Mundial y validación para liberación comercial.",NS/NC,NS/NC,NS/NC,NS/NC,Mundial,Sí,Sí,,2025-12-22,35,06/02/2026,03/02/2026,128,,"Problema reportado originalmente:
+Durante el desarrollo del proyecto se registraron algunos comentarios e incidencias que fueron gestionados internamente. En particular, se realizaron ajustes y revisiones derivados de las siguientes observaciones: 03/feb/26 12:43 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;hace cristales a -5 como la control y se queda demasiado viscosa 03/feb/26 12:43 PM;712020:d8d35c01-546b-498f-aa7f-dbe2c966820c;cristales a -5 pero OK es asi Estas situaciones fueron analizadas y resueltas dentro del proceso habitual de validación.
+
+Contexto técnico del proyecto:
+Proyecto interna formulación para **R. DESARROLLO MEJORA**: iteración de mejora (estabilidad/compatibilidad) sobre versión previa. Estado: con ensayos liberados según resultados registrados. Referencia: ID-414.
+
+Análisis técnico y posibles causas detectadas en ensayos:
+El ensayo es **OK pero no liberado** (pendiente de criterios internos/validación adicional).
+Componentes principales: AGUA (58,48), NORLAN 6/24 (13), UREA FOLIAR 25 KG (9,35), FOSFATO MONOAMONICO BIG-BAG (6,7), HIDROXIDO POTASICO (3,6).
+Notas técnicas:
+- Fórmula con elementos sensibles (pH/sales/reología); mantener control de proceso y pruebas de estabilidad.
+
+El ensayo resulta **NOK**.
+Componentes principales: AGUA INICIAL (56,92), NORLAN FF24/6 (13), UREA FOLIAR 25KG (9,35), FOSFATO MONOAMONICO (6,7), HIDROXIDO DE POTASIO (3,6).
+Posibles causas (según la composición):
+- presencia de goma xantana (riesgo de gelificación/viscosidad alta y sensibilidad a sales).
+- presencia de co-solventes (alcohol/MPG/DMSO): puede afectar solubilidad y estabilidad.
+- óxidos metálicos: posible sedimentación si no hay buena dispersión o control de pH.
+Siguiente iteración sugerida:
+- reducir xantana o prehidratar; probar alternativa (CMC/HEC) y revisar orden de adición.",
