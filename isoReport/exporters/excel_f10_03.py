@@ -109,6 +109,9 @@ def build_f10_03_workbook(solicitud: dict[str, Any]) -> Workbook:
     numero = solicitud.get("numero_solicitud") or ""
     producto = _producto_nombre(solicitud)
     responsable = _responsable(solicitud)
+    f02 = solicitud.get("f10_02") or {}
+    v_diseno = f02.get("verificacion_diseno") or {}
+    formula_ok = (v_diseno.get("formula_ok") or "").strip()
 
     row = 1
 
@@ -129,6 +132,10 @@ def build_f10_03_workbook(solicitud: dict[str, Any]) -> Workbook:
     ws.cell(row, 1, "Producto:")
     ws.cell(row, 1).font = LABEL_FONT
     ws.cell(row, 2, producto)
+    row += 1
+    ws.cell(row, 1, "Fórmula OK:")
+    ws.cell(row, 1).font = LABEL_FONT
+    ws.cell(row, 2, formula_ok)
     row += 2
 
     # 1. ESPECIFICACIÓN FINAL
