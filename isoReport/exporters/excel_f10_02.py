@@ -5,7 +5,9 @@ Exportación F10-02 (Diseño producto): workbook generado desde dict de solicitu
 from __future__ import annotations
 
 import io
-from typing import Any, Dict
+import re
+from copy import copy
+from typing import Any, Dict, List
 
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
@@ -28,6 +30,45 @@ THIN_BORDER = Border(
 def _producto_nombre(solicitud: dict[str, Any]) -> str:
     f01 = solicitud.get("f10_01") or {}
     return (f01.get("NOMBRE") or f01.get("NOM_COMERCIAL") or "").strip() or "—"
+
+
+# Caracteres no válidos en nombre de hoja Excel: \ / ? * [ ]
+_SHEET_NAME_BAD = re.compile(r'[\\/:*?\[\]]')
+
+
+def _sheet_name_for_solicitud(solicitud: dict[str, Any], max_len: int = 31) -> str:
+    """Nombre de hoja: Nº Solicitud normalizado con '-' + Nombre proyecto. Máx 31 caracteres."""
+    num = (solicitud.get("numero_solicitud") or "").strip().replace(" ", "-").replace("/", "-")
+    if num and num != "-":
+        num = num.strip("-")
+    proy = _producto_nombre(solicitud)
+    if num and proy and proy != "—":
+        raw = f"{num} {proy}"
+    else:
+        raw = num or proy or "solicitud"
+    raw = _SHEET_NAME_BAD.sub("_", raw)[:max_len].strip()
+    return raw or "Hoja"
+
+
+def _copy_sheet_content(source: Worksheet, target: Worksheet) -> None:
+    """Copia celdas (valor y estilo) de source a target (pueden ser de distintos workbooks)."""
+    for row in source.iter_rows():
+        for cell in row:
+            t = target.cell(row=cell.row, column=cell.column)
+            t.value = cell.value
+            if cell.font:
+                t.font = copy(cell.font)
+            if cell.fill:
+                t.fill = copy(cell.fill)
+            if cell.alignment:
+                t.alignment = copy(cell.alignment)
+            if cell.border:
+                t.border = copy(cell.border)
+            if cell.number_format:
+                t.number_format = cell.number_format
+    for col_letter, col_dim in source.column_dimensions.items():
+        if col_dim.width is not None:
+            target.column_dimensions[col_letter].width = col_dim.width
 
 
 def build_f10_02_workbook(solicitud: dict[str, Any]) -> Workbook:
@@ -148,6 +189,44 @@ def _write_ensayo_block(ws: Worksheet, ens: Dict[str, Any], idx: int, start_row:
     mot_cell.alignment = WRAP_ALIGNMENT
     row += 1
     return row
+
+
+def build_f10_02_workbook_all(solicitudes: List[dict[str, Any]]) -> Workbook:
+    """Un workbook con una hoja por solicitud; nombre de hoja = Nº Solicitud normalizado + Nombre proyecto."""
+    if not solicitudes:
+        wb = Workbook()
+        wb.active.title = "Vacío"
+        return wb
+    wb_main = Workbook()
+    seen_names: set[str] = set()
+    for idx, sol in enumerate(solicitudes):
+        if not isinstance(sol, dict):
+            continue
+        wb_one = build_f10_02_workbook(sol)
+        ws_one = wb_one.active
+        base_name = _sheet_name_for_solicitud(sol)
+        sheet_name = base_name
+        suffix = 0
+        while sheet_name in seen_names:
+            suffix += 1
+            sheet_name = f"{base_name[:28]}_{suffix}" if len(base_name) >= 28 else f"{base_name}_{suffix}"
+        seen_names.add(sheet_name)
+        if idx == 0:
+            wb_main.active.title = sheet_name
+            _copy_sheet_content(ws_one, wb_main.active)
+        else:
+            new_ws = wb_main.create_sheet(sheet_name)
+            _copy_sheet_content(ws_one, new_ws)
+    return wb_main
+
+
+def build_f10_02_bytes_all(solicitudes: List[dict[str, Any]]) -> bytes:
+    """Devuelve el workbook F10-02 (todas las solicitudes, una hoja por solicitud) como bytes."""
+    wb = build_f10_02_workbook_all(solicitudes)
+    buf = io.BytesIO()
+    wb.save(buf)
+    buf.seek(0)
+    return buf.read()
 
 
 def build_f10_02_bytes(solicitud: dict[str, Any]) -> bytes:

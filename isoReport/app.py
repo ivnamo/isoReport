@@ -5,6 +5,7 @@ App mínima: sidebar con selectbox de solicitud; área principal con F10-01 en b
 from __future__ import annotations
 
 import json
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -12,7 +13,13 @@ import pandas as pd
 import streamlit as st
 
 import config
-from exporters import build_f10_01_bytes, build_f10_02_bytes, build_f10_03_bytes
+from exporters import (
+    build_f10_01_bytes,
+    build_f10_02_bytes,
+    build_f10_02_bytes_all,
+    build_f10_03_bytes,
+    build_f10_03_bytes_all,
+)
 
 # Etiqueta amigable -> posibles claves en f10_01 (la primera = canónica al guardar)
 _F10_01_KEYS: dict[str, tuple[str, ...]] = {
@@ -442,15 +449,36 @@ def main() -> None:
 
     # Sidebar: Exportar F10-01 (todas)
     st.sidebar.header("Exportar")
+    _ts = datetime.now().strftime("%Y%m%d_%H%M")
     if st.sidebar.button("Exportar F10-01 (todas)", key="export_f10_01_btn"):
         st.session_state["export_f10_01_bytes"] = build_f10_01_bytes(solicitudes)
-        st.session_state["export_f10_01_filename"] = "F10-01_Viabilidad_planificacion_2025.xlsx"
+        st.session_state["export_f10_01_filename"] = f"F10-01_Viabilidad_planificacion_2025_{datetime.now().strftime('%Y%m%d_%H%M')}.xlsx"
     if st.session_state.get("export_f10_01_bytes"):
         st.sidebar.download_button(
             "Descargar F10-01",
             data=st.session_state["export_f10_01_bytes"],
-            file_name=st.session_state.get("export_f10_01_filename", "F10-01_Viabilidad_planificacion_2025.xlsx"),
+            file_name=st.session_state.get("export_f10_01_filename", f"F10-01_Viabilidad_planificacion_2025_{_ts}.xlsx"),
             key="export_f10_01_dl",
+        )
+    if st.sidebar.button("Exportar todos F10-02", key="export_f10_02_all_btn"):
+        st.session_state["export_f10_02_all_bytes"] = build_f10_02_bytes_all(solicitudes)
+        st.session_state["export_f10_02_all_filename"] = f"F10-02_Todas_solicitudes_{datetime.now().strftime('%Y%m%d_%H%M')}.xlsx"
+    if st.session_state.get("export_f10_02_all_bytes"):
+        st.sidebar.download_button(
+            "Descargar todos F10-02",
+            data=st.session_state["export_f10_02_all_bytes"],
+            file_name=st.session_state.get("export_f10_02_all_filename", f"F10-02_Todas_solicitudes_{_ts}.xlsx"),
+            key="export_f10_02_all_dl",
+        )
+    if st.sidebar.button("Exportar todos F10-03", key="export_f10_03_all_btn"):
+        st.session_state["export_f10_03_all_bytes"] = build_f10_03_bytes_all(solicitudes)
+        st.session_state["export_f10_03_all_filename"] = f"F10-03_Todas_solicitudes_{datetime.now().strftime('%Y%m%d_%H%M')}.xlsx"
+    if st.session_state.get("export_f10_03_all_bytes"):
+        st.sidebar.download_button(
+            "Descargar todos F10-03",
+            data=st.session_state["export_f10_03_all_bytes"],
+            file_name=st.session_state.get("export_f10_03_all_filename", f"F10-03_Todas_solicitudes_{_ts}.xlsx"),
+            key="export_f10_03_all_dl",
         )
 
     selected_idx = st.sidebar.selectbox(
@@ -481,15 +509,16 @@ def main() -> None:
     with st.expander("Exportar"):
         nombre_corto = _nombre_corto_archivo(solicitud)
         num_arch = (numero_solicitud or "sin_num").replace(" ", "_").replace("/", "_")
+        ts = datetime.now().strftime("%Y%m%d_%H%M")
         # F10-02 (esta solicitud)
         if st.button("Generar F10-02", key=f"{widget_key_prefix}_export_f10_02_btn"):
             st.session_state[f"export_f10_02_bytes_{widget_key_prefix}"] = build_f10_02_bytes(solicitud)
-            st.session_state[f"export_f10_02_filename_{widget_key_prefix}"] = f"F10-02_Solicitud_{num_arch}_{nombre_corto}.xlsx"
+            st.session_state[f"export_f10_02_filename_{widget_key_prefix}"] = f"F10-02_Solicitud_{num_arch}_{nombre_corto}_{datetime.now().strftime('%Y%m%d_%H%M')}.xlsx"
         if st.session_state.get(f"export_f10_02_bytes_{widget_key_prefix}"):
             st.download_button(
                 "Descargar F10-02",
                 data=st.session_state[f"export_f10_02_bytes_{widget_key_prefix}"],
-                file_name=st.session_state.get(f"export_f10_02_filename_{widget_key_prefix}", f"F10-02_Solicitud_{num_arch}_{nombre_corto}.xlsx"),
+                file_name=st.session_state.get(f"export_f10_02_filename_{widget_key_prefix}", f"F10-02_Solicitud_{num_arch}_{nombre_corto}_{ts}.xlsx"),
                 key=f"{widget_key_prefix}_export_f10_02_dl",
             )
         st.caption("F10-02 — Diseño de producto (esta solicitud)")
@@ -497,12 +526,12 @@ def main() -> None:
         # F10-03 (esta solicitud)
         if st.button("Generar F10-03", key=f"{widget_key_prefix}_export_f10_03_btn"):
             st.session_state[f"export_f10_03_bytes_{widget_key_prefix}"] = build_f10_03_bytes(solicitud)
-            st.session_state[f"export_f10_03_filename_{widget_key_prefix}"] = f"F10-03_Solicitud_{num_arch}_{nombre_corto}.xlsx"
+            st.session_state[f"export_f10_03_filename_{widget_key_prefix}"] = f"F10-03_Solicitud_{num_arch}_{nombre_corto}_{datetime.now().strftime('%Y%m%d_%H%M')}.xlsx"
         if st.session_state.get(f"export_f10_03_bytes_{widget_key_prefix}"):
             st.download_button(
                 "Descargar F10-03",
                 data=st.session_state[f"export_f10_03_bytes_{widget_key_prefix}"],
-                file_name=st.session_state.get(f"export_f10_03_filename_{widget_key_prefix}", f"F10-03_Solicitud_{num_arch}_{nombre_corto}.xlsx"),
+                file_name=st.session_state.get(f"export_f10_03_filename_{widget_key_prefix}", f"F10-03_Solicitud_{num_arch}_{nombre_corto}_{ts}.xlsx"),
                 key=f"{widget_key_prefix}_export_f10_03_dl",
             )
         st.caption("F10-03 — Validación de producto (esta solicitud)")
